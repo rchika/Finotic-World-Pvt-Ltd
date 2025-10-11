@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finotic World Pvt. Ltd.</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo.jpeg" alt="Finotic World Logo" />
+        <span>Finotic World Pvt. Ltd.</span>
+      </div>
+
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#apply">Apply</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Instant Loans for Every Need</h1>
+      <p>Empowering individuals and businesses with financial freedom.</p>
+      <div class="hero-buttons">
+        <a href="#apply" class="btn primary">Apply Now</a>
+        <a href="#services" class="btn secondary">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+      <div class="card">
+        <img src="images/personal-loan.svg" alt="Personal Loan Icon" class="service-icon" />
+        <h3>Personal Loan</h3>
+        <p>Instant approval for your personal expenses with flexible EMIs.</p>
+      </div>
+      <div class="card">
+        <img src="images/Business Loan.png" alt="Business Loan Icon" class="service-icon" />
+        <h3>Business Loan</h3>
+        <p>Fuel your business ambitions with our easy loan options.</p>
+      </div>
+      <div class="card">
+        <img src="images/Home loan.png" alt="Home Loan Icon" class="service-icon" />
+        <h3>Home Loan</h3>
+        <p>Turn your dream home into reality with trusted financing.</p>
+      </div>
+      <div class="card">
+        <img src="images/car.png" alt="Car Loan Icon" class="service-icon" />
+        <h3>Car Loan</h3>
+        <p>Drive your dream car with affordable interest rates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="about" id="about">
+    <h2>About Finotic World</h2>
+    <p>
+      Finotic World Pvt. Ltd. is one of India's most trusted financial service providers,
+      offering personal, business, and property loans. We simplify the lending process and
+      help individuals and businesses achieve their financial goals.
+    </p>
+    <ul>
+      <li>✔ Quick Approval & Transparent Process</li>
+      <li>✔ Lowest Interest Rates</li>
+      <li>✔ 24/7 Customer Support</li>
+    </ul>
+  </section>
+
+  <!-- ================= STATS ================= -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>10K+</h3>
+        <p>Happy Customers</p>
+      </div>
+      <div class="stat-item">
+        <h3>98%</h3>
+        <p>Loan Approval Rate</p>
+      </div>
+      <div class="stat-item">
+        <h3>5+</h3>
+        <p>Years of Experience</p>
+      </div>
+      <div class="stat-item">
+        <h3>₹50Cr+</h3>
+        <p>Loans Disbursed</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APPLY FORM ================= -->
+  <section class="apply" id="apply">
+    <h2>Apply for a Loan</h2>
+    <form id="loanForm">
+      <input type="text" name="fullname" placeholder="Full Name" required />
+      <input type="tel" name="mobile" placeholder="Mobile Number" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <select name="loanType" required>
+        <option value="">Select Loan Type</option>
+        <option>Personal Loan</option>
+        <option>Business Loan</option>
+        <option>Home Loan</option>
+        <option>Car Loan</option>
+      </select>
+      <textarea name="message" placeholder="Message" rows="4"></textarea>
+      <button type="submit" class="btn primary">Submit Application</button>
+    </form>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" id="contact">
+    <div class="footer-container">
+
+      <!-- Company Info -->
+      <div class="footer-col">
+        <h3>Finotic World Pvt. Ltd.</h3>
+        <p>Empowering individuals and businesses with fast, transparent, and reliable financial solutions.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#apply">Apply</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col footer-contact">
+        <h4>Contact Us</h4>
+        <p><img src="images/mobile.png" alt="Phone"> <a href="tel:+1234567890">+91 9236727813, +91 7317313101</a></p>
+        <p><img src="images/gmail.png" alt="Email"> <a href="mailto:info@finoticworld.com">info@finoticworld.com</a></p>
+        <p><img src="images/placeholder.png" alt="Location"> Noida Sector 16,India</p>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a href="#"><img src="images/twitter.svg" alt="Twitter"></a>
+          <a href="#"><img src="images/linkedin.svg" alt="LinkedIn"></a>
+          <a href="#"><img src="images/Instagram.png" alt="Instagram"></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      &copy; 2025 Finotic World Pvt. Ltd. All Rights Reserved. | Version <a href="https://perfectcse.github.io/webpages/" style="color:#ffb703;">v1.0.1</a>
+    </div>
+  </footer>
+
+  <!-- ================= JS ================= -->
+  <script src="script.js"></script>
+</body>
+</html>
