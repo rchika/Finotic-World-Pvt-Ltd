@@ -440,7 +440,7 @@ form button:hover {
 
 .service-cards {
   display: grid;
-  grid-template-columns: repeat(4, 4fr); /* ✅ 4 cards in one row */
+  grid-template-columns: repeat(4, 1fr); /* ✅ 4 cards in one row */
   gap: 25px;
   margin-top: 30px;
 }
