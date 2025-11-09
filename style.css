@@ -432,38 +432,79 @@ form button:hover {
     justify-content: center;
   }
 }
+
+/* ✅ FINAL + CLEAN RESPONSIVE GRID FOR SERVICES */
+
 .service-cards {
     display: flex;
     justify-content: center;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 25px;
     flex-wrap: wrap;
-    padding: 20px 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 10px;
 }
 
+/* ✅ Individual Service Cards */
 .service-cards .card {
     width: 260px;
-    background: #66c2d4;
-    padding: 25px 20px;
+    min-height: 300px;
+    background: #3f9095;
+    color: #ffffff;
+    padding: 25px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     cursor: pointer;
+    transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
+/* ✅ Hover Effect */
 .service-cards .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-.service-icon {
+/* ✅ Icon Styling */
+.service-cards .card img,
+.service-cards .card i {
     width: 60px;
-    margin-bottom: 15px;
+    height: 60px;
+    margin-bottom: 12px;
 }
 
-@media (max-width: 768px) {
+/* ✅ Titles */
+.service-cards .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* ✅ Paragraph */
+.service-cards .card p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* ✅ Hidden Details (click me styling remove) */
+.service-detail {
+    display: none;
+}
+
+/* ✅ Tablet View → 2 Column */
+@media (max-width: 1024px) {
     .service-cards .card {
-        width: 100%;
-        max-width: 350px;
+        width: calc(50% - 20px);
+    }
+}
+
+/* ✅ Mobile View → Single Column */
+@media (max-width: 600px) {
+    .service-cards .card {
+        width: 90%;
+        margin: 10px auto;
     }
 }
