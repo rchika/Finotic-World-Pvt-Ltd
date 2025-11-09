@@ -432,3 +432,40 @@ form button:hover {
     justify-content: center;
   }
 }
+/* ==========================================================
+   NEW CODE: Service Grid Layout Fix (for horizontal display)
+   ========================================================== */
+
+/* सुनिश्चित करें कि .services-container आपके चार बॉक्स को होल्ड करता है */
+/* यह सुनिश्चित करता है कि बॉक्स एक लाइन में आएं */
+.services-container {
+    display: flex; /* Flexbox का उपयोग करें */
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    gap: 20px; 
+    padding: 20px 0;
+}
+
+/* यह हर बॉक्स की चौड़ाई सेट करता है */
+.service-box {
+    /* 4 बॉक्स के लिए: 25% जगह लें, 20px गैप एडजस्ट करें */
+    width: calc(25% - 20px); 
+    min-width: 200px; 
+    box-sizing: border-box; 
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px; 
+}
+
+/* छोटी स्क्रीन के लिए मीडिया क्वेरी */
+@media (max-width: 768px) {
+    .service-box {
+        width: calc(50% - 20px); /* टैबलेट पर 2-कॉलम लेआउट */
+    }
+}
+
+@media (max-width: 500px) {
+    .service-box {
+        width: 90%; /* मोबाइल पर 1-कॉलम लेआउट */
+    }
+}
