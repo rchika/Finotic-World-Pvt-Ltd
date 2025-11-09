@@ -28,6 +28,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+// ==========================================================
+// NEW CODE: Toggle Service Details on Click
+// ==========================================================
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. सभी सर्विस बॉक्सेस और डिटेल्स को ढूँढना 
+    const serviceBoxes = document.querySelectorAll('.service-box'); 
+    const serviceDetails = document.querySelectorAll('.service-detail');
+
+    // 2. हर सर्विस बॉक्स पर क्लिक लिसनर जोड़ना
+    serviceBoxes.forEach(box => {
+        box.addEventListener('click', function() {
+            // उस डिटेल की ID प्राप्त करना जिसे दिखाना है
+            const targetId = this.dataset.target; 
+            
+            // 3. पहले से खुले सभी डिटेल्स को छुपाना
+            serviceDetails.forEach(detail => {
+                detail.style.display = 'none';
+            });
+
+            // 4. चुने हुए डिटेल को दिखाना
+            const targetDetail = document.getElementById(targetId);
+            if (targetDetail) {
+                targetDetail.style.display = 'block'; 
+                
+                // (वैकल्पिक) यूजर को डिटेल सेक्शन तक स्क्रॉल करना
+                targetDetail.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+});
 
 // ======== Form Submit Success ========
 const form = document.querySelector('.apply form');
