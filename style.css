@@ -493,3 +493,70 @@ form button:hover {
         margin: 10px auto !important; /* सेंटर में करें */
     }
 }
+/* ==========================================================
+   NEW CODE: EMI Calculator Styling
+   ========================================================== */
+.emi-calculator {
+    /* HTML में इनलाइन स्टाइलिंग का उपयोग किया गया है, लेकिन यहाँ फ़ॉर्म तत्वों के लिए स्टाइलिंग है */
+    font-family: 'Poppins', sans-serif;
+}
+
+.calculator-form {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.emi-calculator button {
+    background-color: #3f9095; 
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.emi-calculator button:hover {
+    background-color: #327076; 
+}
+
+.result-box h3 {
+    color: #3f9095;
+    margin-top: 0;
+}
+
+.result-box p {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.result-box span {
+    font-weight: bold;
+    color: #008000; 
+}
+
+/* मोबाइल के लिए अनुकूलन */
+@media (max-width: 600px) {
+    .emi-calculator {
+        padding: 30px 5%;
+        margin: 20px auto;
+    }
+}
