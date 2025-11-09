@@ -432,79 +432,47 @@ form button:hover {
     justify-content: center;
   }
 }
-
-/* ✅ FINAL + CLEAN RESPONSIVE GRID FOR SERVICES */
-
+/* SERVICES CARDS – 4-Column Layout */
 .service-cards {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 25px;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 30px 10px;
+    padding: 30px 0;
 }
 
-/* ✅ Individual Service Cards */
 .service-cards .card {
-    width: 260px;
-    min-height: 300px;
-    background: #3f9095;
-    color: #ffffff;
+    flex: 1 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    min-width: 220px;
+    background: #66c2d4;
     padding: 25px;
-    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    overflow: hidden;
+    cursor: pointer;
 }
 
-/* ✅ Hover Effect */
 .service-cards .card:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
 }
 
-/* ✅ Icon Styling */
-.service-cards .card img,
-.service-cards .card i {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 12px;
-}
-
-/* ✅ Titles */
-.service-cards .card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-/* ✅ Paragraph */
-.service-cards .card p {
-    font-size: 14px;
-    line-height: 1.4;
-}
-
-/* ✅ Hidden Details (click me styling remove) */
-.service-detail {
-    display: none;
-}
-
-/* ✅ Tablet View → 2 Column */
+/* Responsive adjustments */
 @media (max-width: 1024px) {
     .service-cards .card {
-        width: calc(50% - 20px);
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
     }
 }
 
-/* ✅ Mobile View → Single Column */
 @media (max-width: 600px) {
     .service-cards .card {
-        width: 90%;
-        margin: 10px auto;
+        flex: 1 1 90%;
+        max-width: 90%;
+        margin: 0 auto 20px;
     }
 }
