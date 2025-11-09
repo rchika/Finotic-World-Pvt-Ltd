@@ -439,40 +439,27 @@ form button:hover {
 
 /* 1. सर्विस बॉक्सेस को होल्ड करने वाले कंटेनर को Flexbox बनाएं */
 .services-container {
-    display: flex !important; /* !important सुनिश्चित करता है कि यह काम करे */
+    display: flex !important; /* यह Flexbox को लागू करने के लिए महत्वपूर्ण है */
     flex-wrap: wrap !important;
     justify-content: space-between !important; 
     gap: 20px !important; 
     padding: 20px 0 !important;
-    margin: 0 auto !important; /* केंद्र में लाने के लिए */
+    max-width: 1200px; /* कंटेनर की अधिकतम चौड़ाई सेट करें */
+    margin: 0 auto; /* कंटेनर को केंद्र में लाने के लिए */
 }
 
 /* 2. प्रत्येक बॉक्स को 1/4 चौड़ाई दें */
 .service-box {
-    /* 4 बॉक्स के लिए: 25% जगह लें, 20px गैप एडजस्ट करें */
-    width: calc(25% - 15px) !important; /* 4 कॉलम के लिए */
-    min-width: 200px !important; 
+    /* 4 बॉक्स के लिए: 25% जगह लें, गैप एडजस्ट करें */
+    width: calc(25% - 15px) !important; 
+    min-width: 220px !important; /* मोबाइल पर बहुत छोटे होने से बचाएगा */
     box-sizing: border-box !important; 
     text-align: center !important;
     padding: 20px !important;
     margin-bottom: 20px !important; 
-    /* सुनिश्चित करें कि पृष्ठभूमि रंग सही हो */
-    background-color: #3f9095 !important; /* आपके मौजूदा हरे/नीले रंग जैसा */
+    /* सुनिश्चित करें कि पृष्ठभूमि रंग और अन्य स्टाइलिंग सही हों */
+    background-color: #3f9095 !important; 
     color: #fff !important;
     border-radius: 8px !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* 3. छोटी स्क्रीन के लिए ताकि डिज़ाइन न टूटे */
-@media (max-width: 1024px) {
-    .service-box {
-        width: calc(50% - 15px) !important; /* 2-कॉलम लेआउट */
-    }
-}
-
-@media (max-width: 600px) {
-    .service-box {
-        width: 90% !important; /* 1-कॉलम लेआउट */
-        margin: 10px auto !important;
-    }
 }
