@@ -433,39 +433,46 @@ form button:hover {
   }
 }
 /* ==========================================================
-   NEW CODE: Service Grid Layout Fix (for horizontal display)
+   FINAL FIX: Forcing 4-Column Service Grid Layout
+   (यह सुनिश्चित करता है कि बॉक्स एक लाइन में आएं)
    ========================================================== */
 
-/* सुनिश्चित करें कि .services-container आपके चार बॉक्स को होल्ड करता है */
-/* यह सुनिश्चित करता है कि बॉक्स एक लाइन में आएं */
+/* 1. सर्विस बॉक्सेस को होल्ड करने वाले कंटेनर को Flexbox बनाएं */
 .services-container {
-    display: flex; /* Flexbox का उपयोग करें */
-    flex-wrap: wrap; 
-    justify-content: space-around; 
-    gap: 20px; 
-    padding: 20px 0;
+    display: flex !important; /* !important सुनिश्चित करता है कि यह काम करे */
+    flex-wrap: wrap !important;
+    justify-content: space-between !important; 
+    gap: 20px !important; 
+    padding: 20px 0 !important;
+    margin: 0 auto !important; /* केंद्र में लाने के लिए */
 }
 
-/* यह हर बॉक्स की चौड़ाई सेट करता है */
+/* 2. प्रत्येक बॉक्स को 1/4 चौड़ाई दें */
 .service-box {
     /* 4 बॉक्स के लिए: 25% जगह लें, 20px गैप एडजस्ट करें */
-    width: calc(25% - 20px); 
-    min-width: 200px; 
-    box-sizing: border-box; 
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 20px; 
+    width: calc(25% - 15px) !important; /* 4 कॉलम के लिए */
+    min-width: 200px !important; 
+    box-sizing: border-box !important; 
+    text-align: center !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important; 
+    /* सुनिश्चित करें कि पृष्ठभूमि रंग सही हो */
+    background-color: #3f9095 !important; /* आपके मौजूदा हरे/नीले रंग जैसा */
+    color: #fff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* छोटी स्क्रीन के लिए मीडिया क्वेरी */
-@media (max-width: 768px) {
+/* 3. छोटी स्क्रीन के लिए ताकि डिज़ाइन न टूटे */
+@media (max-width: 1024px) {
     .service-box {
-        width: calc(50% - 20px); /* टैबलेट पर 2-कॉलम लेआउट */
+        width: calc(50% - 15px) !important; /* 2-कॉलम लेआउट */
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .service-box {
-        width: 90%; /* मोबाइल पर 1-कॉलम लेआउट */
+        width: 90% !important; /* 1-कॉलम लेआउट */
+        margin: 10px auto !important;
     }
 }
