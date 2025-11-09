@@ -100,3 +100,45 @@ if ('IntersectionObserver' in window) {
 
   fadeElements.forEach(el => observer.observe(el));
 }
+// ==========================================================
+// NEW CODE: EMI Calculator Function
+// ==========================================================
+function calculateEMI() {
+    // इनपुट वैल्यू प्राप्त करना
+    const P = parseFloat(document.getElementById('loan-amount').value); // Principal
+    const R_annual = parseFloat(document.getElementById('interest-rate').value); // Annual Rate (%)
+    const N_years = parseFloat(document.getElementById('loan-term').value); // Term (Years)
+
+    // इनपुट सत्यापन (Validation)
+    if (isNaN(P) || isNaN(R_annual) || isNaN(N_years) || P <= 0 || R_annual < 0 || N_years <= 0) {
+        document.getElementById('monthly-emi').innerText = 'Invalid Input';
+        document.getElementById('total-interest').innerText = 'Invalid Input';
+        document.getElementById('total-payment').innerText = 'Invalid Input';
+        return;
+    }
+
+    // EMI गणना के लिए मासिक दर और अवधि में बदलना
+    const R_monthly = (R_annual / 100) / 12; // Monthly Rate (decimal)
+    const N_months = N_years * 12; // Total Months
+
+    let emi;
+
+    if (R_monthly === 0) {
+        // यदि ब्याज दर शून्य है
+        emi = P / N_months;
+    } else {
+        // EMI सूत्र: [P x R x (1 + R)^N] / [(1 + R)^N - 1]
+        const power = Math.pow(1 + R_monthly, N_months);
+        emi = P * R_monthly * power / (power - 1);
+    }
+    
+    // परिणाम गणना
+    const totalPayment = emi * N_months;
+    const totalInterest = totalPayment - P;
+
+    // परिणामों को फ़ॉर्मेट करके HTML में प्रदर्शित करना (भारतीय फॉर्मेट)
+    // toLocaleString('en-IN') भारतीय संख्या प्रारूप (Indian number format) प्रदान करता है।
+    document.getElementById('monthly-emi').innerText = '₹ ' + emi.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",").toLocaleString('en-IN');
+    document.getElementById('total-interest').innerText = '₹ ' + totalInterest.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",").toLocaleString('en-IN');
+    document.getElementById('total-payment').innerText = '₹ ' + totalPayment.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",").toLocaleString('en-IN');
+}
