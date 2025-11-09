@@ -493,3 +493,34 @@ form button:hover {
         margin: 10px auto !important; /* सेंटर में करें */
     }
 }
+.our-services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  /* center align row */
+  gap: 20px;                /* cards ke beech gap */
+  padding: 20px 0;
+}
+
+.our-services .service-card {
+  flex: 1 1 220px;  /* flex-grow:1, flex-shrink:1, base width:220px */
+  max-width: 260px; /* max width */
+  background: #66c2d4;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  transition: transform .3s ease;
+}
+
+.our-services .service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Mobile ke liye */
+@media (max-width: 768px) {
+  .our-services .service-card {
+    flex: 1 1 100%; /* puro width le le mobile me */
+    max-width: none;
+  }
+}
+
