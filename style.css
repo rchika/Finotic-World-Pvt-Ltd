@@ -433,33 +433,63 @@ form button:hover {
   }
 }
 /* ==========================================================
-   FINAL FIX: Forcing 4-Column Service Grid Layout
-   (यह सुनिश्चित करता है कि बॉक्स एक लाइन में आएं)
+   ULTIMATE FINAL FIX: Forcing 4-Column Service Grid Layout
+   (यह सुनिश्चित करता है कि बॉक्स एक लाइन में आएं, जैसा कि Image 1 में है)
    ========================================================== */
 
-/* 1. सर्विस बॉक्सेस को होल्ड करने वाले कंटेनर को Flexbox बनाएं */
+/* 1. कंटेनर जो चारों सर्विस बॉक्सेस को होल्ड करता है */
+/* सुनिश्चित करें कि आपके HTML में यह क्लास है जो इन 4 बॉक्सेस को घेरती है */
 .services-container {
-    display: flex !important; /* यह Flexbox को लागू करने के लिए महत्वपूर्ण है */
-    flex-wrap: wrap !important;
-    justify-content: space-between !important; 
-    gap: 20px !important; 
-    padding: 20px 0 !important;
-    max-width: 1200px; /* कंटेनर की अधिकतम चौड़ाई सेट करें */
-    margin: 0 auto; /* कंटेनर को केंद्र में लाने के लिए */
+    display: flex !important; /* Flexbox को लागू करने के लिए महत्वपूर्ण */
+    flex-wrap: wrap !important; /* छोटी स्क्रीन पर बॉक्सेस को नीचे जाने की अनुमति देता है */
+    justify-content: space-around !important; /* बॉक्सेस के बीच समान जगह */
+    align-items: flex-start !important; /* बॉक्सेस को ऊपर से अलाइन करें */
+    gap: 20px !important; /* बॉक्सेस के बीच की दूरी */
+    padding: 30px 10px !important; /* पैडिंग जोड़ें */
+    max-width: 1200px !important; /* कंटेनर की अधिकतम चौड़ाई */
+    margin: 30px auto !important; /* कंटेनर को केंद्र में लाएं और ऊपर/नीचे मार्जिन दें */
+    box-sizing: border-box !important; /* पैडिंग/बॉर्डर को चौड़ाई में शामिल करें */
 }
 
-/* 2. प्रत्येक बॉक्स को 1/4 चौड़ाई दें */
+/* 2. प्रत्येक व्यक्तिगत सर्विस बॉक्स की स्टाइलिंग */
 .service-box {
-    /* 4 बॉक्स के लिए: 25% जगह लें, गैप एडजस्ट करें */
-    width: calc(25% - 15px) !important; 
-    min-width: 220px !important; /* मोबाइल पर बहुत छोटे होने से बचाएगा */
+    flex: 1 1 calc(25% - 20px) !important; /* 4 कॉलम के लिए: 25% जगह लें, गैप एडजस्ट करें */
+    max-width: calc(25% - 20px) !important; /* सुनिश्चित करता है कि यह 4 कॉलम में रहे */
+    min-width: 220px !important; /* बहुत छोटी स्क्रीन पर बहुत छोटा होने से बचाता है */
     box-sizing: border-box !important; 
     text-align: center !important;
-    padding: 20px !important;
+    padding: 25px !important;
     margin-bottom: 20px !important; 
-    /* सुनिश्चित करें कि पृष्ठभूमि रंग और अन्य स्टाइलिंग सही हों */
-    background-color: #3f9095 !important; 
-    color: #fff !important;
+    /* सुनिश्चित करें कि पृष्ठभूमि रंग और अन्य स्टाइलिंग Image 1 से मेल खाए */
+    background-color: #3f9095 !important; /* आपके हरे/नीले रंग जैसा */
+    color: #fff !important; /* टेक्स्ट का रंग सफेद */
     border-radius: 8px !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important; /* गहरा शैडो */
+    transition: transform 0.3s ease !important; /* होवर इफ़ेक्ट के लिए */
+    cursor: pointer !important; /* क्लिक करने योग्य दिखने के लिए */
+}
+
+/* होवर इफ़ेक्ट (जब माउस बॉक्स पर जाए) */
+.service-box:hover {
+    transform: translateY(-5px) scale(1.02) !important; /* थोड़ा ऊपर उठे और बड़ा हो */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 3. छोटी स्क्रीन के लिए मीडिया क्वेरी ताकि मोबाइल पर डिज़ाइन न टूटे */
+@media (max-width: 1024px) {
+    .services-container {
+        justify-content: center !important; /* छोटी स्क्रीन पर सेंटर अलाइन करें */
+    }
+    .service-box {
+        flex: 1 1 calc(50% - 20px) !important; /* टैबलेट पर 2-कॉलम लेआउट */
+        max-width: calc(50% - 20px) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .service-box {
+        flex: 1 1 90% !important; /* मोबाइल पर 1-कॉलम लेआउट */
+        max-width: 90% !important;
+        margin: 10px auto !important; /* सेंटर में करें */
+    }
 }
