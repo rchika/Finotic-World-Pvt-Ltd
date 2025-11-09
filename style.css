@@ -560,3 +560,24 @@ form button:hover {
         margin: 20px auto;
     }
 }
+/* ==========================================================
+   NEW CODE: CIBIL Check Button Styling
+   ========================================================== */
+.cibil-button {
+    display: inline-block;
+    background-color: #f39c12; /* आकर्षक पीला/नारंगी रंग */
+    color: white;
+    text-decoration: none; /* अंडरलाइन हटाना */
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cibil-button:hover {
+    background-color: #e67e22; /* होवर पर गहरा रंग */
+    transform: translateY(-2px); /* थोड़ा ऊपर उठना */
+}
