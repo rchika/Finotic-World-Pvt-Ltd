@@ -142,3 +142,44 @@ function calculateEMI() {
     document.getElementById('total-interest').innerText = '₹ ' + totalInterest.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",").toLocaleString('en-IN');
     document.getElementById('total-payment').innerText = '₹ ' + totalPayment.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",").toLocaleString('en-IN');
 }
+
+// ==========================================================
+// NEW CODE: Credit Score Estimator Function
+// ==========================================================
+function estimateScore() {
+    // इनपुट वैल्यू प्राप्त करना (वे weights हैं जो स्कोर को प्रभावित करते हैं)
+    const paymentWeight = parseFloat(document.getElementById('payment-history').value);
+    const utilizationWeight = parseFloat(document.getElementById('credit-utilization').value);
+    const ageWeight = parseFloat(document.getElementById('credit-age').value);
+
+    // बेस स्कोर 600 मानकर चलें (भारत में न्यूनतम अच्छा स्कोर)
+    let baseScore = 600; 
+
+    // वेटेज जोड़ना
+    let totalScore = baseScore + paymentWeight + utilizationWeight + ageWeight;
+
+    // स्कोर को 900 से अधिक न होने देना
+    if (totalScore > 900) {
+        totalScore = 900;
+    }
+
+    // परिणाम डिस्प्ले करना
+    document.getElementById('estimated-score').innerText = totalScore;
+    let message = '';
+    let color = '';
+
+    if (totalScore >= 750) {
+        message = 'उत्कृष्ट! आपको लोन आसानी से मिल सकता है।';
+        color = '#2ecc71'; // हरा
+    } else if (totalScore >= 650) {
+        message = 'अच्छा स्कोर! आपको प्रतिस्पर्धी दरों पर लोन मिल सकता है।';
+        color = '#f39c12'; // नारंगी
+    } else {
+        message = 'कम स्कोर। लोन के लिए आवेदन करने से पहले सुधार की ज़रूरत है।';
+        color = '#e74c3c'; // लाल
+    }
+
+    document.getElementById('score-message').innerText = message;
+    document.getElementById('score-message').style.color = color;
+    document.getElementById('estimated-score').style.color = color;
+}
