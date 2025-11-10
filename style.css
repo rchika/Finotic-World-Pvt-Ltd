@@ -700,44 +700,104 @@ form button:hover {
     }
 }
 /* ==========================================================
-   NEW CODE: Credit Score Estimator Styling
+   NEW CODE: CIBIL Check Form Styling (Mimicking App Look)
    ========================================================== */
-.credit-estimator {
-    font-family: 'Poppins', sans-serif;
+.cibil-form-container {
+    max-width: 500px; /* मोबाइल ऐप जैसा दिखने के लिए सीमित चौड़ाई */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
 }
 
-.estimator-form {
-    display: grid;
-    gap: 20px;
-}
-
-.estimator-form .input-group label {
-    font-weight: bold;
+.cibil-header {
+    font-size: 1.5em;
     color: #333;
-    margin-bottom: 5px;
-    display: block;
+    margin-bottom: 20px;
 }
 
-.estimator-form .input-group select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
+.language-selector {
+    background-color: #f0f0f0;
+    color: #444;
+    padding: 8px 15px;
     border-radius: 5px;
-    box-sizing: border-box;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 25px;
 }
 
-.credit-estimator button {
-    background-color: #1e90ff; /* नीला रंग */
+.cibil-form .form-group {
+    margin-bottom: 20px;
+}
+
+.cibil-form label {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.cibil-form input[type="tel"],
+.cibil-form input[type="text"],
+.cibil-form select {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid #ccc; /* बॉटम बॉर्डर इनपुट */
+    box-sizing: border-box;
+    font-size: 1.1em;
+    outline: none;
+}
+
+.cibil-form small {
+    display: block;
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 5px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+.checkbox-group a {
+    color: #007bff; /* लिंक कलर */
+    text-decoration: none;
+}
+
+.disclaimer {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 30px;
+    line-height: 1.5;
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+
+.proceed-button {
+    width: 100%;
+    background-color: #ff6600; /* नारंगी रंग जैसा ऐप में है */
     color: white;
-    padding: 15px 20px;
+    padding: 15px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    font-size: 1.2em;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
-.credit-estimator button:hover {
-    background-color: #1c7ed6; 
+.proceed-button:hover {
+    background-color: #e65c00;
 }
