@@ -148,56 +148,194 @@ body {
   color: #002b5b;
 }
 
-/* ================= SERVICES ================= */
-.services {
+/* ================== GLOBAL SECTION STYLES (optional but useful) ================== */
+.section {
   padding: 60px 20px;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
   text-align: center;
-  background: #fff;
-}
-
-.services h2 {
-  font-size: 2.5rem;
-  color: #002b5b;
-  margin-bottom: 40px;
-}
-
-.service-cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.card {
-  background: #63c1ce;
-  border-radius: 10px;
-  padding: 30px 20px;
-  max-width: 250px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.card img.service-icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 20px;
-}
-
-.card h3 {
-  font-size: 1.5rem;
   color: #002b5b;
   margin-bottom: 10px;
 }
 
-.card p {
-  font-size: 1rem;
-  color: #333;
+.section-subtitle {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 0.95rem;
+  color: #555;
 }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ================== SERVICES ================== */
+.services {
+  background: #ffffff;
+}
+
+/* Grid of cards */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual card */
+.service-card {
+  background: #63c1ce;           /* teal-ish like your old design */
+  border-radius: 12px;
+  padding: 24px 18px;
+  text-align: left;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  /* subtle gradient overlay for premium feel */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.35), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+  background: #56b3c1;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Header: icon + title */
+.service-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.service-header h3 {
+  font-size: 1.2rem;
+  color: #002b5b;
+  margin: 0;
+}
+
+/* Short text inside card */
+.service-short-text {
+  font-size: 0.95rem;
+  color: #022B3A;
+  margin-bottom: 18px;
+}
+
+/* “अधिक जानें” button on card */
+.btn-outline.service-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 1px solid #004e64;
+  background-color: transparent;
+  color: #004e64;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-outline.service-btn:hover {
+  background-color: #004e64;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ================== SERVICE DETAIL SECTIONS ================== */
+.service-detail {
+  background: #f7fbfc;
+  margin-top: 40px;
+  border-top: 1px solid #e0edf2;
+}
+
+.detail-container {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.detail-container h2 {
+  font-size: 1.8rem;
+  color: #002b5b;
+  margin-bottom: 16px;
+}
+
+.detail-container h3 {
+  font-size: 1.1rem;
+  color: #004e64;
+  margin-top: 22px;
+  margin-bottom: 10px;
+}
+
+.detail-container p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.detail-container ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.detail-container li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.detail-cta {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.detail-cta a {
+  color: #0077b6;
+  text-decoration: none;
+}
+
+.detail-cta a:hover {
+  text-decoration: underline;
+}
+
 
 /* ================= ABOUT ================= */
 .about {
