@@ -434,24 +434,50 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-    <!-- ================= CIBIL CHECK CTA ================= -->
-    <section class="cibil-check section" id="cibil-check">
-      <div class="container center">
-        <h3>Loan लेने से पहले अपनी पात्रता जानें!</h3>
-        <p class="section-subtitle">
-          लोन के त्वरित अप्रूवल के लिए आपका क्रेडिट स्कोर (CIBIL) अच्छा होना आवश्यक है।
-        </p>
+   <!-- ================= cibil ================= --> 
+<section class="credit-estimator" id="credit-estimator" style="padding: 50px 5%; max-width: 800px; margin: 30px auto; background-color: #f0f8ff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <h2 style="text-align: center; color: #1e90ff; margin-bottom: 30px;">Quick Credit Score Estimator 🚀</h2>
+    <p style="text-align: center; margin-bottom: 30px; color: #555;">(यह एक अनुमानित गणना है, वास्तविक स्कोर CIBIL की वेबसाइट पर जाँचें)</p>
 
-        <a href="https://www.cibil.com/freecibilscore" target="_blank" class="btn secondary cibil-button">
-          Check Your Free CIBIL Score Now
-        </a>
+    <div class="estimator-form">
+        
+        <div class="input-group">
+            <label for="payment-history">क्या आपने हमेशा लोन/EMI का भुगतान समय पर किया है?</label>
+            <select id="payment-history">
+                <option value="40">हाँ, हमेशा समय पर</option>
+                <option value="20">कभी-कभी देरी हुई है</option>
+                <option value="0">नहीं, अक्सर देरी हुई है</option>
+            </select>
+        </div>
 
-        <p class="note">
-          (यह आपको TransUnion CIBIL की आधिकारिक वेबसाइट पर ले जाएगा)
-        </p>
-      </div>
-    </section>
+        <div class="input-group">
+            <label for="credit-utilization">आप अपने क्रेडिट लिमिट का कितना उपयोग करते हैं?</label>
+            <select id="credit-utilization">
+                <option value="30">30% से कम (सबसे अच्छा)</option>
+                <option value="15">30% - 50% के बीच</option>
+                <option value="0">50% से ज़्यादा</option>
+            </select>
+        </div>
 
+        <div class="input-group">
+            <label for="credit-age">आपकी सबसे पुरानी क्रेडिट हिस्ट्री कितनी पुरानी है?</label>
+            <select id="credit-age">
+                <option value="15">5 वर्ष या उससे अधिक</option>
+                <option value="8">2-4 वर्ष</option>
+                <option value="0">1 वर्ष से कम</option>
+            </select>
+        </div>
+        
+        <button onclick="estimateScore()">Estimate My Score</button>
+
+        <div class="score-result" style="margin-top: 30px; border-top: 2px solid #ddd; padding-top: 20px; text-align: center;">
+            <h3>Your Estimated Score:</h3>
+            <p style="font-size: 2.5em; font-weight: bold; color: #2ecc71;" id="estimated-score">0</p>
+            <p id="score-message" style="font-weight: bold;"></p>
+        </div>
+    </div>
+</section>
+  
     <!-- ================= ABOUT ================= -->
     <section class="about section" id="about">
       <div class="container">
