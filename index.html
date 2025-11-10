@@ -435,49 +435,62 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
    <!-- ================= cibil ================= --> 
-<section class="credit-estimator" id="credit-estimator" style="padding: 50px 5%; max-width: 800px; margin: 30px auto; background-color: #f0f8ff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-    <h2 style="text-align: center; color: #1e90ff; margin-bottom: 30px;">Quick Credit Score Estimator 🚀</h2>
-    <p style="text-align: center; margin-bottom: 30px; color: #555;">(यह एक अनुमानित गणना है, वास्तविक स्कोर CIBIL की वेबसाइट पर जाँचें)</p>
-
-    <div class="estimator-form">
-        
-        <div class="input-group">
-            <label for="payment-history">क्या आपने हमेशा लोन/EMI का भुगतान समय पर किया है?</label>
-            <select id="payment-history">
-                <option value="40">हाँ, हमेशा समय पर</option>
-                <option value="20">कभी-कभी देरी हुई है</option>
-                <option value="0">नहीं, अक्सर देरी हुई है</option>
-            </select>
+<section class="cibil-form-section" id="cibil-check-form" style="padding: 50px 5%; max-width: 550px; margin: 30px auto; background-color: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <h2 style="text-align: center; color: #007bff; margin-bottom: 20px;">Free Credit Score Check & Loan Application</h2>
+    
+    <div class="cibil-form-container">
+        <div class="language-selector" style="text-align: right; color: #555; font-weight: bold; margin-bottom: 15px;">
+            English + Hindi
         </div>
 
-        <div class="input-group">
-            <label for="credit-utilization">आप अपने क्रेडिट लिमिट का कितना उपयोग करते हैं?</label>
-            <select id="credit-utilization">
-                <option value="30">30% से कम (सबसे अच्छा)</option>
-                <option value="15">30% - 50% के बीच</option>
-                <option value="0">50% से ज़्यादा</option>
-            </select>
-        </div>
+        <form class="cibil-form">
+            
+            <div class="form-group">
+                <label for="profession">Profession / पेशा</label>
+                <select id="profession" required>
+                    <option value="">-- चुनें --</option>
+                    <option value="salaried">वेतनभोगी (Salaried)</option>
+                    <option value="self-employed">स्व-रोजगार (Self-Employed)</option>
+                    <option value="other">अन्य (Other)</option>
+                </select>
+                <small>You will need to provide your employer details in next page</small>
+            </div>
 
-        <div class="input-group">
-            <label for="credit-age">आपकी सबसे पुरानी क्रेडिट हिस्ट्री कितनी पुरानी है?</label>
-            <select id="credit-age">
-                <option value="15">5 वर्ष या उससे अधिक</option>
-                <option value="8">2-4 वर्ष</option>
-                <option value="0">1 वर्ष से कम</option>
-            </select>
-        </div>
-        
-        <button onclick="estimateScore()">Estimate My Score</button>
+            <div class="form-group">
+                <label for="mobile">Mobile Number / मोबाइल नंबर</label>
+                <input type="tel" id="mobile" placeholder="" required>
+                <small>Your OTP will be sent to this number</small>
+            </div>
 
-        <div class="score-result" style="margin-top: 30px; border-top: 2px solid #ddd; padding-top: 20px; text-align: center;">
-            <h3>Your Estimated Score:</h3>
-            <p style="font-size: 2.5em; font-weight: bold; color: #2ecc71;" id="estimated-score">0</p>
-            <p id="score-message" style="font-weight: bold;"></p>
-        </div>
+            <div class="form-group">
+                <label for="pincode">Pincode / पिन कोड</label>
+                <input type="text" id="pincode" placeholder="" required>
+                <small>As per your current residence pincode</small>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I accept the <a href="privacy.html">Site terms of Use</a>, <a href="privacy.html">Privacy Policy</a> and Credit Report Terms of Use of TUCIBIL and CRIF Highmark <a href="#">Read more...</a></label>
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="auth-share" required>
+                <label for="auth-share">I hereby authorize Finotic World to share my personal details with your business <a href="#">Read more...</a></label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="whatsapp-updates">
+                <label for="whatsapp-updates">I wish to get the updates on <span style="color: #25D366;">WhatsApp</span></label>
+            </div>
+            
+            <p class="disclaimer">
+                Disclaimer: Basis your declared profession type during the journey, you may be offered Personal Loans / Business Loans / Professional Loans from our existing partners as per your eligibility.
+            </p>
+
+            <button type="submit" class="proceed-button">PROCEED</button>
+        </form>
     </div>
 </section>
-  
     <!-- ================= ABOUT ================= -->
     <section class="about section" id="about">
       <div class="container">
