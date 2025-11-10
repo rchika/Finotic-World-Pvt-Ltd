@@ -700,82 +700,129 @@ form button:hover {
     }
 }
 /* ==========================================================
-   NEW CODE: Inline CIBIL Check Form Styling
+   IMPROVED CIBIL CHECK FORM STYLING
    ========================================================== */
 
-/* फॉर्म कंटेनर की चौड़ाई और मार्जिन HTML में नियंत्रित है */
+/* 1. फॉर्म कंटेनर: सुनिश्चित करता है कि फॉर्म केंद्रित और आकर्षक दिखे */
+.cibil-form-section {
+    padding: 50px 5%;
+    max-width: 550px;
+    margin: 30px auto;
+    background-color: #ffffff; /* सफ़ेद बैकग्राउंड */
+    border-radius: 12px; /* थोड़े और गोल कोने */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* गहरा शैडो */
+    font-family: 'Poppins', sans-serif; /* वेबसाइट का मुख्य फ़ॉन्ट */
+}
 
+/* 2. शीर्षक */
 .cibil-form-section h2 {
+    text-align: center;
     color: #3f9095; /* आपकी वेबसाइट का मुख्य रंग */
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+/* 3. भाषा चयनकर्ता (Language Selector) को हल्का रखें */
+.language-selector {
+    background-color: #f8f8f8; 
+    color: #777;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: right;
+    margin-bottom: 25px;
+    font-size: 0.9em;
+}
+
+/* 4. इनपुट फील्ड्स के लिए क्लियर स्टाइलिंग */
+.cibil-form .form-group {
+    margin-bottom: 25px;
 }
 
 .cibil-form label {
     display: block;
-    font-size: 0.9em;
+    font-size: 0.85em; /* लेबल छोटा और स्पष्ट */
     color: #555;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-weight: 600; /* थोड़ा गहरा */
 }
 
 .cibil-form input[type="tel"],
 .cibil-form input[type="text"],
 .cibil-form select {
     width: 100%;
-    padding: 12px 0;
+    padding: 10px 0;
     border: none;
-    border-bottom: 1px solid #ccc; /* बॉटम बॉर्डर इनपुट */
+    border-bottom: 2px solid #ccc; /* बॉटम बॉर्डर मोटा किया */
+    background: transparent;
     box-sizing: border-box;
     font-size: 1.1em;
     outline: none;
-    margin-bottom: 5px;
+    transition: border-bottom-color 0.3s;
+}
+
+.cibil-form input:focus,
+.cibil-form select:focus {
+    border-bottom-color: #3f9095; /* फोकस करने पर नीला/हरा बॉर्डर */
 }
 
 .cibil-form small {
     display: block;
-    font-size: 0.8em;
-    color: #888;
+    font-size: 0.75em; /* विवरण के लिए फ़ॉन्ट और छोटा */
+    color: #a0a0a0;
     margin-top: 5px;
 }
 
+/* 5. चेकबॉक्स समूह (Checkboxes) */
 .checkbox-group {
     display: flex;
     align-items: flex-start;
     margin-bottom: 15px;
-    font-size: 0.9em;
+    font-size: 0.8em; /* बहुत छोटा, क्योंकि यह लीगल टेक्स्ट है */
+    line-height: 1.4;
 }
 
 .checkbox-group input[type="checkbox"] {
-    margin-top: 4px;
+    margin-top: 3px;
     margin-right: 10px;
+    /* चेकबॉक्स का साइज़ ठीक करें */
+    min-width: 16px; 
+    min-height: 16px;
 }
 
 .checkbox-group a {
-    color: #007bff; /* लिंक कलर */
-    text-decoration: none;
+    color: #007bff;
+    text-decoration: underline;
 }
 
+/* 6. अस्वीकरण (Disclaimer) */
 .disclaimer {
-    font-size: 0.85em;
+    font-size: 0.75em;
     color: #888;
-    margin-top: 20px;
-    line-height: 1.5;
+    margin-top: 25px;
+    line-height: 1.6;
     padding: 10px 0;
-    border-top: 1px solid #eee;
+    border-top: 1px dashed #eee; /* पतली डैश वाली लाइन */
+    text-align: center;
 }
 
+/* 7. PROCEED बटन */
 .proceed-button {
     width: 100%;
     background-color: #ff6600; /* नारंगी रंग */
     color: white;
-    padding: 15px;
+    padding: 18px; /* बटन को बड़ा किया */
     border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
+    border-radius: 8px;
+    font-size: 1.3em;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
+    margin-top: 30px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .proceed-button:hover {
     background-color: #e65c00;
+    transform: translateY(-2px); /* हल्का लिफ्ट इफ़ेक्ट */
 }
