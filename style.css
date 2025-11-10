@@ -700,36 +700,13 @@ form button:hover {
     }
 }
 /* ==========================================================
-   NEW CODE: CIBIL Check Form Styling (Mimicking App Look)
+   NEW CODE: Inline CIBIL Check Form Styling
    ========================================================== */
-.cibil-form-container {
-    max-width: 500px; /* मोबाइल ऐप जैसा दिखने के लिए सीमित चौड़ाई */
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-}
 
-.cibil-header {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 20px;
-}
+/* फॉर्म कंटेनर की चौड़ाई और मार्जिन HTML में नियंत्रित है */
 
-.language-selector {
-    background-color: #f0f0f0;
-    color: #444;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: right;
-    margin-bottom: 25px;
-}
-
-.cibil-form .form-group {
-    margin-bottom: 20px;
+.cibil-form-section h2 {
+    color: #3f9095; /* आपकी वेबसाइट का मुख्य रंग */
 }
 
 .cibil-form label {
@@ -749,6 +726,7 @@ form button:hover {
     box-sizing: border-box;
     font-size: 1.1em;
     outline: none;
+    margin-bottom: 5px;
 }
 
 .cibil-form small {
@@ -778,15 +756,15 @@ form button:hover {
 .disclaimer {
     font-size: 0.85em;
     color: #888;
-    margin-top: 30px;
+    margin-top: 20px;
     line-height: 1.5;
-    padding: 10px;
+    padding: 10px 0;
     border-top: 1px solid #eee;
 }
 
 .proceed-button {
     width: 100%;
-    background-color: #ff6600; /* नारंगी रंग जैसा ऐप में है */
+    background-color: #ff6600; /* नारंगी रंग */
     color: white;
     padding: 15px;
     border: none;
