@@ -699,9 +699,7 @@ form button:hover {
         padding: 30px 5%;
         margin: 20px auto;
     }
-}/* ==========================================================
-   Finotic  STYLE CIBIL CHECK FORM
-   ========================================================== */
+}
 /* ==========================================================
    FINAL CRED-MART STYLE CIBIL CHECK FORM STYLING
    ========================================================== */
@@ -846,5 +844,96 @@ form button:hover {
     .form-card-wrapper {
         box-shadow: none; 
         border: 1px solid #eee; 
+    }
+}
+/* ==========================================================
+   CIBIL SCORE EXPLANATION TABLE STYLING
+   ========================================================== */
+
+.cibil-info-section {
+    padding: 60px 5%;
+    background-color: #f1f7fc; /* हल्का नीला/सफ़ेद बैकग्राउंड */
+    font-family: 'Poppins', sans-serif;
+}
+
+.cibil-info-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cibil-score-table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.cibil-score-table th, 
+.cibil-score-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95em;
+}
+
+.cibil-score-table th {
+    background-color: #3f9095; 
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* स्कोर कैटेगरी के रंग */
+.bad-score {
+    color: #ff4d4d; 
+    font-weight: bold;
+}
+.poor-score {
+    color: #ff9933; 
+    font-weight: bold;
+}
+.average-score {
+    color: #ffd700; 
+    font-weight: bold;
+}
+.good-score {
+    color: #33cc33; 
+    font-weight: bold;
+}
+.excellent-score {
+    color: #007bff; 
+    font-weight: bold;
+}
+
+/* तालिका के हर दूसरे रो को अलग रंग दें */
+.cibil-score-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* मोबाइल रिस्पॉन्सिवनेस (Vertical Stack) */
+@media (max-width: 768px) {
+    .cibil-score-table thead {
+        display: none; 
+    }
+    .cibil-score-table, 
+    .cibil-score-table tbody, 
+    .cibil-score-table tr, 
+    .cibil-score-table td {
+        display: block;
+        width: 100%;
+    }
+    .cibil-score-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .cibil-score-table td {
+        text-align: left; /* मोबाइल पर बाएं संरेखित करें */
+        padding-left: 15px;
+        /* सुनिश्चित करें कि मोबाइल पर भी अच्छा दिखे */
     }
 }
