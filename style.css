@@ -850,6 +850,10 @@ form button:hover {
    SIMPLE CIBIL SCORE EXPLANATION TABLE STYLING
    ========================================================== */
 
+/* ==========================================================
+   SIMPLE CIBIL SCORE TABLE STYLING (Final Clean Version)
+   ========================================================== */
+
 .cibil-info-section-simple {
     padding: 60px 5%;
     background-color: #f1f7fc; /* हल्का बैकग्राउंड रंग */
@@ -862,37 +866,36 @@ form button:hover {
 }
 
 .cibil-score-table-wrapper {
-    overflow-x: auto; /* छोटे स्क्रीन पर हॉरिजॉन्टल स्क्रॉल के लिए */
+    overflow-x: auto; /* छोटे स्क्रीन पर स्क्रॉल करने योग्य */
 }
 
 .cibil-score-simple-table {
     width: 100%;
-    min-width: 700px; /* सुनिश्चित करें कि छोटे स्क्रीन पर भी पूरी जानकारी दिखे */
-    border-collapse: collapse; 
+    min-width: 700px; 
+    border-collapse: collapse; /* बॉर्डर्स को मिला दें */
     margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* हल्का सा शैडो */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* बहुत हल्का शैडो */
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .cibil-score-simple-table th, 
 .cibil-score-simple-table td {
-    padding: 18px 15px; /* थोड़ी ज़्यादा पैडिंग */
+    padding: 18px 15px; 
     text-align: left;
-    border: 1px solid #ddd; /* हर सेल पर पतला बॉर्डर */
-    font-size: 0.9em;
-    vertical-align: top; /* कंटेंट ऊपर से शुरू हो */
+    border: 1px solid #ddd; /* हर सेल पर साफ़, पतला बॉर्डर */
+    font-size: 0.95em;
+    vertical-align: top; 
 }
 
 .cibil-score-simple-table th {
-    background-color: #3f9095; /* आपकी ब्रांडिंग का रंग */
+    background-color: #3f9095; 
     color: white;
     font-weight: 600;
     text-transform: uppercase;
-    border: none;
 }
 
-/* हर दूसरे रो को अलग रंग दें */
+/* हर दूसरे रो को अलग रंग दें (Alternating row colors) */
 .cibil-score-simple-table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
