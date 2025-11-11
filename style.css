@@ -1035,39 +1035,43 @@ form button:hover {
     }
 }
 /* ==========================================================
-   BANKING PARTNERS ANIMATION
+   BANKING PARTNERS ANIMATION (FINAL WORKING CSS)
    ========================================================== */
 
-/* Animation Keyframes: यह बताता है कि एलिमेंट को कैसे मूव करना है */
+/* 1. ANIMATION KEYFRAMES */
 @keyframes scroll-logos {
-    /* 0% पर, ट्रैक अपनी मूल स्थिति में है */
     0% {
         transform: translateX(0);
     }
-    /* 100% पर, ट्रैक अपनी चौड़ाई के 50% से मूव हो जाता है (क्योंकि हमने 2 सेट बनाए हैं) */
     100% {
         transform: translateX(-50%); 
     }
 }
 
-/* slider-track: वह कंटेनर जो मूव होता है */
+/* 2. SLIDER TRACK: मूवमेंट इसी पर होता है */
 .slider-track {
-    /* इसे CSS Animation से जोड़ा गया है */
-    animation: scroll-logos 30s linear infinite; /* 30 सेकंड में लूप पूरा करेगा */
-    /* जब माउस इस पर हो, तो मूवमेंट रोक दें */
-    cursor: pointer; 
+    display: flex; /* यह 100% ज़रूरी है कि दो logo-slide अगल-बगल आएं */
+    width: max-content; 
+    animation: scroll-logos 30s linear infinite; 
 }
 
-/* लोगो को होवर पर रंगीन बनाने के लिए CSS */
+/* 3. IMAGES: ग्रेस्केल और होवर इफ़ेक्ट */
+.slider-track img {
+    height: 50px !important; 
+    
+    /* Base State: ग्रेस्केल */
+    filter: grayscale(100%) !important; 
+    opacity: 0.6 !important; 
+    transition: filter 0.3s, opacity 0.3s; 
+}
+
+/* 4. MOUSE HOVER: रंगीन और Bright हो जाए */
 .slider-track img:hover {
     filter: none !important; 
-    opacity: 1 !important;
+    opacity: 1 !important; 
 }
 
-/* मूवमेंट को थोड़ा धीमा करने के लिए माउस होवर इफ़ेक्ट */
-.slider-track:hover {
+/* 5. PAUSE MOVEMENT */
+.slider-track-container:hover .slider-track {
     animation-play-state: paused;
 }
-
-
-
