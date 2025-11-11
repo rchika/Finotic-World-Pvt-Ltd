@@ -1034,3 +1034,38 @@ form button:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================
+   BANKING PARTNERS ANIMATION
+   ========================================================== */
+
+/* Animation Keyframes: यह बताता है कि एलिमेंट को कैसे मूव करना है */
+@keyframes scroll-logos {
+    /* 0% पर, ट्रैक अपनी मूल स्थिति में है */
+    0% {
+        transform: translateX(0);
+    }
+    /* 100% पर, ट्रैक अपनी चौड़ाई के 50% से मूव हो जाता है (क्योंकि हमने 2 सेट बनाए हैं) */
+    100% {
+        transform: translateX(-50%); 
+    }
+}
+
+/* slider-track: वह कंटेनर जो मूव होता है */
+.slider-track {
+    /* इसे CSS Animation से जोड़ा गया है */
+    animation: scroll-logos 30s linear infinite; /* 30 सेकंड में लूप पूरा करेगा */
+    /* जब माउस इस पर हो, तो मूवमेंट रोक दें */
+    cursor: pointer; 
+}
+
+/* लोगो को होवर पर रंगीन बनाने के लिए CSS */
+.slider-track img:hover {
+    filter: none !important; 
+    opacity: 1 !important;
+}
+
+/* मूवमेंट को थोड़ा धीमा करने के लिए माउस होवर इफ़ेक्ट */
+.slider-track:hover {
+    animation-play-state: paused;
+}
