@@ -701,7 +701,7 @@ form button:hover {
     }
 }
 /* ==========================================================
-   FINAL CRED-MART STYLE CIBIL CHECK FORM STYLING
+   FINAL  STYLE CIBIL CHECK FORM STYLING
    ========================================================== */
 
 /* 1. मुख्य सेक्शन कंटेनर */
@@ -955,33 +955,19 @@ form button:hover {
     border-left: 3px solid #007bff;
 }
 /* ==========================================================
-   BLOG LISTING GRID STYLING (Credmart Final Style)
+   BLOG LISTING GRID STYLING 
    ========================================================== */
-.blog-section-final {
-    padding: 60px 5%;
-    background-color: #ffffff; /* सादा सफ़ेद बैकग्राउंड */
-    font-family: 'Poppins', sans-serif;
-}
-
-.blog-container-final {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* 3-कॉलम ग्रिड लेआउट */
 .blog-grid-final {
     display: grid;
-    /* 3 कॉलम, यदि स्क्रीन छोटी हो तो 1 कॉलम */
+    /* 3 कॉलम */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
 }
 
-/* कार्ड का मुख्य कंटेनर */
 .blog-card-final {
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
-    /* क्रेडमार्ट जैसा साफ़ शैडो */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -991,16 +977,9 @@ form button:hover {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
 }
 
-.blog-link-final {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-/* इमेज और ओवरले टैग */
 .blog-image-wrapper-final {
     position: relative;
-    height: 180px; /* इमेज की ऊंचाई */
+    height: 180px; 
     overflow: hidden;
 }
 
@@ -1008,10 +987,8 @@ form button:hover {
     width: 100%;
     height: 100%;
     object-fit: cover; 
-    display: block;
 }
 
-/* इमेज पर दिखने वाला टैग (जैसे Loan) */
 .blog-tag-overlay {
     position: absolute;
     bottom: 0;
@@ -1022,13 +999,10 @@ form button:hover {
     font-size: 0.8em;
     font-weight: 600;
     border-top-left-radius: 8px;
-    z-index: 10;
 }
 
-/* कंटेंट एरिया */
 .blog-content-final {
     padding: 15px;
-    text-align: left;
 }
 
 .blog-title-final {
@@ -1037,14 +1011,13 @@ form button:hover {
     color: #333;
     line-height: 1.3;
     margin-bottom: 10px;
-    /* टेक्स्ट को दो लाइनों के बाद काटने के लिए */
+    /* टेक्स्ट को 2 लाइनों तक सीमित करता है */
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
 
-/* मेटा डेटा (Date and Read Time) */
 .blog-meta-final {
     font-size: 0.85em;
     color: #888;
@@ -1055,17 +1028,9 @@ form button:hover {
     justify-content: space-between;
 }
 
-.meta-item-final {
-    /* आप यहाँ आइकॉन (fa-calendar, fa-clock-o) भी जोड़ सकती हैं */
-}
-
 /* मोबाइल ऑप्टिमाइजेशन */
 @media (max-width: 600px) {
     .blog-grid-final {
         grid-template-columns: 1fr;
     }
 }
-
-
-
-
