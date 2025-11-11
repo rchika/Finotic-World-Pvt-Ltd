@@ -699,93 +699,142 @@ form button:hover {
         padding: 30px 5%;
         margin: 20px auto;
     }
-}
-/* ==========================================================
-   FINAL DETAILED CIBIL FORM STYLING
+}/* ==========================================================
+   Finotic  STYLE CIBIL CHECK FORM
    ========================================================== */
-
-/* 1. फॉर्म सेक्शन और कंटेनर */
 .cibil-form-section {
-    padding: 50px 5%;
-    max-width: 550px; /* फॉर्म की अधिकतम चौड़ाई सीमित */
-    margin: 30px auto;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+    background-color: #f8f8f8; /* सेक्शन का हल्का बैकग्राउंड */
+    padding: 80px 5%;
     font-family: 'Poppins', sans-serif;
 }
 
-/* 2. इनपुट फील्ड्स के लिए क्लीन, बॉटम-लाइन स्टाइल */
-.cibil-form .form-group {
-    margin-bottom: 25px;
+.cibil-hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; /* डुअल-कॉलम लेआउट के लिए */
+    flex-wrap: wrap; /* मोबाइल के लिए रैप करें */
+    align-items: flex-start; /* ऊपर से शुरू करें */
+    gap: 50px;
+}
+
+/* 1. बाईं ओर का टेक्स्ट (Left Side Text) */
+.hero-text-box {
+    flex: 1;
+    min-width: 300px;
+    padding-top: 30px;
+}
+
+.hero-text-box h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text-box p {
+    font-size: 1.3em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Stat Bar (25K+, 30+ Banks) */
+.stats-bar {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    font-size: 1.8em;
+    font-weight: 800;
+    color: #007bff; /* नीला रंग */
+}
+
+/* 2. दाईं ओर का फॉर्म कंटेनर (Right Side Form) */
+.form-card-wrapper {
+    flex: 1;
+    min-width: 350px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .cibil-form label {
     display: block;
-    font-size: 0.85em; 
+    font-size: 0.9em;
     color: #555;
-    margin-bottom: 8px;
-    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.cibil-form .form-group {
+    margin-bottom: 20px;
 }
 
 .cibil-form input[type="text"],
 .cibil-form input[type="email"],
 .cibil-form input[type="tel"],
-.cibil-form input[type="date"],
-.cibil-form select {
+.cibil-form input[type="date"] {
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 10px 10px 0; /* बाएँ पैडिंग 0 */
     border: none;
-    border-bottom: 2px solid #ccc;
-    background: transparent;
-    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
     font-size: 1.1em;
     outline: none;
     transition: border-bottom-color 0.3s;
 }
 
-.cibil-form input:focus,
-.cibil-form select:focus {
-    border-bottom-color: #3f9095; /* फोकस करने पर रंग बदलें */
+.cibil-form input:focus {
+    border-bottom-color: #007bff;
 }
 
-/* 3. चेकबॉक्स समूह (Checkbox Group) */
-.checkbox-group {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px;
-    font-size: 0.8em; 
-    line-height: 1.4;
-}
-
-.checkbox-group input[type="checkbox"] {
-    margin-top: 3px;
-    margin-right: 10px;
-    min-width: 16px; 
-    min-height: 16px;
-}
-
-.checkbox-group a {
-    color: #007bff;
-    text-decoration: underline;
-}
-
-/* 4. SUBMIT/PROCEED बटन */
-.proceed-button {
+/* Submit Button */
+.submit-button {
     width: 100%;
-    background-color: #ff6600; 
+    background-color: #007bff; /* नीला रंग */
     color: white;
-    padding: 18px; 
+    padding: 15px;
     border: none;
-    border-radius: 8px;
-    font-size: 1.3em;
+    border-radius: 5px;
+    font-size: 1.1em;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 30px;
-    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
-.proceed-button:hover {
-    background-color: #e65c00;
-    transform: translateY(-2px);
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* WhatsApp Box */
+.whatsapp-box {
+    text-align: center;
+    background-color: #e6ffec; /* हल्का हरा बैकग्राउंड */
+    border: 1px solid #c9f7d6;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: #333;
+    font-weight: 500;
+}
+
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .cibil-hero-content {
+        flex-direction: column;
+    }
+    .hero-text-box h1 {
+        font-size: 2em;
+    }
+    .stats-bar {
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .form-card-wrapper {
+        box-shadow: none; /* मोबाइल पर शैडो हटा दें */
+        border: 1px solid #eee; /* पतला बॉर्डर लगाएं */
+    }
 }
