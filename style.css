@@ -1034,3 +1034,112 @@ form button:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================
+   CUSTOMER FEEDBACK STYLING (Carousel/Slider)
+   ========================================================== */
+.feedback-section {
+    font-family: 'Poppins', sans-serif;
+}
+
+.feedback-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-wrapper {
+    position: relative; /* एरोज़ को सही जगह पर रखने के लिए */
+    overflow: hidden; /* केवल एक बार में दिखने वाले कार्ड्स को दिखाएगा */
+}
+
+/* फीडबैक कार्ड्स को एक ही लाइन में रखें और स्लाइड करने दें */
+.feedback-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* स्मूथ स्लाइडिंग के लिए */
+    padding-bottom: 30px; 
+}
+
+.feedback-card {
+    flex: 0 0 33.33%; /* एक बार में 3 कार्ड दिखाने के लिए */
+    min-width: 300px; /* छोटे स्क्रीन के लिए */
+    background: white;
+    padding: 30px;
+    margin: 0 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.stars {
+    color: #ffc107; /* पीला (Gold/Amber) रंग */
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    min-height: 120px; /* सुनिश्चित करें कि सभी कार्ड की ऊँचाई समान हो */
+}
+
+.reviewer-name {
+    font-weight: 700;
+    color: #333;
+    margin-top: 5px;
+    font-size: 1.1em;
+}
+
+.review-title {
+    font-size: 0.9em;
+    color: #007bff;
+}
+
+/* कंट्रोल बटन (एरो) स्टाइलिंग */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #007bff; /* नीला बैकग्राउंड */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 20;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.carousel-control.prev {
+    left: 10px; /* बाईं ओर */
+}
+
+.carousel-control.next {
+    right: 10px; /* दाईं ओर */
+}
+
+.carousel-control:hover {
+    background-color: #0056b3;
+}
+
+/* मोबाइल के लिए 1 कार्ड प्रति व्यू */
+@media (max-width: 768px) {
+    .feedback-card {
+        flex: 0 0 100%; /* छोटे स्क्रीन पर एक बार में पूरा कार्ड दिखे */
+        margin: 0 10px;
+    }
+    .carousel-control {
+        padding: 8px 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+}
