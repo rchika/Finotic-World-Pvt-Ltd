@@ -384,62 +384,54 @@
       </div>
     </section>
    <!-- ================= cibil ================= --> 
-     <section class="cibil check section" id="CIBIL Check">
-      <div class="container">
-        <h2 class="section-title">CIBIL Check</h2>
-<h2 style="padding: 50px 5%; max-width: 550px; margin: 30px auto; background-color: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"></h2>
-    <h2 style="text-align: center; color: #007bff; margin-bottom: 20px;">Free Credit Score Check & Loan Application</h2>
+    <section class="cibil-form-section" id="cibil-check-form">
+    
+    <h2 style="text-align: center; color: #3f9095; margin-bottom: 5px;">Check CIBIL Score & Loan Eligibility</h2>
+    <p style="text-align: center; color: #555; margin-bottom: 30px;">Quick, easy, and hassle-free!</p>
     
     <div class="cibil-form-container">
-        <div class="language-selector" style="text-align: right; color: #555; font-weight: bold; margin-bottom: 15px;">
-            English + Hindi
-        </div>
-
-        <form class="cibil-form">
+        <form class="cibil-form" action="backend.php" method="POST">
             
             <div class="form-group">
-                <label for="profession">Profession / पेशा</label>
-                <select id="profession" required>
-                    <option value="">-- चुनें --</option>
-                    <option value="salaried">वेतनभोगी (Salaried)</option>
-                    <option value="self-employed">स्व-रोजगार (Self-Employed)</option>
-                    <option value="other">अन्य (Other)</option>
-                </select>
-                <small>You will need to provide your employer details in next page</small>
+                <label for="full_name">Name</label>
+                <input type="text" id="full_name" name="full_name" placeholder="Enter Your Name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="pan_name">PAN Name</label>
+                <input type="text" id="pan_name" name="pan_name" placeholder="Enter Name on PAN" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email_id">Email ID</label>
+                <input type="email" id="email_id" name="email_id" placeholder="Enter Your Email" required>
             </div>
 
             <div class="form-group">
                 <label for="mobile">Mobile Number / मोबाइल नंबर</label>
-                <input type="tel" id="mobile" placeholder="" required>
-                <small>Your OTP will be sent to this number</small>
+                <input type="tel" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required>
             </div>
 
             <div class="form-group">
-                <label for="pincode">Pincode / पिन कोड</label>
-                <input type="text" id="pincode" placeholder="" required>
-                <small>As per your current residence pincode</small>
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
             </div>
 
-            <div class="checkbox-group">
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Enter Your City" required>
+            </div>
+
+            <div class="checkbox-group" style="margin-top: 25px;">
                 <input type="checkbox" id="terms" required>
-                <label for="terms">I accept the <a href="privacy.html">Site terms of Use</a>, <a href="privacy.html">Privacy Policy</a> and Credit Report Terms of Use of TUCIBIL and CRIF Highmark <a href="#">Read more...</a></label>
+                <label for="terms">I accept the <a href="privacy.html">Site terms of Use</a>, <a href="privacy.html">Privacy Policy</a> and Credit Report Terms of Use... <a href="#">Read more</a></label>
             </div>
             
-            <div class="checkbox-group">
-                <input type="checkbox" id="auth-share" required>
-                <label for="auth-share">I hereby authorize Finotic World to share my personal details with your business <a href="#">Read more...</a></label>
-            </div>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="whatsapp-updates">
-                <label for="whatsapp-updates">I wish to get the updates on <span style="color: #25D366;">WhatsApp</span></label>
-            </div>
+            <button type="submit" class="proceed-button">SUBMIT</button>
             
-            <p class="disclaimer">
-                Disclaimer: Basis your declared profession type during the journey, you may be offered Personal Loans / Business Loans / Professional Loans from our existing partners as per your eligibility.
+            <p class="disclaimer" style="text-align: center; font-size: 0.8em; margin-top: 15px;">
+                Your details are secure. We respect your privacy.
             </p>
-
-            <button type="submit" class="proceed-button">PROCEED</button>
         </form>
     </div>
 </section>
