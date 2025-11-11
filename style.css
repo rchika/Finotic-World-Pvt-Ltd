@@ -850,10 +850,6 @@ form button:hover {
    SIMPLE CIBIL SCORE EXPLANATION TABLE STYLING
    ========================================================== */
 
-/* ==========================================================
-   SIMPLE CIBIL SCORE TABLE STYLING (Final Clean Version)
-   ========================================================== */
-
 .cibil-info-section-simple {
     padding: 60px 5%;
     background-color: #f1f7fc; /* हल्का बैकग्राउंड रंग */
@@ -920,4 +916,80 @@ form button:hover {
 .excellent-score {
     color: #007bff; /* नीला */
     font-weight: bold;
+}
+/* ==========================================================
+   FAQ SECTION STYLING (Accordion)
+   ========================================================== */
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0; /* हर आइटम के नीचे पतली लाइन */
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    padding: 18px 0;
+    font-size: 1.1em;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.faq-question:hover {
+    color: #3f9095; /* आपकी ब्रांडिंग का रंग */
+}
+
+.question-icon {
+    color: #007bff;
+    font-size: 1.2em;
+    margin-right: 15px;
+    font-weight: 900;
+}
+
+.toggle-icon {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #666;
+    transition: transform 0.3s;
+}
+
+.faq-question.active .toggle-icon {
+    transform: rotate(45deg); /* खुलने पर '+' को 'X' जैसा घुमाएँ */
+    color: #007bff;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden; /* शुरू में जवाब छुपाएँ */
+    padding: 0 15px;
+    background-color: #f7f7f7;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.faq-answer.open {
+    max-height: 500px; /* खुलने पर पर्याप्त ऊँचाई दें */
+    padding: 15px 15px 25px 15px;
+    border-left: 3px solid #007bff;
+}
+
+.faq-answer p, .faq-answer ul {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.faq-answer ul {
+    padding-left: 20px;
 }
