@@ -344,7 +344,7 @@
       </section>
     </section>
     <!-- ================= OUR SERVICES Patners ================= -->
-    <section class="partners-section" style="padding: 40px 5%; text-align: center; background-color: #f8f8f8; overflow: hidden;">
+    <section class="partners-section" style="padding: 40px 5%; text-align: center; background-color: #f8f8f8; overflow: hidden; position: relative;">
     
     <h2 style="font-size: 1.8em; color: #333; margin-bottom: 30px; display: inline-block; padding-bottom: 5px; border-bottom: 2px solid #3f9095;">
         Our Banking Partners
@@ -352,28 +352,57 @@
     
     <div class="slider-track-container" style="max-width: 100%; margin: 0 auto;">
         
-        <div class="slider-track">
+        <div class="slider-track" id="animated-logos">
             
-            <div class="logo-slide" style="display: flex; align-items: center; gap: 30px; padding: 0 15px;">
-                <img src="images/tata-capital-logo.png" alt="Tata Capital">
-                <img src="images/utkarsh-logo.png" alt="Utkarsh Bank">
-                <img src="images/piramal-logo.png" alt="Piramal">
-                <img src="images/dcb-bank-logo.png" alt="DCB Bank">
-                <img src="images/bmarkets-logo.png" alt="B Markets">
+            <div class="logo-slide" style="display: flex; align-items: center; justify-content: space-around; min-width: 50vw;">
+                <img src="images/tata-capital-logo.png" alt="Tata Capital" style="height: 50px; margin: 0 15px; filter: grayscale(100%); opacity: 0.6; transition: all 0.5s;">
+                <img src="images/utkarsh-logo.png" alt="Utkarsh Bank" style="height: 50px; margin: 0 15px; filter: grayscale(100%); opacity: 0.6; transition: all 0.5s;">
+                <img src="images/piramal-logo.png" alt="Piramal" style="height: 50px; margin: 0 15px; filter: grayscale(100%); opacity: 0.6; transition: all 0.5s;">
+                <img src="images/dcb-bank-logo.png" alt="DCB Bank" style="height: 50px; margin: 0 15px; filter: grayscale(100%); opacity: 0.6; transition: all 0.5s;">
+                <img src="images/bmarkets-logo.png" alt="B Markets" style="height: 50px; margin: 0 15px; filter: grayscale(100%); opacity: 0.6; transition: all 0.5s;">
             </div>
 
-            <div class="logo-slide" style="display: flex; align-items: center; gap: 30px; padding: 0 15px;">
-                <img src="images/tata-capital-logo.png" alt="Tata Capital">
-                <img src="images/utkarsh-logo.png" alt="Utkarsh Bank">
-                <img src="images/piramal-logo.png" alt="Piramal">
-                <img src="images/dcb-bank-logo.png" alt="DCB Bank">
-                <img src="images/bmarkets-logo.png" alt="B Markets">
+            <div class="logo-slide" style="display: flex; align-items: center; justify-content: space-around; min-width: 50vw;">
+                <img src="images/tata-capital-logo.png" alt="Tata Capital" style="height: 50px; margin: 0 15px; filter: grayscale(100%); opacity: 0.6; transition: all 0.5s;">
+                <img src="images/utkarsh-logo.png" alt="Utkarsh Bank" style="height: 50px; margin: 0 15px; filter: grayscale(100%); opacity: 0.6; transition: all 0.5s;">
+                <img src="images/piramal-logo.png" alt="Piramal" style="height: 50px; margin: 0 15px; filter: grayscale(100%); opacity: 0.6; transition: all 0.5s;">
+                <img src="images/dcb-bank-logo.png" alt="DCB Bank" style="height: 50px; margin: 0 15px; filter: grayscale(100%); opacity: 0.6; transition: all 0.5s;">
+                <img src="images/bmarkets-logo.png" alt="B Markets" style="height: 50px; margin: 0 15px; filter: grayscale(100%); opacity: 0.6; transition: all 0.5s;">
             </div>
             
         </div>
     </div>
-</section>
-  
+    
+    <style>
+        /* Keyframes को सीधे यहीं define करें ताकि वे 100% काम करें */
+        @keyframes scroll-logos {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%); 
+            }
+        }
+        
+        #animated-logos {
+            display: flex;
+            width: max-content; 
+            animation: scroll-logos 30s linear infinite; 
+        }
+
+        /* माउस होवर पर रंगीन */
+        #animated-logos img:hover {
+            filter: none !important; 
+            opacity: 1 !important; 
+        }
+        
+        /* मूवमेंट रोकें */
+        .slider-track-container:hover #animated-logos {
+            animation-play-state: paused;
+        }
+
+    </style>
+    </section>
     <!-- ================= EMI CALCULATOR ================= -->
     <section class="emi-calculator section" id="emi-calculator">
       <div class="container emi-container">
