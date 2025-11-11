@@ -386,53 +386,58 @@
    <!-- ================= cibil ================= --> 
     <section class="cibil-form-section" id="cibil-check-form">
     
-    <h2 style="text-align: center; color: #3f9095; margin-bottom: 5px;">Check CIBIL Score & Loan Eligibility</h2>
-    <p style="text-align: center; color: #555; margin-bottom: 30px;">Quick, easy, and hassle-free!</p>
-    
-    <div class="cibil-form-container">
-        <form class="cibil-form" action="backend.php" method="POST">
+    <div class="cibil-hero-content">
+        <div class="hero-text-box">
+            <h1>Check your CIBIL score and loan eligibility instantly.</h1>
+            <p>Quick, easy, and hassle-free!</p>
             
-            <div class="form-group">
-                <label for="full_name">Name</label>
-                <input type="text" id="full_name" name="full_name" placeholder="Enter Your Name" required>
+            <div class="stats-bar">
+                <span class="stat-item">25K+ Customers</span>
+                <span class="stat-item">30+ Partner Banks</span>
             </div>
             
-            <div class="form-group">
-                <label for="pan_name">PAN Name</label>
-                <input type="text" id="pan_name" name="pan_name" placeholder="Enter Name on PAN" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email_id">Email ID</label>
-                <input type="email" id="email_id" name="email_id" placeholder="Enter Your Email" required>
-            </div>
+        </div>
+        
+        <div class="form-card-wrapper">
+            <form class="cibil-form" action="backend.php" method="POST">
+                
+                <div class="form-group">
+                    <label for="full_name">Name</label>
+                    <input type="text" id="full_name" name="full_name" placeholder="Enter Your Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pan_name">PAN Name</label>
+                    <input type="text" id="pan_name" name="pan_name" placeholder="Enter Name on PAN" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email_id">Email ID</label>
+                    <input type="email" id="email_id" name="email_id" placeholder="Enter Your Email" required>
+                </div>
 
-            <div class="form-group">
-                <label for="mobile">Mobile Number / मोबाइल नंबर</label>
-                <input type="tel" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required>
-            </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required>
+                </div>
 
-            <div class="form-group">
-                <label for="dob">Date of Birth</label>
-                <input type="date" id="dob" name="dob" required>
-            </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dob" name="dob" placeholder="dd-mm-yyyy" required>
+                </div>
 
-            <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" id="city" name="city" placeholder="Enter Your City" required>
-            </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" placeholder="Enter Your City" required>
+                </div>
 
-            <div class="checkbox-group" style="margin-top: 25px;">
-                <input type="checkbox" id="terms" required>
-                <label for="terms">I accept the <a href="privacy.html">Site terms of Use</a>, <a href="privacy.html">Privacy Policy</a> and Credit Report Terms of Use... <a href="#">Read more</a></label>
-            </div>
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
             
-            <button type="submit" class="proceed-button">SUBMIT</button>
-            
-            <p class="disclaimer" style="text-align: center; font-size: 0.8em; margin-top: 15px;">
-                Your details are secure. We respect your privacy.
-            </p>
-        </form>
+            <div class="whatsapp-box">
+                <p>How can I help you? <span style="font-size: 1.5em;">💬</span></p>
+            </div>
+        </div>
     </div>
 </section>
     <!-- ================= ABOUT ================= -->
