@@ -993,3 +993,34 @@ form button:hover {
 .faq-answer ul {
     padding-left: 20px;
 }
+/* FAQ SECTION STYLING */
+/* ... ऊपर का FAQ CSS ... */
+
+.toggle-icon {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #666;
+    transition: transform 0.3s; /* रोटेशन के लिए स्मूथ ट्रांजिशन */
+}
+
+/* जब बटन active हो, तो '+' आइकन को 45 डिग्री घुमाकर 'X' जैसा दिखाएँ */
+.faq-question.active .toggle-icon {
+    transform: rotate(45deg); 
+    color: #007bff;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden; /* शुरू में जवाब छुपाएँ */
+    padding: 0 15px;
+    background-color: #f7f7f7;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* स्मूथ खुलने/बंद होने के लिए */
+}
+
+.faq-answer.open {
+    max-height: 500px; /* खुलने पर पर्याप्त ऊँचाई दें */
+    padding: 15px 15px 25px 15px;
+    border-left: 3px solid #007bff;
+}
+
+/* ... बाकी CSS ... */
