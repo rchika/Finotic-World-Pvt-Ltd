@@ -702,25 +702,31 @@ form button:hover {
 }/* ==========================================================
    Finotic  STYLE CIBIL CHECK FORM
    ========================================================== */
+/* ==========================================================
+   FINAL CRED-MART STYLE CIBIL CHECK FORM STYLING
+   ========================================================== */
+
+/* 1. मुख्य सेक्शन कंटेनर */
 .cibil-form-section {
     background-color: #f8f8f8; /* सेक्शन का हल्का बैकग्राउंड */
     padding: 80px 5%;
     font-family: 'Poppins', sans-serif;
 }
 
+/* 2. डुअल-कॉलम लेआउट */
 .cibil-hero-content {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex; /* डुअल-कॉलम लेआउट के लिए */
-    flex-wrap: wrap; /* मोबाइल के लिए रैप करें */
-    align-items: flex-start; /* ऊपर से शुरू करें */
+    display: flex; /* Flexbox ऑन */
+    flex-wrap: wrap; /* मोबाइल के लिए रैप (Wrap) करें */
+    align-items: flex-start; 
     gap: 50px;
 }
 
-/* 1. बाईं ओर का टेक्स्ट (Left Side Text) */
+/* 3. बाईं ओर का टेक्स्ट (Left Side Text) */
 .hero-text-box {
     flex: 1;
-    min-width: 300px;
+    min-width: 300px; /* न्यूनतम चौड़ाई */
     padding-top: 30px;
 }
 
@@ -751,21 +757,19 @@ form button:hover {
     color: #007bff; /* नीला रंग */
 }
 
-/* 2. दाईं ओर का फॉर्म कंटेनर (Right Side Form) */
+/* 4. दाईं ओर का फॉर्म कार्ड */
 .form-card-wrapper {
     flex: 1;
     min-width: 350px;
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* फॉर्म के लिए कार्ड शैडो */
 }
 
+/* 5. इनपुट फील्ड स्टाइलिंग */
 .cibil-form label {
-    display: block;
-    font-size: 0.9em;
-    color: #555;
-    margin-bottom: 5px;
+    display: none; /* लेबल को छुपा दें, क्योंकि Placeholder ही काफी है */
 }
 
 .cibil-form .form-group {
@@ -775,24 +779,25 @@ form button:hover {
 .cibil-form input[type="text"],
 .cibil-form input[type="email"],
 .cibil-form input[type="tel"],
-.cibil-form input[type="date"] {
+.cibil-form input[type="date"],
+.cibil-form input[type="text"][placeholder] { /* Placeholder वाले इनपुट को टारगेट करें */
     width: 100%;
-    padding: 10px 10px 10px 0; /* बाएँ पैडिंग 0 */
-    border: none;
-    border-bottom: 1px solid #ccc;
-    font-size: 1.1em;
+    padding: 12px 15px; /* पैडिंग बढ़ाएँ */
+    border: 1px solid #ddd; /* पतला बॉर्डर */
+    border-radius: 5px;
+    font-size: 1em;
     outline: none;
-    transition: border-bottom-color 0.3s;
+    transition: border-color 0.3s;
 }
 
 .cibil-form input:focus {
-    border-bottom-color: #007bff;
+    border-color: #007bff; /* फोकस करने पर नीला बॉर्डर */
 }
 
-/* Submit Button */
+/* 6. Submit Button (SUBMIT) */
 .submit-button {
     width: 100%;
-    background-color: #007bff; /* नीला रंग */
+    background-color: #007bff; /* Cred-Mart जैसा नीला रंग */
     color: white;
     padding: 15px;
     border: none;
@@ -808,33 +813,38 @@ form button:hover {
     background-color: #0056b3;
 }
 
-/* WhatsApp Box */
+/* 7. WhatsApp Box */
 .whatsapp-box {
     text-align: center;
-    background-color: #e6ffec; /* हल्का हरा बैकग्राउंड */
+    background-color: #e6ffec; 
     border: 1px solid #c9f7d6;
     padding: 15px;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 25px;
     color: #333;
     font-weight: 500;
+    cursor: pointer;
 }
 
 
-/* Mobile Optimization */
+/* 8. मोबाइल ऑप्टिमाइजेशन (Mobile Optimization) */
 @media (max-width: 768px) {
     .cibil-hero-content {
-        flex-direction: column;
+        flex-direction: column; /* मोबाइल पर कॉलम में बदलें */
     }
     .hero-text-box h1 {
         font-size: 2em;
+        text-align: center;
+    }
+    .hero-text-box p {
+        text-align: center;
     }
     .stats-bar {
-        justify-content: space-around;
+        justify-content: center;
         gap: 20px;
     }
     .form-card-wrapper {
-        box-shadow: none; /* मोबाइल पर शैडो हटा दें */
-        border: 1px solid #eee; /* पतला बॉर्डर लगाएं */
+        box-shadow: none; 
+        border: 1px solid #eee; 
     }
 }
