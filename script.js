@@ -198,3 +198,51 @@ document.querySelectorAll('.faq-question').forEach(button => {
         answer.classList.toggle('open');
     });
 });
+/* ==========================================================
+   FEEDBACK CAROUSEL FUNCTIONALITY
+   ========================================================== */
+const carousel = document.getElementById('feedbackCarousel');
+const cards = document.querySelectorAll('.feedback-card');
+
+// कितनी कार्ड्स को एक बार में स्लाइड करना है
+const cardsPerView = window.innerWidth > 768 ? 3 : 1;
+let currentIndex = 0;
+
+function updateCarousel() {
+    // 1. कार्ड की चौड़ाई, गैप सहित, (यानी एक स्लाइड का कितना हिस्सा)
+    // 768px से ऊपर: 33.33% (कार्ड की चौड़ाई) + 15px (गैप)
+    // 768px से नीचे: 100% (कार्ड की चौड़ाई) + 10px (गैप)
+    
+    // (CSS में 15px margin है, इसलिए 15px * 2 = 30px का गैप)
+    const cardWidthWithGap = cards[0].offsetWidth + 30; 
+    
+    // 2. ट्रांसलेट वैल्यू की गणना करें
+    const offset = currentIndex * cardWidthWithGap;
+
+    // 3. Carousel को ट्रांसलेट करें
+    carousel.style.transform = `translateX(-${offset}px)`;
+}
+
+function moveCarousel(direction) {
+    const totalCards = cards.length;
+    
+    // अगला इंडेक्स निकालें
+    currentIndex += direction;
+    
+    // बाएँ किनारे पर रोलओवर (यदि पहला कार्ड है तो वापस अंतिम कार्ड पर जाएँ)
+    if (currentIndex < 0) {
+        currentIndex = totalCards - cardsPerView;
+    } 
+    // दाएँ किनारे पर रोलओवर (यदि अंतिम कार्ड है तो वापस पहले कार्ड पर जाएँ)
+    else if (currentIndex > totalCards - cardsPerView) {
+        currentIndex = 0;
+    }
+
+    updateCarousel();
+}
+
+// पेज लोड होने पर और साइज़ बदलने पर अपडेट करें
+window.addEventListener('resize', updateCarousel);
+window.addEventListener('load', updateCarousel);
+
+// सुनिश्चित करें कि यह कोड आपकी index.html में <script src="script.js"></script> से लिंक है।
