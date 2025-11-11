@@ -183,3 +183,18 @@ function estimateScore() {
     document.getElementById('score-message').style.color = color;
     document.getElementById('estimated-score').style.color = color;
 }
+/* ==========================================================
+   FAQ ACCORDION FUNCTIONALITY
+   ========================================================== */
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const answerId = button.dataset.faqId;
+        const answer = document.getElementById(`faq-answer-${answerId}`);
+        
+        // 1. बटन पर 'active' क्लास टॉगल करें (यह CSS से '+' को 'X' में बदलता है)
+        button.classList.toggle('active');
+        
+        // 2. जवाब पर 'open' क्लास टॉगल करें (यह CSS से max-height को बदलता है)
+        answer.classList.toggle('open');
+    });
+});
