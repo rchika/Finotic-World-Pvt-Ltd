@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Loan - Quick & Easy Application</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    </head>
+<body>
+
+    <header>
+        </header>
+
+    <main class="application-main" style="padding: 80px 5%; background-color: #f4f7f6;">
+        <div class="application-container" style="max-width: 800px; margin: 0 auto; background-color: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+            
+            <div class="form-header" style="text-align: center; margin-bottom: 30px;">
+                <h1 style="font-size: 2em; color: #333; margin-bottom: 5px;">Quick Loan Application</h1>
+                <p style="color: #666;">Fill in your details below to get instant approval status.</p>
+            </div>
+            
+            <form action="submit_application.php" method="POST" class="loan-form">
+                
+                <h3 class="form-section-title" style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px; color: #007bff;">Personal Details</h3>
+
+                <div class="form-group">
+                    <label for="full_name" style="display: block; margin-bottom: 8px; font-weight: 500;">Full Name</label>
+                    <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile" style="display: block; margin-bottom: 8px; font-weight: 500;">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="10 Digit Mobile Number" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500;">Email ID</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+                </div>
+
+                <h3 class="form-section-title" style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 30px; margin-bottom: 20px; color: #007bff;">Loan Requirements</h3>
+
+                <div class="form-group">
+                    <label for="loan_type" style="display: block; margin-bottom: 8px; font-weight: 500;">Required Loan Type</label>
+                    <select id="loan_type" name="loan_type" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; background-color: white;">
+                        <option value="">-- Select Loan Type --</option>
+                        <option value="salaried_overdraft">Salaried Overdraft Loan</option>
+                        <option value="business_overdraft">Business Overdraft Loan</option>
+                        <option value="instant_funds">Instant Funds Loan</option>
+                        <option value="personal_loan">Personal Loan</option>
+                        <option value="home_loan">Home Loan</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="city" style="display: block; margin-bottom: 8px; font-weight: 500;">Current City</label>
+                    <input type="text" id="city" name="city" placeholder="e.g., Mumbai, Delhi, Bangalore" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+                </div>
+
+                <div class="form-group checkbox-group" style="margin-top: 25px;">
+                    <input type="checkbox" id="consent" name="consent" required style="margin-right: 10px;">
+                    <label for="consent" style="font-size: 0.9em; color: #444;">I authorize Finotic World to check my Credit Score and agree to the Terms & Conditions.</label>
+                </div>
+
+                <div class="form-group submit-group" style="margin-top: 30px; text-align: center;">
+                    <button type="submit" class="submit-button" style="width: 100%; padding: 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; transition: background-color 0.3s;">
+                        Check Eligibility & Apply <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </form>
+            
+            <p class="disclaimer" style="text-align: center; margin-top: 20px; font-size: 0.8em; color: #888;">Your data is completely safe and secured with us. We do not share your details with any third party without your consent.</p>
+        </div>
+    </main>
+    <footer>
+        </footer>
+</body>
+</html>
