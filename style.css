@@ -1217,3 +1217,10 @@ form button:hover {
 .apply-button:hover {
     background-color: #0056b3;
 }
+.loan-cards-grid {
+    display: grid; 
+    /* यह 3-कॉलम लेआउट सेट करता है */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+}
+/* बाकी के loan-card स्टाइल भी सही से लिंक होने चाहिए */
