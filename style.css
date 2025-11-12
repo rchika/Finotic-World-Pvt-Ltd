@@ -1286,3 +1286,22 @@ form button:hover {
         font-size: 1.5em;
     }
 }
+/* ==========================================================
+   LOAN DETAIL PAGE STYLING (Responsive fix for 3-Step Process)
+   ========================================================== */
+
+/* छोटे स्क्रीन पर स्टेप कार्ड को फुल-चौड़ाई दें */
+@media (max-width: 800px) {
+    .step-grid {
+        flex-direction: column; /* कॉलम लेआउट पर स्विच करें */
+        align-items: center;
+    }
+    .step-card {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+    .detail-content {
+        flex-direction: column; /* फीचर्स और एलिजिबिलिटी को कॉलम में रखें */
+        gap: 20px !important;
+    }
+}
