@@ -1148,23 +1148,23 @@ form button:hover {
    ========================================================== */
 .instant-loan-section {
     font-family: 'Poppins', sans-serif;
-    background-color: #ffffff; /* सफ़ेद बैकग्राउंड */
+    background-color: #ffffff; 
 }
 
 .loan-cards-grid {
-    display: grid;
-    /* 3 कॉलम, छोटी स्क्रीन पर एडजस्ट होगा */
+    /* **यह ग्रिड प्रॉपर्टी सबसे ज़रूरी है** */
+    display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 30px;
 }
 
 .loan-card {
-    background-color: #f9f9f9; /* हल्का ग्रे कार्ड बैकग्राउंड */
+    background-color: #f9f9f9; 
     border: 1px solid #eee;
     padding: 30px 20px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* हल्का शैडो */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -1175,7 +1175,6 @@ form button:hover {
 
 .icon-wrapper {
     margin-bottom: 20px;
-    /* क्रेडमार्ट जैसे आइकॉन के चारों ओर नीला रिंग बनाने के लिए */
     display: inline-block;
     padding: 10px;
     border: 2px solid #007bff;
@@ -1183,7 +1182,7 @@ form button:hover {
 }
 
 .loan-icon {
-    width: 35px; /* आइकॉन का साइज़ */
+    width: 35px; 
     height: 35px;
     display: block;
 }
@@ -1193,7 +1192,7 @@ form button:hover {
     font-weight: 600;
     color: #333;
     margin-bottom: 10px;
-    min-height: 50px; /* टाइटल के लिए पर्याप्त जगह */
+    min-height: 50px; 
 }
 
 .loan-description {
@@ -1206,7 +1205,7 @@ form button:hover {
 /* "Apply Now" बटन स्टाइल */
 .apply-button {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #007bff; /* नीला रंग */
     color: white;
     padding: 10px 25px;
     border-radius: 5px;
