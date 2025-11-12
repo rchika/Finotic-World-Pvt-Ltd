@@ -1152,7 +1152,7 @@ form button:hover {
 }
 
 .loan-cards-grid {
-    /* **यह ग्रिड प्रॉपर्टी सबसे ज़रूरी है** */
+    /* **यह 3-कॉलम ग्रिड बनाता है** */
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 30px;
@@ -1174,10 +1174,11 @@ form button:hover {
 }
 
 .icon-wrapper {
+    /* **यह आइकॉन के चारों ओर नीला गोलाकार बॉर्डर बनाता है** */
     margin-bottom: 20px;
     display: inline-block;
     padding: 10px;
-    border: 2px solid #007bff;
+    border: 2px solid #007bff; /* नीला रिंग */
     border-radius: 50%;
 }
 
@@ -1217,10 +1218,3 @@ form button:hover {
 .apply-button:hover {
     background-color: #0056b3;
 }
-.loan-cards-grid {
-    display: grid; 
-    /* यह 3-कॉलम लेआउट सेट करता है */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px;
-}
-/* बाकी के loan-card स्टाइल भी सही से लिंक होने चाहिए */
