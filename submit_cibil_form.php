@@ -1,50 +1,63 @@
 <?php
-// 1. सुनिश्चित करें कि फॉर्म POST मेथड से सबमिट हुआ है
+// 1. PHPMailer फ़ाइलों को शामिल करें (आपको इन्हें सर्वर पर अपलोड करना होगा)
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// मान लें कि आपने PHPMailer फ़ाइलों को 'vendor' फ़ोल्डर में रखा है
+require 'vendor/PHPMailer/src/Exception.php';
+require 'vendor/PHPMailer/src/PHPMailer.php';
+require 'vendor/PHPMailer/src/SMTP.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // 2. सुरक्षा के लिए इनपुट डेटा को सैनिटाइज (sanitize) करें
+    // सुरक्षा के लिए इनपुट डेटा को सैनिटाइज करें
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $email_from = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $mobile = filter_var($_POST['mobile'], FILTER_SANITIZE_STRING);
     $dob = filter_var($_POST['dob'], FILTER_SANITIZE_STRING);
     $city = filter_var($_POST['city'], FILTER_SANITIZE_STRING);
 
-    // 3. ईमेल सेटिंग्स (अपनी डिटेल्स यहाँ बदलें)
-    $to = "your-business-email@example.com"; // <-- अपना बिजनेस ईमेल पता यहाँ बदलें
-    $subject = "New CIBIL Check Lead from Finotic World Website";
-    
-    // 4. ईमेल मैसेज का कंटेंट तैयार करें
-    $message = "<html><body>";
-    $message .= "<h2 style='color: #007bff;'>CIBIL Check Request Details</h2>";
-    $message .= "<table style='border: 1px solid #ccc; border-collapse: collapse; width: 100%;'>";
-    $message .= "<tr><td style='padding: 8px; border: 1px solid #ccc; font-weight: bold; background-color: #f2f2f2;'>Name:</td><td style='padding: 8px; border: 1px solid #ccc;'>" . htmlspecialchars($name) . "</td></tr>";
-    $message .= "<tr><td style='padding: 8px; border: 1px solid #ccc; font-weight: bold; background-color: #f2f2f2;'>Mobile:</td><td style='padding: 8px; border: 1px solid #ccc;'>" . htmlspecialchars($mobile) . "</td></tr>";
-    $message .= "<tr><td style='padding: 8px; border: 1px solid #ccc; font-weight: bold; background-color: #f2f2f2;'>Email:</td><td style='padding: 8px; border: 1px solid #ccc;'>" . htmlspecialchars($email) . "</td></tr>";
-    $message .= "<tr><td style='padding: 8px; border: 1px solid #ccc; font-weight: bold; background-color: #f2f2f2;'>Date of Birth:</td><td style='padding: 8px; border: 1px solid #ccc;'>" . htmlspecialchars($dob) . "</td></tr>";
-    $message .= "<tr><td style='padding: 8px; border: 1px solid #ccc; font-weight: bold; background-color: #f2f2f2;'>City:</td><td style='padding: 8px; border: 1px solid #ccc;'>" . htmlspecialchars($city) . "</td></tr>";
-    $message .= "</table>";
-    $message .= "<p style='margin-top: 20px;'>*यह एक लीड है। कृपया ग्राहक से संपर्क करें और CIBIL चेक प्रक्रिया पूरी करें।*</p>";
-    $message .= "</body></html>";
+    // ईमेल मैसेज का कंटेंट तैयार करें
+    $body_content = "<h2 style='color: #007bff;'>CIBIL Check Request Details</h2>";
+    $body_content .= "<table style='border: 1px solid #ccc; border-collapse: collapse; width: 100%;'>";
+    $body_content .= "<tr><td style='padding: 8px; border: 1px solid #ccc; font-weight: bold; background-color: #f2f2f2;'>Name:</td><td style='padding: 8px; border: 1px solid #ccc;'>" . htmlspecialchars($name) . "</td></tr>";
+    // ... बाकी टेबल रो यहाँ जोड़ें ...
 
-    // 5. ईमेल हेडर सेट करें
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= 'From: Finotic World Website <no-replyinfo@finoticworld.com,no-replyhrmanagerfinotic@outlook.com>' . "\r\n";
-    
-    // 6. ईमेल भेजें
-    if (mail($to, $subject, $message, $headers)) {
-        // सफलता पर: यूजर को एक 'धन्यवाद' पेज पर रीडायरेक्ट करें
-        // सुनिश्चित करें कि आपके पास thank-you.html नामक एक पेज है
+    $mail = new PHPMailer(true);
+
+    try {
+        // 2. SMTP सेटिंग्स
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.example.com';   // <--- अपनी SMTP होस्ट बदलें (जैसे smtp.gmail.com)
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'your_smtp_username@example.com'; // <--- अपना SMTP यूज़रनेम बदलें
+        $mail->Password   = 'your_smtp_password'; // <--- अपना SMTP पासवर्ड बदलें
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // या ENCRYPTION_STARTTLS
+        $mail->Port       = 465; // या 587 (यदि STARTTLS का उपयोग कर रहे हैं)
+
+        // 3. प्राप्तकर्ता और प्रेषक (Recipients and Sender)
+        $mail->setFrom('no-replydivyaku9525@gmail.com', 'Website Lead'); // आपका वेबसाइट ईमेल
+        $mail->addAddress('your-business-emailhrmanagerfinotic@outlook.com', 'Finotic World Team'); // <--- प्राप्तकर्ता ईमेल
+        $mail->addReplyTo($email_from, $name); // ग्राहक की ईमेल पर जवाब दें
+
+        // 4. ईमेल कंटेंट
+        $mail->isHTML(true);
+        $mail->Subject = 'New CIBIL Check Lead: ' . $name;
+        $mail->Body    = $body_content;
+
+        $mail->send();
+        
+        // सफलता पर: यूजर को 'धन्यवाद' पेज पर रीडायरेक्ट करें
         header('Location: thank-you.html'); 
-        exit(); // महत्वपूर्ण: रीडायरेक्ट के बाद स्क्रिप्ट को रोकें
-    } else {
-        // असफलता पर: यूजर को एक एरर मैसेज दिखाएं
-        echo "<h1 style='color: red;'>Submission Failed</h1>";
-        echo "<p>We are sorry, but there was an error submitting your request. Please try again later.</p>";
-    }
+        exit();
 
+    } catch (Exception $e) {
+        // असफलता पर: एरर दिखाएं
+        echo "<h1 style='color: red;'>Submission Failed</h1>";
+        echo "<p>Error: The message could not be sent. Mailer Error: {$mail->ErrorInfo}</p>";
+        // यदि आप 405 एरर देख रहे हैं, तो यह SMTP एरर को प्रिंट करेगा
+    }
 } else {
-    // अगर कोई यूजर सीधे इस PHP फ़ाइल को एक्सेस करता है, तो उसे होमपेज पर भेजें
     header('Location: index.html');
     exit();
 }
