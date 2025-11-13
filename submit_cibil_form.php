@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 5. ईमेल हेडर सेट करें
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= 'From: Finotic World Website <no-reply@finoticworld.com>' . "\r\n";
+    $headers .= 'From: Finotic World Website <no-replyinfo@finoticworld.com,no-replyhrmanagerfinotic@outlook.com>' . "\r\n";
     
     // 6. ईमेल भेजें
     if (mail($to, $subject, $message, $headers)) {
