@@ -487,10 +487,11 @@
       </div>
     </section>
    <!-- ================= cibil ================= --> 
-    <section class="cibil-form-section" id="cibil-check-form">
+    <section class="cibil-check section" id="CIBIL CHECK">
     
-    <div class="cibil-hero-content">
-        <div class="hero-text-box">
+     <div class="container">
+        <h2 class="section-title">CIBIL CHECK</h2>
+      
             <h1>Check your CIBIL score and loan eligibility instantly.</h1>
             <p>Quick, easy, and hassle-free!</p>
             
@@ -966,5 +967,12 @@
 
   <!-- ================= MAIN JS (MENU, FORM, ETC.) ================= -->
   <script src="script.js"></script>
+  <script>
+    // Mobile Menu Toggle Logic
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
