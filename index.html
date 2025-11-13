@@ -595,11 +595,11 @@
       </div>
     </section>
    <!-- ================= cibil ================= --> 
-   <section id="cibil-check" class="cibil-form-section" style="padding: 50px 0; background-color: #e6f3ff;">
+   <section id="cibil-check" class="cibil-form-section">
     
-    <div class="cibil-hero-content container" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;"> 
+    <div class="cibil-hero-content container"> 
         
-        <div class="hero-text-box" style="flex: 1 1 50%; padding: 20px;">
+        <div class="hero-text-box">
             
             <h1 style="color: #007bff; font-size: 2.5em; font-weight: 700;">
                 FREE CIBIL Score Check & Loan Eligibility
@@ -607,74 +607,58 @@
             <p style="font-size: 1.3em; color: #666; margin-bottom: 30px;">
                 Know your credit health instantly. Quick, easy, and hassle-free!
             </p>
+            
+            <div class="stats-bar">
+                <span class="stat-item">25K+ Customers</span>
+                <span class="stat-item">30+ Partner Banks</span>
             </div>
             
-            <div class="stats-bar" style="display: flex; gap: 30px; font-size: 1.1em; font-weight: bold; color: #333;">
-                <span class="stat-item">
-                    25K+ Customers
-                </span>
-                <span class="stat-item">
-                    30+ Partner Banks
-                </span>
-            </div> 
-            
             <p style="font-size: 0.9em; color: #999; margin-top: 20px;">
-                By proceeding, you agree to our <a href="#" style="color: #007bff;">Terms & Privacy Policy</a>.
+                By proceeding, you agree to our Terms & Privacy Policy.
             </p>
         </div>
         
-        <div class="form-card-wrapper" style="flex: 1 1 40%; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+        <div class="form-card-wrapper">
             
-            <h2 class="section-title" style="margin-bottom: 20px; text-align: center; color: #007bff;">Check Your CIBIL Score</h2>
+            <h2 class="section-title" style="margin-bottom: 20px; text-align: center; color: #333;">Check Your CIBIL Score</h2>
             
-            <form class="cibil-form" action="submit_cibil_form.php" method="POST" style="display: grid; gap: 15px;">
+            <form class="cibil-form" action="backend.php" method="POST">
                 
                 <div class="form-group">
-                    <label for="name" style="font-weight: 500; display: block; margin-bottom: 5px;">Name</label> 
-                    <input type="text" id="name" name="name" placeholder="Full Name (As per PAN)" required 
-                           style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <label for="full_name">Name</label> 
+                    <input type="text" id="full_name" name="full_name" placeholder="Full Name (As per PAN)" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="mobile" style="font-weight: 500; display: block; margin-bottom: 5px;">Mobile Number</label>
-                    <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required pattern="[0-9]{10}" title="Ten digits phone number"
-                           style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email" style="font-weight: 500; display: block; margin-bottom: 5px;">Email ID</label>
-                    <input type="email" id="email" name="email" placeholder="Email ID" required
-                           style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <label for="email_id">Email ID</label>
+                    <input type="email" id="email_id" name="email_id" placeholder="Email ID" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="dob" style="font-weight: 500; display: block; margin-bottom: 5px;">Date of Birth</label>
-                    <input type="text" id="dob" name="dob" placeholder="dd-mm-yyyy" required
-                           onfocus="this.type='date'" onblur="if(!this.value)this.type='text'"
-                           style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" placeholder="Date of Birth" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="city" style="font-weight: 500; display: block; margin-bottom: 5px;">City</label>
-                    <input type="text" id="city" name="city" placeholder="Your Current City" required
-                           style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" placeholder="Your Current City" required>
                 </div>
                 
-                <button type="submit" class="submit-button"
-                        style="padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; transition: background-color 0.3s; margin-top: 10px;">
-                    GET CIBIL SCORE INSTANTLY
-                </button>
+                <button type="submit" class="submit-button">GET CIBIL SCORE INSTANTLY</button>
             </form>
             
-            <div class="whatsapp-box" style="text-align: center; margin-top: 20px; color: #25d366; font-weight: 500;">
+            <div class="whatsapp-box">
                 <i class="fa-brands fa-whatsapp"></i> Need Help? Chat with us on WhatsApp!
             </div>
         </div>
         
     </div>
 </section>
-
-<script>
     // This script ensures the placeholder shows correctly but uses the native date picker on click
     document.getElementById('dob').addEventListener('focus', function() {
         this.type = 'date';
