@@ -1305,3 +1305,31 @@ form button:hover {
         gap: 20px !important;
     }
 }
+/* ==========================================================
+   CAREERS PAGE STYLING
+   ========================================================== */
+.careers-main {
+    font-family: 'Poppins', sans-serif;
+}
+
+.job-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.job-details-list li {
+    padding-left: 20px; /* लिस्ट आइटम्स के लिए जगह */
+    position: relative;
+    line-height: 1.5;
+}
+
+.job-details-list i {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    font-size: 1.1em;
+}
