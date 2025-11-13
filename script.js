@@ -246,3 +246,64 @@ window.addEventListener('resize', updateCarousel);
 window.addEventListener('load', updateCarousel);
 
 // सुनिश्चित करें कि यह कोड आपकी index.html में <script src="script.js"></script> से लिंक है।
+
+<script>
+    // यह कोड सुनिश्चित करता है कि आपकी पुरानी स्क्रिप्ट के साथ कोई टकराव न हो
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // गिनती की गति को नियंत्रित करता है (मिलीसेकंड में)
+        
+        // एक फंक्शन जो गिनती करता है
+        const animateCounter = (counter) => {
+            // data-target से फाइनल नंबर प्राप्त करें
+            const target = +counter.getAttribute('data-target');
+            // वर्तमान में दिख रहा नंबर प्राप्त करें
+            let current = 0; 
+            
+            // Increment (बढ़ने) के लिए वैल्यू कैलकुलेट करें
+            // यह सुनिश्चित करता है कि छोटे और बड़े दोनों नंबर्स सही समय में पूरे हो जाएं
+            const increment = target / speed; 
+
+            const updateCount = () => {
+                // वर्तमान मान को वृद्धि (increment) द्वारा बढ़ाएँ
+                current += increment;
+                
+                if (current < target) {
+                    // अगर अभी तक फाइनल नंबर तक नहीं पहुंचा है
+                    // K (हज़ार) वाले नंबर्स के लिए
+                    if (target >= 1000) {
+                        counter.innerText = Math.ceil(current / 1000); // 1000 से भाग करके K में दिखाएँ
+                    } else {
+                        counter.innerText = Math.ceil(current); // छोटे नंबर्स को सीधे दिखाएँ
+                    }
+                    
+                    // 4 मिलीसेकंड के बाद फिर से फंक्शन चलाएँ
+                    setTimeout(updateCount, 4); 
+                } else {
+                    // फाइनल नंबर पर पहुँच गया है, तो असली वैल्यू दिखाएँ
+                    if (target >= 1000) {
+                        counter.innerText = (target / 1000); // जैसे 25000 को 25 दिखाएँ
+                    } else {
+                        counter.innerText = target; // जैसे 30 को 30 दिखाएँ
+                    }
+                }
+            };
+
+            // गिनती शुरू करें
+            updateCount();
+        };
+
+        // पेज पर मौजूद सभी .counter एलिमेंट्स पर एनीमेशन चलाएँ
+        counters.forEach(animateCounter);
+
+        // अन्य JavaScript कोड (जैसे menu-toggle) को यहाँ रखें 
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        });
+        // ... अन्य कोड ...
+    });
+</script>
+
+
