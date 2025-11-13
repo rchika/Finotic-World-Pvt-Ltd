@@ -487,61 +487,68 @@
       </div>
     </section>
    <!-- ================= cibil ================= --> 
-    <section class="cibil-check section" id="CIBIL CHECK">
+   <section id="cibil-check" class="cibil-form-section">
     
-     <div class="container">
-        <h2 class="section-title">CIBIL CHECK</h2>
-      
-            <h1>Check your CIBIL score and loan eligibility instantly.</h1>
-            <p>Quick, easy, and hassle-free!</p>
+    <div class="cibil-hero-content container"> 
+        
+        <div class="hero-text-box">
+            
+            <h1 style="color: #007bff; font-size: 2.5em; font-weight: 700;">
+                FREE CIBIL Score Check & Loan Eligibility
+            </h1>
+            <p style="font-size: 1.3em; color: #666; margin-bottom: 30px;">
+                Know your credit health instantly. Quick, easy, and hassle-free!
+            </p>
             
             <div class="stats-bar">
                 <span class="stat-item">25K+ Customers</span>
                 <span class="stat-item">30+ Partner Banks</span>
             </div>
             
+            <p style="font-size: 0.9em; color: #999; margin-top: 20px;">
+                By proceeding, you agree to our Terms & Privacy Policy.
+            </p>
         </div>
         
         <div class="form-card-wrapper">
+            
+            <h2 class="section-title" style="margin-bottom: 20px; text-align: center; color: #333;">Check Your CIBIL Score</h2>
+            
             <form class="cibil-form" action="backend.php" method="POST">
                 
                 <div class="form-group">
-                    <label for="full_name">Name</label>
-                    <input type="text" id="full_name" name="full_name" placeholder="Enter Your Name" required>
+                    <label for="full_name">Name</label> 
+                    <input type="text" id="full_name" name="full_name" placeholder="Full Name (As per PAN)" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="pan_name">PAN Name</label>
-                    <input type="text" id="pan_name" name="pan_name" placeholder="Enter Name on PAN" required>
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email_id">Email ID</label>
-                    <input type="email" id="email_id" name="email_id" placeholder="Enter Your Email" required>
+                    <input type="email" id="email_id" name="email_id" placeholder="Email ID" required>
                 </div>
-
-                <div class="form-group">
-                    <label for="mobile">Mobile Number</label>
-                    <input type="tel" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required>
-                </div>
-
+                
                 <div class="form-group">
                     <label for="dob">Date of Birth</label>
-                    <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dob" name="dob" placeholder="dd-mm-yyyy" required>
+                    <input type="date" id="dob" name="dob" placeholder="Date of Birth" required>
                 </div>
-
+                
                 <div class="form-group">
                     <label for="city">City</label>
-                    <input type="text" id="city" name="city" placeholder="Enter Your City" required>
+                    <input type="text" id="city" name="city" placeholder="Your Current City" required>
                 </div>
-
-                <button type="submit" class="submit-button">Submit</button>
+                
+                <button type="submit" class="submit-button">GET CIBIL SCORE INSTANTLY</button>
             </form>
             
             <div class="whatsapp-box">
-                <p>How can I help you? <span style="font-size: 1.5em;">💬</span></p>
+                <i class="fa-brands fa-whatsapp"></i> Need Help? Chat with us on WhatsApp!
             </div>
         </div>
+        
     </div>
 </section>
     <!-- ================= cibil table ================= -->
