@@ -8,17 +8,19 @@
 </head>
 <body>
 
+    <!-- ================= MAIN CONTENT ================= -->
     <main style="padding: 50px 5%; max-width: 1000px; margin: 0 auto; line-height: 1.6;">
+        
         <h1>हमसे संपर्क करें (Contact Finotic World Pvt. Ltd.)</h1>
         
-        <p>हमारा लक्ष्य हमेशा सर्वोत्तम वित्तीय समाधान प्रदान करना है। यदि आपके कोई प्रश्न, प्रतिक्रिया, या ऋण संबंधी पूछताछ है, तो कृपया नीचे दिए गए माध्यमों से हमसे संपर्क करें। हमारी टीम जल्द से जल्द आपकी सहायता करेगी।</p>
+        <p>हमारा लक्ष्य सर्वोत्तम वित्तीय समाधान प्रदान करना है। यदि आपके कोई प्रश्न, प्रतिक्रिया, या ऋण संबंधी पूछताछ है, तो नीचे दिए गए फ़ॉर्म का उपयोग कर हमें संदेश भेजें। हमारी टीम जल्द से जल्द आपकी सहायता करेगी।</p>
 
         <hr>
 
-        <h2>संपर्क विवरण (Contact Information):</h2>
-        
+        <h2>संपर्क विवरण (Contact Information)</h2>
+
         <div style="margin-top: 20px;">
-            <p><strong>पंजीकृत पता (Registered Address):</strong></p>
+            <p><strong>पता (Address):</strong></p>
             <p>Noida Sector 16, India</p>
         </div>
 
@@ -34,13 +36,40 @@
                 <a href="tel:+917317313101">+91 7317313101</a>
             </p>
         </div>
+
+        <hr style="margin: 40px 0;">
+
+        <!-- ================= CONTACT FORM ================= -->
+        <h2>पूछताछ फ़ॉर्म (Inquiry Form)</h2>
         
-        <div style="margin-top: 30px;">
-            <h2>पूछताछ फ़ॉर्म (Inquiry Form)</h2>
-            <p>आप अपनी पूछताछ सीधे हमें ईमेल कर सकते हैं, या यदि आपने अपनी `index.html` में कोई फ़ॉर्म बनाया है, तो उसे यहाँ दोबारा जोड़ सकते हैं।</p>
+        <form id="contactForm" style="margin-top: 25px; display: flex; flex-direction: column; gap: 15px; max-width: 600px;">
+
+            <div>
+                <label>Full Name</label><br>
+                <input type="text" name="fullname" required style="width:100%; padding:10px;">
             </div>
-        
+
+            <div>
+                <label>Email ID</label><br>
+                <input type="email" name="email" required style="width:100%; padding:10px;">
+            </div>
+
+            <div>
+                <label>Mobile Number</label><br>
+                <input type="tel" name="mobile" required style="width:100%; padding:10px;">
+            </div>
+
+            <div>
+                <label>Message</label><br>
+                <textarea name="message" rows="4" required style="width:100%; padding:10px;"></textarea>
+            </div>
+
+            <button type="submit" style="padding: 12px; background-color:#3f9095; color:#fff; font-size:16px; border:none; cursor:pointer;">
+                Send Message
+            </button>
+        </form>
+
     </main>
 
-    </body>
+</body>
 </html>
