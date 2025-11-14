@@ -8,17 +8,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<!-- ================= HEADER / NAVBAR ================= -->
+<header class="navbar">
+  <div class="container nav-container">
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li class="active"><a href="blog.html">Blog</a></li> 
-                <li><a href="contact.html">Contact</a></li>
-                </ul>
-        </nav>
-    </header>
+    <div class="logo">
+      <img src="images/logo.jpeg" alt="Finotic World Logo" />
+      <span>Finotic World Pvt. Ltd.</span>
+    </div>
+
+    <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#apply">Apply</a>
+
+      <!-- CIBIL Check link fixed -->
+      <a href="index.html#cibil-check">CIBIL Check</a>
+
+      <!-- Blog active -->
+      <a href="blog.html" class="active">BLOGS</a>
+
+      <a href="index.html#privacy-policy">Privacy Policy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+
     <main class="blog-listing-page" style="padding-top: 80px;"> 
         
         <section class="blog-section-final" style="padding: 60px 5%; background-color: #ffffff;">
