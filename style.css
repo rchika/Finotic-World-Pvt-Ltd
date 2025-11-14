@@ -1,457 +1,238 @@
+/* =========================
+   style.css — Modern Premium
+   Finotic World Pvt. Ltd.
+   Option B (clean, rounded, premium)
+   ========================= */
 
-/* ================= GLOBAL ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+/* ---------- variables ---------- */
+:root{
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --accent: #007bff;      /* primary blue */
+  --teal: #3f9095;        /* secondary teal */
+  --gold: #ffb703;        /* accent gold */
+  --nav-grad: linear-gradient(90deg,#2a3bd6 0%,#3347fa 100%);
+  --glass: rgba(255,255,255,0.6);
+  --shadow-sm: 0 6px 18px rgba(16,24,40,0.06);
+  --shadow-md: 0 12px 30px rgba(16,24,40,0.08);
+  --radius: 12px;
+  --container: 1140px;
+  --max-width: 1140px;
 }
 
-body {
-  background: #f5f6fa;
-  color: #333;
-  line-height: 1.6;
-}
+/* ---------- base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+html,body { height:100%; font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); }
+a { color: inherit; text-decoration: none; }
+img { max-width:100%; display:block; }
 
-/* ================= NAVBAR ================= */
+/* ---------- layout container ---------- */
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- NAVBAR ---------- */
 .navbar {
-  background: linear-gradient(90deg, #3b41f7, #3347fa);
+  position: sticky; top:0;
+  z-index: 1200;
+  background: var(--nav-grad);
   color: #fff;
-  padding: 15px 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.nav-container { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:12px 20px; max-width:var(--container); margin:0 auto; }
+.logo { display:flex; align-items:center; gap:12px; }
+.logo img { height:48px; width:auto; border-radius:8px; object-fit:cover; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.logo span { font-weight:700; font-size:1.05rem; color:#fff; letter-spacing:0.2px; }
+.menu-toggle { display:none; background:none; border:none; color:#fff; font-size:1.6rem; cursor:pointer; }
+
+/* nav links */
+.nav-links { display:flex; gap:18px; align-items:center; }
+.nav-links a { color: rgba(255,255,255,0.95); padding:8px 10px; border-radius:8px; font-weight:500; transition: all .18s ease; }
+.nav-links a:hover { background: rgba(255,255,255,0.07); color: var(--gold); transform:translateY(-1px); }
+
+/* mobile */
+@media (max-width: 860px) {
+  .menu-toggle { display:block; }
+  .nav-links { position:absolute; top:70px; right:0; background: #002b5b; flex-direction:column; gap:0; width: 220px; padding:10px; display:none; border-radius:8px; }
+  .nav-links.show { display:flex; }
+  .nav-links a { color:#fff; padding:12px 14px; width:100%; }
 }
 
-.navbar .container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* ---------- HERO ---------- */
+.hero { min-height: 70vh; display:flex; align-items:center; background-image: linear-gradient(180deg, rgba(10,25,47,0.35), rgba(10,25,47,0.35)), url('images/tandem-x-visuals-INyY9g9xNGQ-unsplash.jpg'); background-size:cover; background-position:center; padding:60px 0; border-bottom-left-radius:30px; border-bottom-right-radius:30px; color:#fff; }
+.hero-container { display:flex; width:100%; align-items:center; justify-content:center; }
+.hero-text { text-align:center; max-width:820px; padding:30px; }
+.hero h1 { font-size:2.6rem; line-height:1.05; margin-bottom:12px; font-weight:700; color:#fff; text-shadow: 0 6px 20px rgba(0,0,0,0.35); }
+.hero p { color: rgba(255,255,255,0.9); font-size:1.05rem; margin-bottom:18px; max-width:760px; margin-left:auto; margin-right:auto; }
+.hero-buttons { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 20px; border-radius:10px; font-weight:600; cursor:pointer; border: none; }
+.btn.primary { background: var(--gold); color: #09203b; }
+.btn.secondary { background: transparent; color: #fff; border: 1.6px solid rgba(255,255,255,0.12); }
+
+/* ---------- SECTION TITLE ---------- */
+.section { padding:64px 0; }
+.section-title { font-size:1.9rem; font-weight:700; color:var(--text); text-align:center; margin-bottom:8px; }
+.section-subtitle { color:var(--muted); text-align:center; max-width:760px; margin:8px auto 36px; }
+
+/* ---------- SERVICES GRID ---------- */
+.services { background: transparent; }
+.services-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:22px; align-items:start; max-width:1200px; margin:18px auto 0; }
+.service-card { background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95)); border-radius:16px; padding:20px; box-shadow:var(--shadow-md); transition: transform .22s ease, box-shadow .22s ease; display:flex; flex-direction:column; gap:14px; min-height:220px; }
+.service-card:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(12,20,40,0.12); }
+.service-header { display:flex; align-items:center; gap:14px; }
+.service-icon { width:56px; height:56px; object-fit:contain; border-radius:10px; background:linear-gradient(135deg,#f6f9ff,#eef7fa); padding:8px; box-shadow: 0 6px 18px rgba(12,20,40,0.06); }
+.service-header h3 { font-size:1.1rem; color:var(--text); margin:0; }
+.service-short-text { color:var(--muted); font-size:0.95rem; flex:1; }
+.btn-outline.service-btn { align-self:flex-start; background:transparent; border:1px solid rgba(0,0,0,0.08); padding:8px 14px; border-radius:999px; color:var(--teal); font-weight:600; cursor:pointer; }
+
+/* ---------- SERVICE DETAIL ---------- */
+.service-detail { display:none; background: rgba(255,255,255,0.98); border-radius:14px; margin-top:28px; padding:28px; box-shadow: var(--shadow-md); }
+.detail-container { max-width:900px; margin:0 auto; }
+.detail-container h2 { color:var(--text); margin-bottom:12px; }
+.detail-container p { color:var(--muted); line-height:1.7; margin-bottom:12px; }
+.detail-container ul { margin-left:20px; margin-top:8px; color:var(--muted); }
+
+/* ---------- INSTANT LOANS (cards) ---------- */
+.instant-loan-section { background: #fff; border-radius:12px; padding:48px 0; margin-top:20px; }
+.loan-cards-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:20px; max-width:1200px; margin: 18px auto 0; }
+.loan-card { background: #fff; padding:20px; border-radius:12px; text-align:center; box-shadow:var(--shadow-sm); transition: transform .18s ease; }
+.loan-card:hover { transform: translateY(-6px); box-shadow:var(--shadow-md); }
+.icon-wrapper { display:inline-flex; align-items:center; justify-content:center; width:72px; height:72px; border-radius:50%; background: linear-gradient(135deg, rgba(0,123,255,0.07), rgba(63,144,149,0.04)); margin:0 auto 12px; }
+.loan-title { font-size:1.05rem; font-weight:700; margin-bottom:8px; color:var(--text); }
+.loan-description { color:var(--muted); margin-bottom:12px; }
+.apply-button { display:inline-block; padding:10px 18px; border-radius:8px; background:var(--accent); color:#fff; font-weight:600; }
+
+/* ---------- PARTNERS SLIDER ---------- */
+.partners-section { margin-top:34px; padding:26px 0 40px; }
+.slider-track-container { overflow:hidden; }
+#animated-logos { display:flex; gap:12px; align-items:center; width:max-content; animation: scroll-logos 30s linear infinite; }
+@keyframes scroll-logos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+#animated-logos img { height:48px; opacity:0.7; filter:grayscale(100%); transition: all .25s ease; }
+#animated-logos img:hover { filter:none; opacity:1; transform: scale(1.02); }
+.slider-track-container:hover #animated-logos { animation-play-state:paused; }
+
+/* ---------- EMI CALCULATOR ---------- */
+.emi-calculator { background: #fff; border-radius:14px; padding:28px; box-shadow:var(--shadow-md); max-width:1100px; margin: 24px auto; display:grid; grid-template-columns: 1fr 320px; gap:24px; align-items:start; }
+.calculator-form { display:flex; flex-direction:column; gap:14px; }
+.input-group label { font-weight:600; color:var(--text); margin-bottom:6px; }
+.input-group input { width:100%; padding:12px 14px; border-radius:8px; border:1px solid #e6eef5; }
+.btn.primary { background:var(--gold); color:#072036; border-radius:10px; padding:12px 16px; }
+.result-box { background: linear-gradient(180deg,#fbfdff,#ffffff); border-radius:10px; padding:18px; box-shadow:var(--shadow-sm); }
+.result-box h3 { margin-bottom:12px; color:var(--teal); }
+
+/* ---------- CIBIL FORM (card) ---------- */
+.cibil-form-section { padding:48px 0; }
+.cibil-hero-content { display:flex; gap:32px; align-items:flex-start; max-width:1200px; margin:0 auto; }
+.hero-text-box { flex:1; min-width:260px; }
+.hero-text-box h1 { font-size:1.8rem; margin-bottom:8px; color:var(--text); }
+.hero-text-box p { color:var(--muted); margin-bottom:12px; font-size:1rem; }
+.stats-bar { display:flex; gap:30px; margin-top:18px; }
+.stat-item { font-size:1.6rem; font-weight:700; color:var(--accent); }
+
+/* form card */
+.form-card-wrapper { flex:1; min-width:320px; background:var(--card); padding:22px; border-radius:12px; box-shadow:var(--shadow-md); }
+.cibil-form .form-group { margin-bottom:12px; display:flex; flex-direction:column; gap:6px; }
+.cibil-form input, .cibil-form select { padding:12px 14px; border-radius:8px; border:1px solid #e6eef5; width:100%; font-size:0.98rem; }
+.cibil-form input:focus { outline: none; border-color: var(--accent); box-shadow: 0 6px 20px rgba(3,102,214,0.06); }
+.submit-button { background:var(--accent); color:#fff; padding:12px 14px; border-radius:10px; border:none; width:100%; font-weight:700; }
+.whatsapp-box { margin-top:16px; background:#f0fff5; border:1px solid #d9f2e3; padding:12px; border-radius:8px; text-align:center; }
+
+/* ---------- CIBIL SCORE TABLE ---------- */
+.cibil-info-section-simple { padding:48px 0; }
+.cibil-score-simple-table { width:100%; border-collapse:collapse; background:#fff; border-radius:8px; overflow:hidden; box-shadow:var(--shadow-sm); }
+.cibil-score-simple-table th, .cibil-score-simple-table td { padding:14px 16px; border-bottom:1px solid #f1f5f9; text-align:left; }
+.cibil-score-simple-table th { background:var(--teal); color:#fff; font-weight:700; text-transform:uppercase; font-size:0.9rem; }
+
+/* score colors */
+.bad-score{ color:#e74c3c; font-weight:700; } .poor-score{ color:#f39c12; font-weight:700; } .average-score{ color:#f1c40f; font-weight:700; } .good-score{ color:#2ecc71; font-weight:700; } .excellent-score{ color:var(--accent); font-weight:700; }
+
+/* ---------- FAQ ---------- */
+.faq-section { background: transparent; }
+.faq-item { max-width:900px; margin:18px auto; border-radius:10px; overflow:hidden; margin-bottom:10px; }
+.faq-question { width:100%; padding:16px 18px; text-align:left; background:#fff; border:none; display:flex; align-items:center; justify-content:space-between; gap:12px; box-shadow:var(--shadow-sm); cursor:pointer; font-weight:600; }
+.faq-answer { background:#fbfdff; padding:0 18px; max-height:0; overflow:hidden; transition:max-height .42s ease, padding .28s ease; }
+.faq-answer.open { padding:14px 18px 20px 18px; max-height:800px; }
+
+/* ---------- BLOG GRID ---------- */
+.blog-grid-final { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:22px; max-width:1200px; margin:12px auto 0; }
+.blog-card-final { background:var(--card); border-radius:12px; overflow:hidden; box-shadow:var(--shadow-sm); transition: transform .22s ease; }
+.blog-card-final:hover { transform: translateY(-6px); box-shadow:var(--shadow-md); }
+.blog-image-wrapper-final { height:180px; overflow:hidden; background:#f6f8fb; }
+.blog-image-final { width:100%; height:100%; object-fit:cover; display:block; }
+.blog-content-final { padding:14px 16px; }
+.blog-title-final { font-size:1.02rem; font-weight:700; color:var(--text); margin-bottom:10px; }
+.blog-meta-final { display:flex; justify-content:space-between; color:var(--muted); font-size:0.9rem; border-top:1px solid #f1f5f9; padding-top:10px; }
+
+/* ---------- STATS ---------- */
+.stats-grid { display:flex; gap:22px; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:20px; }
+.stat-item { text-align:center; background:linear-gradient(180deg,#fff,#fbfdff); padding:18px; border-radius:12px; min-width:140px; box-shadow:var(--shadow-sm); }
+
+/* ---------- APPLY FORM ---------- */
+.apply { background:linear-gradient(180deg,#fff,#fbfdff); border-radius:12px; padding:36px 0; margin-top:20px; }
+.apply-form { max-width:560px; margin:18px auto 0; display:flex; flex-direction:column; gap:12px; }
+.apply-form input, .apply-form select, .apply-form textarea { padding:12px 14px; border-radius:8px; border:1px solid #e6eef5; font-size:0.98rem; }
+.apply-form button { background:var(--accent); color:#fff; padding:12px; border-radius:10px; border:none; font-weight:700; }
+
+/* ---------- FEEDBACK CAROUSEL ---------- */
+.feedback-section { padding:36px 0; }
+.carousel-wrapper { position:relative; overflow:hidden; }
+.feedback-carousel { display:flex; gap:18px; padding:20px 10px; transition: transform .45s cubic-bezier(.22,.9,.36,1); }
+.feedback-card { min-width:300px; background:var(--card); padding:20px; border-radius:12px; box-shadow:var(--shadow-sm); }
+.carousel-control { position:absolute; top:50%; transform:translateY(-50%); z-index:30; border:none; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--accent); color:#fff; cursor:pointer; box-shadow:0 8px 18px rgba(2,12,27,0.12); }
+.carousel-control.prev { left:12px; } .carousel-control.next { right:12px; }
+
+/* ---------- FOOTER ---------- */
+.footer { background: linear-gradient(135deg,#002b5b,#004e92); color:#fff; padding:36px 0 20px; margin-top:36px; border-radius:10px 10px 0 0; }
+.footer-container { display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:20px; max-width:var(--max-width); margin:0 auto; padding:0 20px; }
+.footer-col h3, .footer-col h4 { color: var(--gold); margin-bottom:10px; }
+.footer-col p, .footer-col ul { color: rgba(255,255,255,0.92); font-size:0.95rem; }
+.footer-bottom { text-align:center; padding-top:12px; color:rgba(255,255,255,0.7); border-top: 1px solid rgba(255,255,255,0.06); margin-top:20px; }
+
+/* ---------- UTILITIES ---------- */
+.center { text-align:center; }
+.small { font-size:0.9rem; color:var(--muted); }
+.shadow-sm { box-shadow:var(--shadow-sm); }
+.round { border-radius:999px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size:2.2rem; }
+  .emi-calculator { grid-template-columns: 1fr; }
+  .cibil-hero-content { flex-direction:column; padding: 0 20px; }
+  .logo img { height:44px; }
+}
+@media (max-width: 720px) {
+  .services-grid { grid-template-columns: 1fr; gap:16px; }
+  .nav-links { display:none; }
+  .menu-toggle { display:block; }
+  .hero { padding:40px 0; min-height:60vh; }
+  .hero h1 { font-size:1.8rem; }
+  .loan-cards-grid { grid-template-columns: 1fr; }
+  .feedback-card { min-width:100%; }
+  .blog-image-wrapper-final { height:160px; }
+  .stat-item { min-width:120px; }
+  .footer-container { padding:0 14px; grid-template-columns: 1fr; }
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo img {
-  height: 55px;
-  width: auto;
-}
-
-.logo span {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #fff;
-}
-
-.nav-links {
-  display: flex;
-  gap: 25px;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #ffb703;
-}
-
-.menu-toggle {
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  color: #fff;
-  display: none;
-  cursor: pointer;
-}
-
-/* ================= HERO ================= */
-.hero {
-  background: url('images/tandem-x-visuals-INyY9g9xNGQ-unsplash.jpg') center/cover no-repeat;
-  height: 90vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 43, 91, 0.6);
-  z-index: 1;
-}
-
-.hero-text {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 0 20px;
-}
-
-.hero-text h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-.hero-text p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.hero-buttons .btn {
-  padding: 12px 30px;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.hero-buttons .btn.primary {
-  background: #ffb703;
-  color: #002b5b;
-}
-
-.hero-buttons .btn.primary:hover {
-  background: #e09e02;
-}
-
-.hero-buttons .btn.secondary {
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-}
-
-.hero-buttons .btn.secondary:hover {
-  background: #fff;
-  color: #002b5b;
-}
-
-/* ================== GLOBAL SECTION STYLES (optional but useful) ================== */
-.section {
-  padding: 60px 20px;
-}
-
-.section-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  text-align: center;
-  color: #002b5b;
-  margin-bottom: 10px;
-}
-
-.section-subtitle {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-size: 0.95rem;
-  color: #555;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* ================== SERVICES ================== */
-.services {
-  background: #ffffff;
-}
-
-/* Grid of cards */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-}
-
-@media (max-width: 992px) {
-  .services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Individual card */
-.service-card {
-  background: #63c1ce;           /* teal-ish like your old design */
-  border-radius: 12px;
-  padding: 24px 18px;
-  text-align: left;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.service-card::before {
-  /* subtle gradient overlay for premium feel */
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(255,255,255,0.35), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  pointer-events: none;
-}
-
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
-  background: #56b3c1;
-}
-
-.service-card:hover::before {
-  opacity: 1;
-}
-
-/* Header: icon + title */
-.service-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.service-icon {
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
-}
-
-.service-header h3 {
-  font-size: 1.2rem;
-  color: #002b5b;
-  margin: 0;
-}
-
-/* Short text inside card */
-.service-short-text {
-  font-size: 0.95rem;
-  color: #022B3A;
-  margin-bottom: 18px;
-}
-
-/* “अधिक जानें” button on card */
-.btn-outline.service-btn {
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 50px;
-  border: 1px solid #004e64;
-  background-color: transparent;
-  color: #004e64;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-outline.service-btn:hover {
-  background-color: #004e64;
-  color: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* ================== SERVICE DETAIL SECTIONS ================== */
-.service-detail {
-  background: #f7fbfc;
-  margin-top: 40px;
-  border-top: 1px solid #e0edf2;
-}
-
-.detail-container {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.detail-container h2 {
-  font-size: 1.8rem;
-  color: #002b5b;
-  margin-bottom: 16px;
-}
-
-.detail-container h3 {
-  font-size: 1.1rem;
-  color: #004e64;
-  margin-top: 22px;
-  margin-bottom: 10px;
-}
-
-.detail-container p {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #444;
-}
-
-.detail-container ul {
-  padding-left: 18px;
-  margin-top: 8px;
-}
-
-.detail-container li {
-  font-size: 0.95rem;
-  color: #333;
-  margin-bottom: 6px;
-}
-
-.detail-cta {
-  margin-top: 20px;
-  font-weight: 600;
-}
-
-.detail-cta a {
-  color: #0077b6;
-  text-decoration: none;
-}
-
-.detail-cta a:hover {
-  text-decoration: underline;
-}
-
-
-/* ================= ABOUT ================= */
-.about {
-  padding: 60px 20px;
-  background: #e0f7fa;
-  text-align: center;
-}
-
-.about h2 {
-  font-size: 2.5rem;
-  color: #002b5b;
-  margin-bottom: 20px;
-}
-
-.about p {
-  max-width: 700px;
-  margin: 0 auto 20px;
-}
-
-.about ul {
-  list-style: none;
-  margin-top: 20px;
-}
-
-.about ul li {
-  margin-bottom: 10px;
-  font-size: 1rem;
-}
-
-/* ================= STATS ================= */
-.stats {
-  padding: 60px 20px;
-  text-align: center;
-  background: #fff;
-}
-
-.stats-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.stat-item h3 {
-  font-size: 2rem;
-  color: #ffb703;
-  margin-bottom: 5px;
-}
-
-.stat-item p {
-  font-size: 1rem;
-  color: #002b5b;
-}
-
-/* ================= APPLY FORM ================= */
-.apply {
-  padding: 60px 20px;
-  text-align: center;
-  background: #e0f7fa;
-}
-
-.apply h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #002b5b;
-}
-
-form {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-form input,
-form select,
-form textarea {
-  padding: 12px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-form button {
-  background: #ffb703;
-  color: #002b5b;
-  border: none;
-  border-radius: 5px;
-  font-weight: 600;
-  padding: 12px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background: #ffd44d;
-}
-
-/* ================= FOOTER ================= */
+/* ---------- small polish (tiny helpers) ---------- */
+input::placeholder { color:#aab3c2; }
+button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0 6px 20px rgba(3,102,214,0.06); border-color:var(--accent); }
+/* ================= FOOTER FIXED ================= */
 .footer {
   background: linear-gradient(135deg, #002b5b, #004e92);
   color: #fff;
-  padding: 30px 20px 20px; /* Reduced vertical padding */
+  padding: 40px 20px;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 25px; /* Reduced gap between columns */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
 }
 
-/* Footer Headings */
 .footer-col h3,
 .footer-col h4 {
   margin-bottom: 15px;
@@ -459,15 +240,14 @@ form button:hover {
   font-weight: 600;
 }
 
-/* Footer Text & Lists */
 .footer-col p,
 .footer-col ul {
   font-size: 0.95rem;
-  line-height: 1.5; /* reduced line-height for compact spacing */
+  line-height: 1.6;
 }
 
-.footer-col ul li {
-  margin-bottom: 8px;
+.footer-col ul {
+  list-style: none;
 }
 
 .footer-col ul li a {
@@ -480,893 +260,54 @@ form button:hover {
   color: #ffb703;
 }
 
-/* Social Links */
+/* Contact icons */
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.footer-contact img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Social Icons */
 .social-links {
   display: flex;
   gap: 15px;
 }
 
-.social-links a img {
+.social-links img {
   width: 28px;
   height: 28px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.social-links a:hover img {
+.social-links img:hover {
   transform: scale(1.1);
-  filter: brightness(1.2);
 }
 
-/* Footer Contact Column */
-.footer-contact p {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-}
-
-.footer-contact p img {
-  width: 20px;
-  height: 20px;
-}
-
-.footer-contact p a {
-  color: #ffb703;
-  text-decoration: none;
-}
-
-.footer-contact p a:hover {
-  color: #e09e02;
-}
-
-/* Footer Bottom */
+/* Bottom */
 .footer-bottom {
   text-align: center;
   margin-top: 25px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 10px;
-  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   color: #ddd;
+  font-size: 0.9rem;
 }
 
-/* ================= RESPONSIVE ================= */
+/* Responsive Fix */
 @media (max-width: 768px) {
-  .service-cards {
-    flex-direction: column;
-    align-items: center;
+  .footer-container {
+    text-align: center;
   }
-
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-
-  .hero-text p {
-    font-size: 1rem;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    background: #002b5b;
-    padding: 20px 0;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .footer-container,
-  .social-links,
   .footer-contact p {
-    text-align: center;
     justify-content: center;
   }
-}
-/* ==========================================================
-   ULTIMATE FINAL FIX: Forcing 4-Column Service Grid Layout
-   (यह सुनिश्चित करता है कि बॉक्स एक लाइन में आएं, जैसा कि Image 1 में है)
-   ========================================================== */
-
-/* 1. कंटेनर जो चारों सर्विस बॉक्सेस को होल्ड करता है */
-/* सुनिश्चित करें कि आपके HTML में यह क्लास है जो इन 4 बॉक्सेस को घेरती है */
-.services-container {
-    display: flex !important; /* Flexbox को लागू करने के लिए महत्वपूर्ण */
-    flex-wrap: wrap !important; /* छोटी स्क्रीन पर बॉक्सेस को नीचे जाने की अनुमति देता है */
-    justify-content: space-around !important; /* बॉक्सेस के बीच समान जगह */
-    align-items: flex-start !important; /* बॉक्सेस को ऊपर से अलाइन करें */
-    gap: 20px !important; /* बॉक्सेस के बीच की दूरी */
-    padding: 30px 10px !important; /* पैडिंग जोड़ें */
-    max-width: 1200px !important; /* कंटेनर की अधिकतम चौड़ाई */
-    margin: 30px auto !important; /* कंटेनर को केंद्र में लाएं और ऊपर/नीचे मार्जिन दें */
-    box-sizing: border-box !important; /* पैडिंग/बॉर्डर को चौड़ाई में शामिल करें */
-}
-
-/* 2. प्रत्येक व्यक्तिगत सर्विस बॉक्स की स्टाइलिंग */
-.service-box {
-    flex: 1 1 calc(25% - 20px) !important; /* 4 कॉलम के लिए: 25% जगह लें, गैप एडजस्ट करें */
-    max-width: calc(25% - 20px) !important; /* सुनिश्चित करता है कि यह 4 कॉलम में रहे */
-    min-width: 220px !important; /* बहुत छोटी स्क्रीन पर बहुत छोटा होने से बचाता है */
-    box-sizing: border-box !important; 
-    text-align: center !important;
-    padding: 25px !important;
-    margin-bottom: 20px !important; 
-    /* सुनिश्चित करें कि पृष्ठभूमि रंग और अन्य स्टाइलिंग Image 1 से मेल खाए */
-    background-color: #3f9095 !important; /* आपके हरे/नीले रंग जैसा */
-    color: #fff !important; /* टेक्स्ट का रंग सफेद */
-    border-radius: 8px !important;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important; /* गहरा शैडो */
-    transition: transform 0.3s ease !important; /* होवर इफ़ेक्ट के लिए */
-    cursor: pointer !important; /* क्लिक करने योग्य दिखने के लिए */
-}
-
-/* होवर इफ़ेक्ट (जब माउस बॉक्स पर जाए) */
-.service-box:hover {
-    transform: translateY(-5px) scale(1.02) !important; /* थोड़ा ऊपर उठे और बड़ा हो */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* 3. छोटी स्क्रीन के लिए मीडिया क्वेरी ताकि मोबाइल पर डिज़ाइन न टूटे */
-@media (max-width: 1024px) {
-    .services-container {
-        justify-content: center !important; /* छोटी स्क्रीन पर सेंटर अलाइन करें */
-    }
-    .service-box {
-        flex: 1 1 calc(50% - 20px) !important; /* टैबलेट पर 2-कॉलम लेआउट */
-        max-width: calc(50% - 20px) !important;
-    }
-}
-
-@media (max-width: 600px) {
-    .service-box {
-        flex: 1 1 90% !important; /* मोबाइल पर 1-कॉलम लेआउट */
-        max-width: 90% !important;
-        margin: 10px auto !important; /* सेंटर में करें */
-    }
-}
-/* ==========================================================
-   NEW CODE: EMI Calculator Styling
-   ========================================================== */
-.emi-calculator {
-    /* HTML में इनलाइन स्टाइलिंग का उपयोग किया गया है, लेकिन यहाँ फ़ॉर्म तत्वों के लिए स्टाइलिंग है */
-    font-family: 'Poppins', sans-serif;
-  
-}
-
-.calculator-form {
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 20px;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.emi-calculator button {
-    background-color: #3f9095; 
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.emi-calculator button:hover {
-    background-color: #327076; 
-}
-
-.result-box h3 {
-    color: #3f9095;
-    margin-top: 0;
-}
-
-.result-box p {
-    font-size: 1.1em;
-    font-weight: 500;
-}
-
-.result-box span {
-    font-weight: bold;
-    color: #008000; 
-}
-
-/* मोबाइल के लिए अनुकूलन */
-@media (max-width: 600px) {
-    .emi-calculator {
-        padding: 30px 5%;
-        margin: 20px auto;
-    }
-}
-/* ==========================================================
-   FINAL  STYLE CIBIL CHECK FORM STYLING
-   ========================================================== */
-
-/* 1. मुख्य सेक्शन कंटेनर */
-.cibil-form-section {
-    background-color: #f8f8f8; /* सेक्शन का हल्का बैकग्राउंड */
-    padding: 80px 5%;
-    font-family: 'Poppins', sans-serif;
-}
-
-/* 2. डुअल-कॉलम लेआउट */
-.cibil-hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex; /* Flexbox ऑन */
-    flex-wrap: wrap; /* मोबाइल के लिए रैप (Wrap) करें */
-    align-items: flex-start; 
-    gap: 50px;
-}
-
-/* 3. बाईं ओर का टेक्स्ट (Left Side Text) */
-.hero-text-box {
-    flex: 1;
-    min-width: 300px; /* न्यूनतम चौड़ाई */
-    padding-top: 30px;
-}
-
-.hero-text-box h1 {
-    font-size: 2.5em;
-    font-weight: 700;
-    color: #333;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.hero-text-box p {
-    font-size: 1.3em;
-    color: #666;
-    margin-bottom: 30px;
-}
-
-/* Stat Bar (25K+, 30+ Banks) */
-.stats-bar {
-    display: flex;
-    gap: 40px;
-    margin-top: 40px;
-}
-
-.stat-item {
-    font-size: 1.8em;
-    font-weight: 800;
-    color: #007bff; /* नीला रंग */
-}
-
-/* 4. दाईं ओर का फॉर्म कार्ड */
-.form-card-wrapper {
-    flex: 1;
-    min-width: 350px;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* फॉर्म के लिए कार्ड शैडो */
-}
-
-/* 5. इनपुट फील्ड स्टाइलिंग */
-.cibil-form label {
-    display: none; /* लेबल को छुपा दें, क्योंकि Placeholder ही काफी है */
-}
-
-.cibil-form .form-group {
-    margin-bottom: 20px;
-}
-
-.cibil-form input[type="text"],
-.cibil-form input[type="email"],
-.cibil-form input[type="tel"],
-.cibil-form input[type="date"],
-.cibil-form input[type="text"][placeholder] { /* Placeholder वाले इनपुट को टारगेट करें */
-    width: 100%;
-    padding: 12px 15px; /* पैडिंग बढ़ाएँ */
-    border: 1px solid #ddd; /* पतला बॉर्डर */
-    border-radius: 5px;
-    font-size: 1em;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.cibil-form input:focus {
-    border-color: #007bff; /* फोकस करने पर नीला बॉर्डर */
-}
-
-/* 6. Submit Button (SUBMIT) */
-.submit-button {
-    width: 100%;
-    background-color: #007bff; /* Cred-Mart जैसा नीला रंग */
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-
-.submit-button:hover {
-    background-color: #0056b3;
-}
-
-/* 7. WhatsApp Box */
-.whatsapp-box {
-    text-align: center;
-    background-color: #e6ffec; 
-    border: 1px solid #c9f7d6;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 25px;
-    color: #333;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-
-/* 8. मोबाइल ऑप्टिमाइजेशन (Mobile Optimization) */
-@media (max-width: 768px) {
-    .cibil-hero-content {
-        flex-direction: column; /* मोबाइल पर कॉलम में बदलें */
-    }
-    .hero-text-box h1 {
-        font-size: 2em;
-        text-align: center;
-    }
-    .hero-text-box p {
-        text-align: center;
-    }
-    .stats-bar {
-        justify-content: center;
-        gap: 20px;
-    }
-    .form-card-wrapper {
-        box-shadow: none; 
-        border: 1px solid #eee; 
-    }
-}
-/* ==========================================================
-   SIMPLE CIBIL SCORE EXPLANATION TABLE STYLING
-   ========================================================== */
-
-.cibil-info-section-simple {
-    padding: 60px 5%;
-    background-color: #f1f7fc; /* हल्का बैकग्राउंड रंग */
-    font-family: 'Poppins', sans-serif;
-}
-
-.cibil-info-container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.cibil-score-table-wrapper {
-    overflow-x: auto; /* छोटे स्क्रीन पर स्क्रॉल करने योग्य */
-}
-
-.cibil-score-simple-table {
-    width: 100%;
-    min-width: 700px; 
-    border-collapse: collapse; /* बॉर्डर्स को मिला दें */
-    margin-top: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* बहुत हल्का शैडो */
-    background-color: #fff;
-    border-radius: 5px;
-}
-
-.cibil-score-simple-table th, 
-.cibil-score-simple-table td {
-    padding: 18px 15px; 
-    text-align: left;
-    border: 1px solid #ddd; /* हर सेल पर साफ़, पतला बॉर्डर */
-    font-size: 0.95em;
-    vertical-align: top; 
-}
-
-.cibil-score-simple-table th {
-    background-color: #3f9095; 
-    color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-/* हर दूसरे रो को अलग रंग दें (Alternating row colors) */
-.cibil-score-simple-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* स्कोर कैटेगरी के रंग */
-.bad-score {
-    color: #ff4d4d; /* लाल */
-    font-weight: bold;
-}
-.poor-score {
-    color: #ff9933; /* नारंगी */
-    font-weight: bold;
-}
-.average-score {
-    color: #ffd700; /* पीला */
-    font-weight: bold;
-}
-.good-score {
-    color: #33cc33; /* हरा */
-    font-weight: bold;
-}
-.excellent-score {
-    color: #007bff; /* नीला */
-    font-weight: bold;
-}
-/* ==========================================================
-   FAQ ACCORDION STYLING (Final Corrected Code)
-   ========================================================== */
-
-/* 1. आइकॉन स्टाइल और ट्रांजिशन */
-.toggle-icon {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #666;
-    /* transition: transform 0.3s ease; को सरल बनाया गया */
-    transition: transform 0.3s; 
-}
-
-/* 2. आइकॉन रोटेशन */
-.faq-question.active .toggle-icon {
-    transform: rotate(45deg); /* '+' को 'X' में बदलने के लिए */
-    color: #007bff; /* नीला रंग */
-}
-
-/* 3. उत्तर को छिपाना (Hidden Answer) */
-.faq-answer {
-    max-height: 0;
-    overflow: hidden; 
-    padding: 0 15px; 
-    background-color: #f7f7f7;
-    /* padding transition को हटाया गया ताकि खुलने/बंद होने पर जंप न हो */
-    transition: max-height 0.5s ease-in-out; 
-}
-
-/* 4. उत्तर को खोलना (Open Answer) */
-.faq-answer.open {
-    /* max-height को 1000px किया गया ताकि बहुत लंबे जवाब भी खुल सकें */
-    max-height: 1000px; 
-    /* खुलने पर पैडिंग लागू करें */
-    padding: 15px 15px 25px 15px;
-    border-left: 3px solid #007bff;
-}
-/* ==========================================================
-   BLOG LISTING GRID STYLING 
-   ========================================================== */
-.blog-grid-final {
-    display: grid;
-    /* 3 कॉलम */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px;
-}
-
-.blog-card-final {
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.blog-card-final:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
-}
-
-.blog-image-wrapper-final {
-    position: relative;
-    height: 180px; 
-    overflow: hidden;
-}
-
-.blog-image-final {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-}
-
-.blog-tag-overlay {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #007bff; /* नीला बैकग्राउंड */
-    color: white;
-    padding: 5px 10px;
-    font-size: 0.8em;
-    font-weight: 600;
-    border-top-left-radius: 8px;
-}
-
-.blog-content-final {
-    padding: 15px;
-}
-
-.blog-title-final {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: #333;
-    line-height: 1.3;
-    margin-bottom: 10px;
-    /* टेक्स्ट को 2 लाइनों तक सीमित करता है */
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-
-.blog-meta-final {
-    font-size: 0.85em;
-    color: #888;
-    margin-top: 15px;
-    border-top: 1px solid #eee;
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* मोबाइल ऑप्टिमाइजेशन */
-@media (max-width: 600px) {
-    .blog-grid-final {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ==========================================================
-   CUSTOMER FEEDBACK STYLING (Carousel/Slider)
-   ========================================================== */
-.feedback-section {
-    font-family: 'Poppins', sans-serif;
-}
-
-.feedback-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.carousel-wrapper {
-    position: relative; /* एरोज़ को सही जगह पर रखने के लिए */
-    overflow: hidden; /* केवल एक बार में दिखने वाले कार्ड्स को दिखाएगा */
-}
-
-/* फीडबैक कार्ड्स को एक ही लाइन में रखें और स्लाइड करने दें */
-.feedback-carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out; /* स्मूथ स्लाइडिंग के लिए */
-    padding-bottom: 30px; 
-}
-
-.feedback-card {
-    flex: 0 0 33.33%; /* एक बार में 3 कार्ड दिखाने के लिए */
-    min-width: 300px; /* छोटे स्क्रीन के लिए */
-    background: white;
-    padding: 30px;
-    margin: 0 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
-}
-
-.stars {
-    color: #ffc107; /* पीला (Gold/Amber) रंग */
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-.review-text {
-    font-size: 1em;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    min-height: 120px; /* सुनिश्चित करें कि सभी कार्ड की ऊँचाई समान हो */
-}
-
-.reviewer-name {
-    font-weight: 700;
-    color: #333;
-    margin-top: 5px;
-    font-size: 1.1em;
-}
-
-.review-title {
-    font-size: 0.9em;
-    color: #007bff;
-}
-
-/* कंट्रोल बटन (एरो) स्टाइलिंग */
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #007bff; /* नीला बैकग्राउंड */
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1.5em;
-    cursor: pointer;
-    z-index: 20;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
+  .social-links {
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-}
-
-.carousel-control.prev {
-    left: 10px; /* बाईं ओर */
-}
-
-.carousel-control.next {
-    right: 10px; /* दाईं ओर */
-}
-
-.carousel-control:hover {
-    background-color: #0056b3;
-}
-
-/* मोबाइल के लिए 1 कार्ड प्रति व्यू */
-@media (max-width: 768px) {
-    .feedback-card {
-        flex: 0 0 100%; /* छोटे स्क्रीन पर एक बार में पूरा कार्ड दिखे */
-        margin: 0 10px;
-    }
-    .carousel-control {
-        padding: 8px 12px;
-        width: 40px;
-        height: 40px;
-        font-size: 1.2em;
-    }
-}
-/* ==========================================================
-   INSTANT LOAN APPLY CARDS STYLING
-   ========================================================== */
-.instant-loan-section {
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffffff; 
-}
-
-.loan-cards-grid {
-    /* **यह 3-कॉलम ग्रिड बनाता है** */
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px;
-}
-
-.loan-card {
-    background-color: #f9f9f9; 
-    border: 1px solid #eee;
-    padding: 30px 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.loan-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.icon-wrapper {
-    /* **यह आइकॉन के चारों ओर नीला गोलाकार बॉर्डर बनाता है** */
-    margin-bottom: 20px;
-    display: inline-block;
-    padding: 10px;
-    border: 2px solid #007bff; /* नीला रिंग */
-    border-radius: 50%;
-}
-
-.loan-icon {
-    width: 35px; 
-    height: 35px;
-    display: block;
-}
-
-.loan-title {
-    font-size: 1.25em;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 10px;
-    min-height: 50px; 
-}
-
-.loan-description {
-    font-size: 0.95em;
-    color: #555;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-/* "Apply Now" बटन स्टाइल */
-.apply-button {
-    display: inline-block;
-    background-color: #007bff; /* नीला रंग */
-    color: white;
-    padding: 10px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.apply-button:hover {
-    background-color: #0056b3;
-}
-/* ==========================================================
-   LOAN APPLICATION FORM STYLING
-   ========================================================== */
-.application-main {
-    font-family: 'Poppins', sans-serif;
-    /* हल्की पृष्ठभूमि फॉर्म को उजागर करती है */
-    background-color: #f4f7f6; 
-}
-
-.application-container {
-    /* HTML में इनलाइन स्टाइल के रूप में पहले से ही दिया गया है:
-       max-width: 800px;
-       background-color: white;
-       padding: 40px;
-       border-radius: 10px;
-       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.loan-form label {
-    font-weight: 600;
-    color: #333;
-}
-
-/* इनपुट और सेलेक्ट बॉक्स */
-.loan-form input[type="text"],
-.loan-form input[type="tel"],
-.loan-form input[type="email"],
-.loan-form select {
-    /* HTML में इनलाइन स्टाइल के रूप में पहले से ही दिया गया है, लेकिन यहाँ ओवरराइड कर सकते हैं */
-    border: 1px solid #ccc;
-    transition: border-color 0.3s;
-}
-
-.loan-form input:focus,
-.loan-form select:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
-}
-
-.loan-form .submit-button:hover {
-    background-color: #0056b3;
-}
-
-/* चेकबॉक्स ग्रुप के लिए स्टाइलिंग */
-.checkbox-group {
-    display: flex;
-    align-items: center;
-}
-
-.checkbox-group input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-}
-
-/* छोटे स्क्रीन पर फॉर्म की पैडिंग कम करें */
-@media (max-width: 600px) {
-    .application-container {
-        padding: 20px;
-    }
-    .form-header h1 {
-        font-size: 1.5em;
-    }
-}
-/* ==========================================================
-   LOAN DETAIL PAGE STYLING (Responsive fix for 3-Step Process)
-   ========================================================== */
-
-/* छोटे स्क्रीन पर स्टेप कार्ड को फुल-चौड़ाई दें */
-@media (max-width: 800px) {
-    .step-grid {
-        flex-direction: column; /* कॉलम लेआउट पर स्विच करें */
-        align-items: center;
-    }
-    .step-card {
-        flex-basis: 100%;
-        margin-bottom: 20px;
-    }
-    .detail-content {
-        flex-direction: column; /* फीचर्स और एलिजिबिलिटी को कॉलम में रखें */
-        gap: 20px !important;
-    }
-}
-/* ==========================================================
-   CAREERS PAGE STYLING
-   ========================================================== */
-
-#careers {
-    /* लाइट ब्लू बैकग्राउंड जो हमने index.html में इस्तेमाल किया */
-    background-color: #f0f8ff; 
-}
-
-.career-container {
-    /* कंटेनर जो कार्ड को बीच में रखता है और उसे सफ़ेद बैकग्राउंड देता है */
-    background-color: white; 
-    padding: 40px; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 900px; /* मैक्सिमम चौड़ाई */
-    margin: 0 auto;
-}
-
-.career-header {
-    text-align: center; 
-    margin-bottom: 40px;
-}
-
-.job-card {
-    /* कार्ड की सामान्य स्टाइलिंग (border और padding) */
-    border: 1px solid #eee; 
-    padding: 30px; 
-    border-radius: 8px; 
-    margin-bottom: 30px;
-}
-
-.job-card h2 {
-    /* शीर्षक (heading) की स्टाइलिंग */
-    font-size: 1.8em; 
-    color: #333; 
-    border-bottom: 2px solid #007bff; /* नीली लाइन */
-    padding-bottom: 10px; 
-    margin-bottom: 20px;
-}
-
-.job-details-list {
-    list-style-type: none; 
-    padding: 0;
-}
-
-.job-details-list strong {
-    color: #007bff; /* नीला रंग डिटेल्स के लिए */
-}
-
-/* --- CONTACT BOX --- */
-
-.apply-contact {
-    /* संपर्क जानकारी बॉक्स का बैकग्राउंड */
-    background-color: #eaf5ff; 
-    padding: 15px; 
-    border-radius: 5px; 
-    margin-top: 15px;
-}
-
-.apply-contact p:last-child {
-    font-size: 1.5em; 
-    font-weight: bold; 
-    color: #d9534f; /* लाल रंग फ़ोन नंबर के लिए */
+  }
 }
