@@ -21,7 +21,7 @@ const reviewSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    // यह फ़ील्ड ज़रूरी है ताकि आप रिव्यू को पब्लिश करने से पहले रिव्यू कर सकें
+    // The key safety feature: Reviews must be approved by you before going live
     approved: { 
         type: Boolean,
         default: false 
