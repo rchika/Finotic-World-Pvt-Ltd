@@ -286,3 +286,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// Function to display approved reviews on the public page
+async function displayApprovedReviews() {
+    // वह ID डालें जहाँ आप रिव्यू दिखाना चाहती हैं (नीचे HTML देखें)
+    const reviewsContainer = document.getElementById('approved-reviews-list'); 
+    
+    if (!reviewsContainer) return;
+
+    try {
+        // यह API केवल approved: true रिव्यू को रिटर्न करता है
+        const response = await fetch('/api/reviews'); 
+        const data = await response.json();
+
+        if (data.success && data.reviews.length > 0) {
+            reviewsContainer.innerHTML = '<h2>What Our Customers Say:</h2>';
+            
+            data.reviews.forEach(review => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'customer-review';
+                
+                // रेटिंग को स्टार्स में दिखाएँ
+                const stars = '⭐'.repeat(review.rating); 
+
+                reviewDiv.innerHTML = `
+                    <p style="font-size: 1.1em; font-weight: bold; color: #4169e1;">${stars}</p>
+                    <p>${review.comment}</p>
+                    <p style="font-style: italic; color: #777;">- ${review.name} (${new Date(review.date).toLocaleDateString()})</p>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                `;
+                reviewsContainer.appendChild(reviewDiv);
+            });
+        } else {
+            reviewsContainer.innerHTML = '<p>Be the first to leave a review for Finotic World!</p>';
+        }
+
+    } catch (error) {
+        console.error('Error fetching approved reviews:', error);
+        reviewsContainer.innerHTML = '<p style="color: red;">Could not load reviews at this time.</p>';
+    }
+}
+
+// जब पेज लोड हो जाए, तो रिव्यू डिस्प्ले करें
+document.addEventListener('DOMContentLoaded', displayApprovedReviews);
+
+
+
+
