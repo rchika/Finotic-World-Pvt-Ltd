@@ -1,40 +1,39 @@
 // routes/reviewRoutes.js
 const express = require('express');
 const router = express.Router();
-const Review = require('../models/Review'); // सही पाथ सुनिश्चित करें
+const Review = require('../models/Review'); 
 
-// 1. Review Submit करने के लिए API
+// 1. POST route to submit a new review
 router.post('/submit', async (req, res) => {
     try {
         const { name, rating, comment } = req.body;
         
-        // एक नया रिव्यू ऑब्जेक्ट बनाएँ (approved: false बाय डिफॉल्ट)
         const newReview = new Review({
             name,
-            rating,
+            rating: parseInt(rating), // Ensure rating is stored as a number
             comment,
-            // approved फ़ील्ड बाय डिफॉल्ट false रहेगा (मॉडल में सेट किया गया है)
+            // approved defaults to false, awaiting manual approval
         });
 
         await newReview.save();
 
         res.status(201).json({ 
             success: true, 
-            message: 'Review submitted successfully and is awaiting approval.' 
+            message: 'Review submitted successfully and is awaiting administrative approval.' 
         });
     } catch (error) {
-        console.error(error);
+        console.error('Review submission error:', error);
         res.status(500).json({ 
             success: false, 
-            message: 'Server error during review submission.' 
+            message: 'Server error: Could not save review.' 
         });
     }
 });
 
-// 2. Approved Reviews को वेबसाइट पर डिस्प्ले करने के लिए API
+// 2. GET route to fetch all approved reviews for display on the website
 router.get('/', async (req, res) => {
     try {
-        // केवल वही रिव्यू दिखाएँ जो approved: true हैं
+        // Only fetch reviews that have been manually approved (approved: true)
         const approvedReviews = await Review.find({ approved: true }).sort({ date: -1 });
 
         res.status(200).json({
@@ -42,10 +41,10 @@ router.get('/', async (req, res) => {
             reviews: approvedReviews
         });
     } catch (error) {
-        console.error(error);
+        console.error('Error retrieving reviews:', error);
         res.status(500).json({ 
             success: false, 
-            message: 'Server error retrieving reviews.' 
+            message: 'Server error: Could not retrieve reviews.' 
         });
     }
 });
