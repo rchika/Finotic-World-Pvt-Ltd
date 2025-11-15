@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finotic World - Admin Review Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { color: #008000; border-bottom: 2px solid #008000; padding-bottom: 10px; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; color: #333; }
+        .rating-star { color: gold; font-size: 1.2em; }
+        .status-badge { padding: 5px 10px; border-radius: 4px; font-weight: bold; }
+        .status-pending { background-color: #ffcccc; color: #cc0000; }
+        .approve-btn { background-color: #4CAF50; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; transition: background-color 0.3s; }
+        .approve-btn:hover { background-color: #45a049; }
+        #loading-message { text-align: center; color: #555; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Finotic World - Pending Customer Reviews</h1>
+        
+        <p>यह डैशबोर्ड आपको दिखाता है कि किस ग्राहक ने कितना रिव्यू दिया है। अप्रूव करने के बाद ही रिव्यू वेबसाइट पर दिखेगा।</p>
+        
+        <div id="loading-message">Loading reviews...</div>
+        
+        <table id="reviews-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Reviewer Name (किसने)</th>
+                    <th>Rating (कितना)</th>
+                    <th>Comment</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="reviews-body">
+                </tbody>
+        </table>
+    </div>
+
+    <script>
+        // आपके सर्वर का बेस URL
+        const API_BASE_URL = window.location.origin; 
+        
+        // फ़ंक्शन जो रेटिंग को स्टार्स के रूप में दिखाता है
+        function getStars(rating) {
+            let stars = '';
+            for (let i = 0; i < 5; i++) {
+                if (i < rating) {
+                    stars += '<span class="rating-star">★</span>';
+                } else {
+                    stars += '<span class="rating-star" style="color:#ccc;">★</span>';
+                }
+            }
+            return stars;
+        }
+
+        // पेंडिंग रिव्यू को API से फेच करने का फ़ंक्शन
+        async function fetchPendingReviews() {
+            const loading = document.getElementById('loading-message');
+            const table = document.getElementById('reviews-table');
+            const tbody = document.getElementById('reviews-body');
+            tbody.innerHTML = '';
+            loading.style.display = 'block';
+            table.style.display = 'none';
+
+            try {
+                // API URL: /api/reviews/admin/pending
+                const response = await fetch(`${API_BASE_URL}/api/reviews/admin/pending`);
+                const data = await response.json();
+
+                if (data.success && data.pendingReviews.length > 0) {
+                    data.pendingReviews.forEach(review => {
+                        const row = tbody.insertRow();
+                        
+                        // 1. Reviewer Name (किसने)
+                        row.insertCell().textContent = review.name; 
+                        
+                        // 2. Rating (कितना)
+                        row.insertCell().innerHTML = getStars(review.rating); 
+                        
+                        // 3. Comment
+                        row.insertCell().textContent = review.comment;
+                        
+                        // 4. Date
+                        row.insertCell().textContent = new Date(review.date).toLocaleDateString();
+                        
+                        // 5. Status
+                        row.insertCell().innerHTML = `<span class="status-badge status-pending">Pending</span>`;
+                        
+                        // 6. Action Button
+                        const actionCell = row.insertCell();
+                        const approveBtn = document.createElement('button');
+                        approveBtn.textContent = 'Approve & Publish';
+                        approveBtn.className = 'approve-btn';
+                        approveBtn.onclick = () => approveReview(review._id, row);
+                        actionCell.appendChild(approveBtn);
+                    });
+
+                    loading.style.display = 'none';
+                    table.style.display = 'table';
+                } else {
+                    loading.textContent = 'No pending reviews found. Everything is up to date!';
+                }
+
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                loading.textContent = 'Error loading data. Check server connection.';
+            }
+        }
+
+        // रिव्यू को अप्रूव करने का फ़ंक्शन
+        async function approveReview(reviewId, rowElement) {
+            if (!confirm('Are you sure you want to approve and publish this review?')) return;
+
+            try {
+                // API URL: /api/reviews/admin/approve/:reviewId
+                const response = await fetch(`${API_BASE_URL}/api/reviews/admin/approve/${reviewId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    // यदि आप सुरक्षा (Authentication) जोड़ती हैं, तो यहां टोकन भेजा जाएगा
+                });
+
+                if (response.ok) {
+                    alert('Review successfully approved and published!');
+                    // टेबल से रो को हटाएँ क्योंकि यह अब पेंडिंग नहीं है
+                    rowElement.remove(); 
+                    if (document.getElementById('reviews-body').rows.length === 0) {
+                        document.getElementById('loading-message').textContent = 'No pending reviews found. Everything is up to date!';
+                        document.getElementById('loading-message').style.display = 'block';
+                        document.getElementById('reviews-table').style.display = 'none';
+                    }
+                } else {
+                    alert('Approval failed. Server error.');
+                }
+            } catch (error) {
+                console.error('Approval request failed:', error);
+                alert('Network error during approval.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchPendingReviews);
+    </script>
+</body>
+</html>
