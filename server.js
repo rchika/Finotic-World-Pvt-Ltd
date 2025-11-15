@@ -1,10 +1,11 @@
 // server.js (main file)
-// ... अन्य imports ...
-const reviewRoutes = require('./routes/reviewRoutes'); // नया रूट इम्पोर्ट करें
 
-// ... अन्य middlewares जैसे express.json() के नीचे जोड़ें ...
+// ... existing imports ...
+const reviewRoutes = require('./routes/reviewRoutes'); // <-- Import the new route file
 
-// Reviews के लिए रूट सेट करें
-app.use('/api/reviews', reviewRoutes); 
+// ... existing app.use(express.json()); ...
 
-// ... अन्य रूट्स (जैसे applyRoutes, cibilRoutes) ...
+// Set up the Reviews API endpoint
+app.use('/api/reviews', reviewRoutes); // <-- Add this line
+
+// ... existing routes (applyRoutes, cibilRoutes, etc.)
