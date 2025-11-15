@@ -4,6 +4,7 @@ const router = express.Router();
 const Review = require('../models/Review'); 
 
 // 1. POST route to submit a new review
+
 router.post('/submit', async (req, res) => {
     try {
         const { name, rating, comment } = req.body;
