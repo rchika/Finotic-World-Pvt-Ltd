@@ -240,40 +240,49 @@ window.addEventListener('load', updateCarousel);
 // REVIEW
 // ==========================================================
 
-document.getElementById('submit-review-form').addEventListener('submit', async function(e) {
-    e.preventDefault(); // फॉर्म को डिफॉल्ट सबमिट होने से रोकें
-
-    const name = document.getElementById('reviewerName').value;
-    const rating = document.getElementById('reviewRating').value;
-    const comment = document.getElementById('reviewComment').value;
+document.addEventListener('DOMContentLoaded', () => {
+    const reviewForm = document.getElementById('submit-review-form');
     const messageElement = document.getElementById('review-message');
 
-    try {
-        const response = await fetch('/api/reviews/submit', { // यह आपके बैकएंड का API पाथ होगा
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, rating, comment, approved: false }) // 'approved: false' मतलब पहले अप्रूवल चाहिए
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', async function(e) {
+            e.preventDefault(); 
+
+            const name = document.getElementById('reviewerName').value;
+            const rating = document.getElementById('reviewRating').value;
+            const comment = document.getElementById('reviewComment').value;
+            
+            messageElement.style.display = 'none';
+
+            try {
+                // IMPORTANT: Ensure this URL matches your server's route setup (e.g., /api/reviews/submit)
+                const response = await fetch('/api/reviews/submit', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, rating, comment }) 
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    messageElement.textContent = 'Thank you! Your review has been submitted successfully and is awaiting approval.';
+                    messageElement.style.color = 'green';
+                    this.reset(); // Clear the form
+                } else {
+                    messageElement.textContent = data.message || 'Submission failed. Please try again.';
+                    messageElement.style.color = 'red';
+                }
+                
+                messageElement.style.display = 'block';
+
+            } catch (error) {
+                console.error('Error submitting review:', error);
+                messageElement.textContent = 'Network error. Please check your internet connection.';
+                messageElement.style.color = 'red';
+                messageElement.style.display = 'block';
+            }
         });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            messageElement.textContent = 'आपका रिव्यू सफलतापूर्वक सबमिट कर दिया गया है। अप्रूवल के बाद यह प्रदर्शित होगा। धन्यवाद!';
-            messageElement.style.color = 'green';
-            messageElement.style.display = 'block';
-            this.reset(); // फॉर्म को खाली करें
-        } else {
-            messageElement.textContent = data.message || 'रिव्यू सबमिशन में त्रुटि हुई। कृपया पुनः प्रयास करें।';
-            messageElement.style.color = 'red';
-            messageElement.style.display = 'block';
-        }
-
-    } catch (error) {
-        console.error('Error submitting review:', error);
-        messageElement.textContent = 'नेटवर्क त्रुटि। कृपया अपना इंटरनेट कनेक्शन जाँचें।';
-        messageElement.style.color = 'red';
-        messageElement.style.display = 'block';
     }
 });
