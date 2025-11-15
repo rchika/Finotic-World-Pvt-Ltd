@@ -810,7 +810,7 @@
                 <div class="feedback-card">
                     <div class="stars">★★★★★</div>
                     <p class="review-text">finoticworld stands out because of its commitment to transparency and customer satisfaction. I felt supported throughout the loan application process, knowing that they had my best interests at heart. I definitely recommend to friends and family!</p>
-                    <p class="reviewer-name">Divya </p>
+                    <p class="reviewer-name"><bold>Divya </bold> </p>
                     <p class="review-title">Trustworthy And Reliable Platform</p>
                 </div>
               <div class="feedback-card">
@@ -827,6 +827,48 @@
         </div>
     </div>
 </section>
+     <!-- ================= Review  ================= -->
+    <div id="review-submission-form" style="max-width: 600px; margin: 40px auto; padding: 30px; border: 1px solid #e0e0e0; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h2 style="color: #008000; margin-bottom: 20px;">हमें रेट करें और अपना अनुभव साझा करें</h2>
+    
+    <form id="submit-review-form">
+        
+        <div style="margin-bottom: 15px;">
+            <label for="reviewerName" style="display: block; margin-bottom: 5px; font-weight: 500;">आपका नाम</label>
+            <input type="text" id="reviewerName" name="name" required 
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="reviewRating" style="display: block; margin-bottom: 5px; font-weight: 500;">रेटिंग दें (1 से 5)</label>
+            <select id="reviewRating" name="rating" required 
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; appearance: none;">
+                <option value="">-- रेटिंग चुनें --</option>
+                <option value="5">5 - उत्कृष्ट (Excellent)</option>
+                <option value="4">4 - बहुत अच्छा (Very Good)</option>
+                <option value="3">3 - संतोषजनक (Satisfactory)</option>
+                <option value="2">2 - खराब (Poor)</option>
+                <option value="1">1 - बहुत खराब (Very Poor)</option>
+            </select>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <label for="reviewComment" style="display: block; margin-bottom: 5px; font-weight: 500;">अपना फीडबैक लिखें</label>
+            <textarea id="reviewComment" name="comment" rows="5" required 
+                      style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" 
+                style="background-color: #008000; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%;">
+            रिव्यू सबमिट करें
+        </button>
+        
+        <p id="review-message" style="margin-top: 15px; text-align: center; color: green; display: none;"></p>
+        
+    </form>
+</div>
+
+    
     <!-- ================= PRIVACY POLICY ================= -->
     <section class="privacy section" id="privacy-policy">
       <div class="container">
