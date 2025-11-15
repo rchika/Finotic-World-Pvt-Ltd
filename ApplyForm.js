@@ -12,3 +12,5 @@ const ApplyFormSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("ApplyForm", ApplyFormSchema);
+
+
