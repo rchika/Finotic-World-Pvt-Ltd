@@ -399,90 +399,79 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
     font-size: 0.95em; 
     color: #777;
 }
-
+}
 /* ==========================================================
-   BANKING PARTNERS SECTION - MODERN STYLING (My Mudra Inspired)
+   BANKING PARTNERS SECTION - SLIDING ANIMATION STYLE
    ========================================================== */
 
-#banking-partners {
-    padding: 80px 0; /* ज़्यादा स्पेस */
-    background-color: #ffffff; /* सफेद बैकग्राउंड, जैसा My Mudra में है */
+.partners-section {
+    padding: 60px 0; /* कम पैडिंग */
+    background-color: #ffffff; /* साफ सफेद बैकग्राउंड */
     text-align: center;
+    overflow: hidden; /* ज़रूरी ताकि ट्रैक बाहर न निकले */
 }
 
-/* Section Heading (शीर्षक) - My Mudra जैसा */
-#banking-partners h2 {
+.partners-section h2 {
     font-size: 2.2em;
     font-weight: 700;
-    color: #002b5b;
-    margin-bottom: 20px; /* शीर्षक के नीचे कम मार्जिन */
-    text-align: center;
+    color: #002b5b; /* गहरा नीला रंग */
+    margin-bottom: 20px;
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #4169e1; /* नीली अंडरलाइन */
 }
 
-/* Sub-heading/Description (नया जोड़ रहे हैं) */
-#banking-partners p.sub-heading {
-    font-size: 1.1em;
-    color: #666;
-    margin-bottom: 50px; /* लोगो से पहले अच्छा स्पेस */
-}
-
-/* Partners Grid Container */
-.partners-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px; /* लोगो के बीच गैप */
-    max-width: 1200px; /* My Mudra के समान चौड़ाई */
-    margin: 0 auto;
-}
-
-/* Individual Partner Logo Card - My Mudra जैसा लुक */
-.partner-logo {
-    padding: 15px 20px; /* अंदर की पैडिंग */
-    background-color: #ffffff; /* सफेद बैकग्राउंड */
-    border-radius: 8px; /* हल्के गोल कोने */
-    border: 1px solid #dcdcdc; /* हल्का ग्रे बॉर्डर */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* हल्का Shadow */
-    
-    transition: all 0.3s ease; /* सभी ट्रांज़िशन के लिए */
-    
-    cursor: pointer;
-    min-width: 150px; /* लोगो के लिए न्यूनतम चौड़ाई */
-    height: 80px; /* लोगो के लिए निश्चित ऊँचाई */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Hover प्रभाव: My Mudra जैसा नीला बॉर्डर */
-.partner-logo:hover {
-    transform: translateY(-3px); /* थोड़ा ऊपर उठे */
-    box-shadow: 0 6px 15px rgba(65, 105, 225, 0.15); /* नीला Shadow */
-    border-color: #4169e1; /* Hover पर नीली बॉर्डर */
-}
-
-.partner-logo img {
+/* कंटेनर जो स्लाइडिंग ट्रैक को छिपाता है */
+.slider-track-container {
     max-width: 100%;
-    max-height: 50px; /* लोगो की ऊँचाई को नियंत्रित करें */
-    display: block; /* इमेज को सही से सेंटर करने के लिए */
+    margin: 0 auto;
+    overflow: hidden; /* लोगो के बाहर का हिस्सा छुपाने के लिए */
 }
 
-/* Media Queries for Responsiveness (अगर आप चाहें तो) */
-@media (max-width: 768px) {
-    .partner-logo {
-        min-width: 120px; /* छोटे स्क्रीन पर कम चौड़ाई */
-        height: 70px;
-        padding: 10px 15px;
-    }
+/* एनिमेटेड ट्रैक - HTML में इनलाइन स्टाइल से बेहतर */
+#animated-logos {
+    display: flex;
+    width: max-content; /* सभी लोगो को एक ही लाइन में रखेगा */
+    animation: scroll-logos 30s linear infinite; /* Animation speed set */
 }
 
-@media (max-width: 480px) {
-    .partners-grid {
-        gap: 15px;
+.logo-slide {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* लोगो की चौड़ाई को दोगुना करें ताकि वह खाली न दिखे */
+    width: 100vw; 
+    min-width: 100vw; 
+}
+
+.logo-slide img {
+    height: 60px !important; /* लोगो को थोड़ा बड़ा करें */
+    margin: 0 30px !important; 
+    filter: grayscale(100%); 
+    opacity: 0.7; 
+    transition: all 0.5s;
+    /* लोगो को सफेद कार्ड के अंदर दिखाने के लिए */
+    padding: 10px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* माउस होवर पर रंगीन और ऊपर उठे */
+.partners-section img:hover {
+    filter: none !important; /* रंग वापस लाएं */
+    opacity: 1 !important; 
+    transform: translateY(-3px); /* थोड़ा ऊपर उठाएं */
+    border-color: #4169e1; /* नीली बॉर्डर */
+    box-shadow: 0 6px 15px rgba(65, 105, 225, 0.2);
+}
+
+/* Keyframes (ज़रूरी है कि यह CSS फ़ाइल में हो, न कि HTML में) */
+@keyframes scroll-logos {
+    0% {
+        transform: translateX(0);
     }
-    .partner-logo {
-        min-width: 100px;
-        height: 60px;
+    100% {
+        transform: translateX(-50%); /* केवल एक स्लाइड की चौड़ाई */
     }
 }
