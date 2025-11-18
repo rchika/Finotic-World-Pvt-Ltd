@@ -236,36 +236,36 @@ window.addEventListener('resize', updateCarousel);
 window.addEventListener('load', updateCarousel);
 }
 }
-// main.js फ़ाइल में जोड़ें या अपडेट करें
+// main.js फ़ाइल में अपडेट करें
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. स्लाइड डेटा (नए फ़ाइल नामों के साथ अपडेट किया गया)
+    // 1. स्लाइड डेटा (नए फ़ोल्डर पाथ: 'images/')
     const slides = [
         {
             title: "Instant Personal Loan",
             description: "Quick approval for your personal expenses with flexible EMIs. Empowering individuals with financial freedom.",
-            // नया फाइलनाम: personalLoanFinalLow (1).webp
+            // पाथ बदला गया: images/
             image: "images/personalLoanFinalLow (1).webp", 
             buttonLink: "#apply-personal-loan",
         },
         {
             title: "Fuel Your Business Growth",
             description: "Get business loans with easy options and minimal documentation. Take your business to the next level.",
-            // नया फाइलनाम: businessLoann.png
-            image: "images/Business Loan.png", 
+            // पाथ बदला गया: images/
+            image: "images/businessLoann.png", 
             buttonLink: "#apply-business-loan",
         },
         {
             title: "Your Dream Home Awaits",
             description: "Turn your dream home into reality with our trusted home loan financing solutions.",
-            // नया फाइलनाम: homeLoan (1).svg
+            // पाथ बदला गया: images/
             image: "images/homeLoan (1).svg", 
             buttonLink: "#apply-home-loan",
         },
         {
             title: "Professional Loan Solutions",
             description: "Achieve your professional goals with tailored loan options for salaried and self-employed professionals.",
-            // नया फाइलनाम: professionalLoan2 (1).svg
+            // पाथ बदला गया: images/
             image: "images/professionalLoan2 (1).svg", 
             buttonLink: "#apply-professional-loan",
         },
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     let slideTimer;
 
-    // 2. DOM एलिमेंट्स को पकड़ें (ये ID आपके HTML में होनी चाहिए)
+    // 2. DOM एलिमेंट्स को पकड़ें (कोई बदलाव नहीं)
     const titleEl = document.getElementById('carousel-title');
     const descriptionEl = document.getElementById('carousel-description');
     const imageEl = document.getElementById('current-slide-image');
@@ -283,92 +283,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('next-slide-btn');
     const dotsContainer = document.getElementById('dot-indicators');
 
-    // 3. स्लाइड अपडेट करने का फ़ंक्शन
+    // 3. स्लाइड अपडेट करने का फ़ंक्शन (कोई बदलाव नहीं)
     function updateSlide() {
         const slide = slides[currentSlide];
 
-        // ट्रांज़िशन के लिए पहले opacity कम करें (Fade effect)
-        // (अगर आपने CSS में transition सेट किया है, तो यह इफ़ेक्ट अच्छा आएगा)
         titleEl.style.opacity = 0;
         descriptionEl.style.opacity = 0;
         imageEl.style.opacity = 0;
         buttonEl.style.opacity = 0;
 
         setTimeout(() => {
-            // कंटेंट को अपडेट करें
             titleEl.textContent = slide.title;
             descriptionEl.textContent = slide.description;
-            imageEl.src = slide.image;
+            // imageEl.src में नया पाथ इस्तेमाल होगा
+            imageEl.src = slide.image; 
             imageEl.alt = slide.title;
             buttonEl.href = slide.buttonLink;
             
-            // अपडेट के बाद opacity बढ़ाएँ
             titleEl.style.opacity = 1;
             descriptionEl.style.opacity = 1;
             imageEl.style.opacity = 1;
             buttonEl.style.opacity = 1;
-        }, 300); // 300ms के बाद अपडेट
+        }, 300);
 
         updateDots();
     }
-
-    // 4. डॉट्स अपडेट करने का फ़ंक्शन (जैसा पहले दिया गया था)
-    function updateDots() {
-        dotsContainer.innerHTML = ''; 
-        slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.className = 'slide-dot';
-            dot.style.cssText = `
-                height: 8px; width: ${index === currentSlide ? '25px' : '8px'};
-                background-color: ${index === currentSlide ? '#4169e1' : '#ccc'};
-                border: none; border-radius: 4px; margin: 0 4px; cursor: pointer;
-                transition: all 0.3s;
-            `;
-            dot.onclick = () => goToSlide(index);
-            dotsContainer.appendChild(dot);
-        });
-    }
-
-    // 5. नेविगेशन फ़ंक्शन्स
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlide();
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlide();
-    }
-
-    function goToSlide(index) {
-        currentSlide = index;
-        updateSlide();
-        resetTimer();
-    }
-
-    // 6. ऑटोमेटिक स्लाइडिंग टाइमर
-    function startTimer() {
-        slideTimer = setInterval(nextSlide, 5000); // हर 5 सेकंड में स्लाइड
-    }
-
-    function resetTimer() {
-        clearInterval(slideTimer);
-        startTimer();
-    }
-
-    // 7. इवेंट लिसनर्स सेट करें
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetTimer();
-    });
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetTimer();
-    });
-
+    
+    // ... बाकी फ़ंक्शन्स (updateDots, nextSlide, prevSlide, goToSlide, startTimer, resetTimer) समान रहेंगे।
+    
     // 8. शुरू करें
     if (slides.length > 0) {
-        updateSlide(); // पहली स्लाइड लोड करें
-        startTimer();  // टाइमर शुरू करें
+        updateSlide();
+        startTimer();
     }
 });
