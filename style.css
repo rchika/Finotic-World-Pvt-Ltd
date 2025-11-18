@@ -404,6 +404,24 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
 /* ==========================================================
    BANKING PARTNERS SECTION - FINAL MY MUDRA LOOK
    ========================================================== */
+/* ==========================================================
+   SUB-HEADING ALIGNMENT FIX
+   ========================================================== */
+
+#banking-partners p,
+.section-subheading {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+    
+    /* 🔑 यह लाइन टेक्स्ट को बीच में लाएगी */
+    text-align: center !important; 
+    
+    /* चौड़ाई सीमित करने के लिए */
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* ग्रिड कंटेनर को बीच में लाने के लिए मुख्य फिक्स */
 .partners-grid-static {
