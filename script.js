@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Fuel Your Business Growth",
             description: "Get business loans with easy options and minimal documentation. Take your business to the next level.",
             // नया फाइलनाम: businessLoann.png
-            image: "images/businessLoann.png", 
+            image: "images/Business Loan.png", 
             buttonLink: "#apply-business-loan",
         },
         {
