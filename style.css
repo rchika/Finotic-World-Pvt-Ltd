@@ -309,9 +309,50 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
     justify-content: center;
   }
   .social-links {
-    justify-content: center;
+    justify-content: 
+            center;
   }
 }
 
+/* Hero Carousel के लिए CSS */
+#hero-carousel {
+    /* कंटेनर को पूरा स्पेस दें और थोड़ा पैडिंग दें */
+    width: 100%;
+    padding: 60px 0;
+    overflow: hidden; /* अगर कोई एलिमेंट बाहर जाता है, तो छुपा दें */
+    background-color: #f0f8ff; /* हल्का बैकग्राउंड कलर */
+}
 
+.carousel-content-wrapper {
+    /* Carousel के अंदर की सामग्री को Flexbox का उपयोग करके व्यवस्थित करें */
+    display: flex;
+    align-items: center; /* वर्टिकल सेंटर करें */
+    justify-content: space-between; /* सामग्री को अलग-अलग करें */
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-text {
+    width: 45%; /* टेक्स्ट के लिए 45% चौड़ाई */
+    padding-right: 30px;
+    transition: opacity 0.5s;
+}
+
+.carousel-image {
+    width: 50%; /* इमेज के लिए 50% चौड़ाई */
+    transition: opacity 0.5s;
+}
+
+#current-slide-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* नेविगेशन बटन की स्थिति */
+#prev-slide-btn, #next-slide-btn {
+    top: 50%; /* Carousel के बीच में रखें */
+    transform: translateY(-50%);
+    z-index: 10;
+}
 
