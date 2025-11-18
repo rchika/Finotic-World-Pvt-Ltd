@@ -404,74 +404,53 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
 /* ==========================================================
    BANKING PARTNERS SECTION - FINAL MY MUDRA LOOK
    ========================================================== */
-#banking-partners {
-    padding: 80px 0;
-    background-color: #ffffff; 
-    text-align: center;
-}
 
-#banking-partners h2 {
-    font-size: 2.2em;
-    font-weight: 700;
-    color: #002b5b;
-    margin-bottom: 10px;
-    display: inline-block;
-    padding-bottom: 5px;
-    border-bottom: 3px solid #4169e1; /* नीली अंडरलाइन */
-}
-
-/* Sub-heading को सेंटर में लाने की ज़रूरत नहीं, वह default में है */
-#banking-partners p {
-    font-size: 1.1em;
-    color: #666;
-    margin-bottom: 40px;
-}
-
-
-/* Logos Grid Container */
+/* ग्रिड कंटेनर को बीच में लाने के लिए मुख्य फिक्स */
 .partners-grid-static {
-    /* HTML में flex, justify-content: center, और margin: 0 auto; 
-       को जोड़ने से यह सेक्शन स्क्रीन के बीच में आ जाएगा। */
+    /* 1. Flexbox लागू करें */
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* यह लोगो को बीच में लाने का मुख्य कारण है */
-    gap: 20px;
-    max-width: 960px; /* एक अच्छी चौड़ाई */
-    margin: 0 auto; /* यह ग्रिड को पेज के बीच में लाता है */
+    
+    /* 2. कंटेंट को बीच में लाएं (सबसे ज़रूरी) */
+    justify-content: center; 
+    
+    /* 3. चौड़ाई सीमित करें */
+    max-width: 960px; 
+    
+    /* 4. कंटेनर को पेज के बीच में लाएं */
+    margin: 0 auto; 
+    
+    gap: 20px; /* लोगो के बीच गैप */
 }
 
-/* Individual Partner Logo Card - My Mudra Look */
+/* Individual Partner Logo Card (पहले वाला My Mudra लुक) */
 .partner-logo-static {
     padding: 15px 15px;
     background-color: #ffffff;
     border-radius: 8px;
-    border: 1px solid #dcdcdc; /* हल्का ग्रे बॉर्डर */
+    border: 1px solid #dcdcdc; 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
-    
     transition: all 0.3s ease; 
-    
     cursor: pointer;
-    width: 150px; /* प्रत्येक कार्ड की निश्चित चौड़ाई */
-    height: 60px; /* प्रत्येक कार्ड की निश्चित ऊँचाई */
+    width: 150px; 
+    height: 60px; 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Hover Effect: Border और Shadow में बदलाव */
+/* Hover Effect */
 .partner-logo-static:hover {
     transform: translateY(-3px); 
-    box-shadow: 0 6px 15px rgba(65, 105, 225, 0.15); /* नीला Shadow */
-    border-color: #4169e1; /* Hover पर नीली बॉर्डर */
+    box-shadow: 0 6px 15px rgba(65, 105, 225, 0.15); 
+    border-color: #4169e1; 
 }
 
 .partner-logo-static img {
     max-width: 100%;
-    max-height: 40px; /* लोगो को कार्ड के अंदर सीमित करें */
+    max-height: 40px; 
     display: block; 
 }
-
-
 /* Keyframes (ज़रूरी है कि यह CSS फ़ाइल में हो, न कि HTML में) */
 @keyframes scroll-logos {
     0% {
