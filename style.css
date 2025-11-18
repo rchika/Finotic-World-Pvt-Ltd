@@ -401,69 +401,53 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
 }
 }
 /* ==========================================================
-   BANKING PARTNERS SECTION - SLIDING ANIMATION STYLE
+   BANKING PARTNERS SECTION - STATIC GRID STYLE (My Mudra)
    ========================================================== */
-
 .partners-section {
-    padding: 60px 0; /* कम पैडिंग */
-    background-color:002b5b#; /* साफ सफेद बैकग्राउंड */
+    padding: 80px 0;
+    background-color: #ffffff; /* सफेद बैकग्राउंड */
     text-align: center;
-    overflow: hidden; /* ज़रूरी ताकि ट्रैक बाहर न निकले */
 }
 
 .partners-section h2 {
     font-size: 2.2em;
     font-weight: 700;
-    color: #002b5b; /* गहरा नीला रंग */
-    margin-bottom: 20px;
+    color: #002b5b;
+    margin-bottom: 10px;
     display: inline-block;
     padding-bottom: 5px;
     border-bottom: 3px solid #4169e1; /* नीली अंडरलाइन */
 }
 
-/* कंटेनर जो स्लाइडिंग ट्रैक को छिपाता है */
-.slider-track-container {
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden; /* लोगो के बाहर का हिस्सा छुपाने के लिए */
-}
-
-/* एनिमेटेड ट्रैक - HTML में इनलाइन स्टाइल से बेहतर */
-#animated-logos {
-    display: flex;
-    width: max-content; /* सभी लोगो को एक ही लाइन में रखेगा */
-    animation: scroll-logos 30s linear infinite; /* Animation speed set */
-}
-
-.logo-slide {
+/* Static Logo Card */
+.partner-logo-static {
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc; /* हल्का ग्रे बॉर्डर */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+    
+    transition: all 0.3s ease; 
+    
+    cursor: pointer;
+    width: 160px; /* लोगो कार्ड की निश्चित चौड़ाई */
+    height: 70px; /* लोगो कार्ड की निश्चित ऊँचाई */
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    /* लोगो की चौड़ाई को दोगुना करें ताकि वह खाली न दिखे */
-    width: 100vw; 
-    min-width: 100vw; 
+    justify-content: center;
 }
 
-.logo-slide img {
-    height: 60px !important; /* लोगो को थोड़ा बड़ा करें */
-    margin: 0 30px !important; 
-    filter: grayscale(100%); 
-    opacity: 0.7; 
-    transition: all 0.5s;
-    /* लोगो को सफेद कार्ड के अंदर दिखाने के लिए */
-    padding: 10px 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+/* Hover Effect: Border और Shadow में बदलाव */
+.partner-logo-static:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 15px rgba(65, 105, 225, 0.15); /* नीला Shadow */
+    border-color: #4169e1; /* Hover पर नीली बॉर्डर */
 }
 
-/* माउस होवर पर रंगीन और ऊपर उठे */
-.partners-section img:hover {
-    filter: none !important; /* रंग वापस लाएं */
-    opacity: 1 !important; 
-    transform: translateY(-3px); /* थोड़ा ऊपर उठाएं */
-    border-color: #4169e1; /* नीली बॉर्डर */
-    box-shadow: 0 6px 15px rgba(65, 105, 225, 0.2);
+.partner-logo-static img {
+    max-width: 100%;
+    max-height: 40px; 
+    display: block; 
 }
 
 /* Keyframes (ज़रूरी है कि यह CSS फ़ाइल में हो, न कि HTML में) */
