@@ -313,86 +313,6 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
             center;
   }
 }
-
-/* ==========================================================
-   BANKING PARTNERS SECTION - MODERN STYLING (ALWAYS COLOR)
-   ========================================================== */
-
-#banking-partners {
-    padding: 80px 0;
-    background-color: #f7f9fc;
-    text-align: center;
-}
-
-/* Section Heading (शीर्षक) */
-#banking-partners h2 {
-    font-size: 2.2em;
-    font-weight: 700;
-    color: #002b5b;
-    margin-bottom: 50px;
-    display: inline-block;
-    position: relative;
-}
-
-/* शीर्षक के नीचे नीली रेखा */
-#banking-partners h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: #4169e1;
-    margin: 8px auto 0;
-    border-radius: 2px;
-}
-
-/* Partners Grid Container */
-.partners-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* Individual Partner Logo Card */
-.partner-logo {
-    padding: 15px 25px;
-    background-color: #ffffff; 
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    
-    /* ❌ यह लाइन हटाई गई है: filter: grayscale(100%); */
-    
-    cursor: pointer;
-    min-width: 120px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #e0e0e0;
-}
-
-/* Hover प्रभाव: अब केवल उठने (lift) और Shadow के लिए */
-.partner-logo:hover {
-    transform: translateY(-5px) scale(1.05); /* थोड़ा ऊपर उठे */
-    box-shadow: 0 8px 25px rgba(65, 105, 225, 0.25); /* नीला Shadow */
-    /* ❌ यह लाइन हटाई गई है: filter: grayscale(0%); */
-    border-color: #4169e1; /* नीली बॉर्डर */
-}
-
-.partner-logo img {
-    max-width: 100%;
-    max-height: 50px; 
-    /* Opacity भी हटाई गई ताकि वह full color और स्पष्ट दिखे */
-    opacity: 1;
-}
-
-.partner-logo:hover img {
-    opacity: 1;
-}
 /* ==========================================================
    WHY CHOOSE US SECTION - MODERN STYLING
    ========================================================== */
@@ -480,3 +400,89 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
     color: #777;
 }
 
+/* ==========================================================
+   BANKING PARTNERS SECTION - MODERN STYLING (My Mudra Inspired)
+   ========================================================== */
+
+#banking-partners {
+    padding: 80px 0; /* ज़्यादा स्पेस */
+    background-color: #ffffff; /* सफेद बैकग्राउंड, जैसा My Mudra में है */
+    text-align: center;
+}
+
+/* Section Heading (शीर्षक) - My Mudra जैसा */
+#banking-partners h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #002b5b;
+    margin-bottom: 20px; /* शीर्षक के नीचे कम मार्जिन */
+    text-align: center;
+}
+
+/* Sub-heading/Description (नया जोड़ रहे हैं) */
+#banking-partners p.sub-heading {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 50px; /* लोगो से पहले अच्छा स्पेस */
+}
+
+/* Partners Grid Container */
+.partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* लोगो के बीच गैप */
+    max-width: 1200px; /* My Mudra के समान चौड़ाई */
+    margin: 0 auto;
+}
+
+/* Individual Partner Logo Card - My Mudra जैसा लुक */
+.partner-logo {
+    padding: 15px 20px; /* अंदर की पैडिंग */
+    background-color: #ffffff; /* सफेद बैकग्राउंड */
+    border-radius: 8px; /* हल्के गोल कोने */
+    border: 1px solid #dcdcdc; /* हल्का ग्रे बॉर्डर */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* हल्का Shadow */
+    
+    transition: all 0.3s ease; /* सभी ट्रांज़िशन के लिए */
+    
+    cursor: pointer;
+    min-width: 150px; /* लोगो के लिए न्यूनतम चौड़ाई */
+    height: 80px; /* लोगो के लिए निश्चित ऊँचाई */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover प्रभाव: My Mudra जैसा नीला बॉर्डर */
+.partner-logo:hover {
+    transform: translateY(-3px); /* थोड़ा ऊपर उठे */
+    box-shadow: 0 6px 15px rgba(65, 105, 225, 0.15); /* नीला Shadow */
+    border-color: #4169e1; /* Hover पर नीली बॉर्डर */
+}
+
+.partner-logo img {
+    max-width: 100%;
+    max-height: 50px; /* लोगो की ऊँचाई को नियंत्रित करें */
+    display: block; /* इमेज को सही से सेंटर करने के लिए */
+}
+
+/* Media Queries for Responsiveness (अगर आप चाहें तो) */
+@media (max-width: 768px) {
+    .partner-logo {
+        min-width: 120px; /* छोटे स्क्रीन पर कम चौड़ाई */
+        height: 70px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partners-grid {
+        gap: 15px;
+    }
+    .partner-logo {
+        min-width: 100px;
+        height: 60px;
+    }
+}
