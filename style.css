@@ -315,12 +315,12 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
 }
 
 /* ==========================================================
-   BANKING PARTNERS SECTION - MODERN STYLING
+   BANKING PARTNERS SECTION - MODERN STYLING (ALWAYS COLOR)
    ========================================================== */
 
 #banking-partners {
-    padding: 80px 0; /* ज़्यादा स्पेस */
-    background-color: #f7f9fc; /* हल्का, Modern बैकग्राउंड रंग */
+    padding: 80px 0;
+    background-color: #f7f9fc;
     text-align: center;
 }
 
@@ -334,13 +334,13 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
     position: relative;
 }
 
-/* शीर्षक के नीचे नीली रेखा (Modern Look) */
+/* शीर्षक के नीचे नीली रेखा */
 #banking-partners h2::after {
     content: '';
     display: block;
     width: 60px;
     height: 4px;
-    background-color: #4169e1; /* Primary Blue Color */
+    background-color: #4169e1;
     margin: 8px auto 0;
     border-radius: 2px;
 }
@@ -359,37 +359,39 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
 /* Individual Partner Logo Card */
 .partner-logo {
     padding: 15px 25px;
-    background-color: #ffffff; /* सफेद बैकग्राउंड */
+    background-color: #ffffff; 
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* हल्का Shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    filter: grayscale(100%); /* डिफ़ॉल्ट रूप से ग्रेस्केल */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    
+    /* ❌ यह लाइन हटाई गई है: filter: grayscale(100%); */
+    
     cursor: pointer;
     min-width: 120px;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #e0e0e0; /* हल्की बॉर्डर */
+    border: 1px solid #e0e0e0;
 }
 
-/* Hover प्रभाव: जब माउस लोगो पर जाए */
+/* Hover प्रभाव: अब केवल उठने (lift) और Shadow के लिए */
 .partner-logo:hover {
     transform: translateY(-5px) scale(1.05); /* थोड़ा ऊपर उठे */
     box-shadow: 0 8px 25px rgba(65, 105, 225, 0.25); /* नीला Shadow */
-    filter: grayscale(0%); /* रंग वापस आ जाए */
+    /* ❌ यह लाइन हटाई गई है: filter: grayscale(0%); */
     border-color: #4169e1; /* नीली बॉर्डर */
 }
 
 .partner-logo img {
     max-width: 100%;
     max-height: 50px; 
-    opacity: 0.85; 
-    transition: opacity 0.3s;
+    /* Opacity भी हटाई गई ताकि वह full color और स्पष्ट दिखे */
+    opacity: 1;
 }
 
 .partner-logo:hover img {
-    opacity: 1; /* Hover पर पूरी तरह स्पष्ट हो जाए */
+    opacity: 1;
 }
 /* ==========================================================
    WHY CHOOSE US SECTION - MODERN STYLING
@@ -478,16 +480,3 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
     color: #777;
 }
 
-/* मोबाइल रिस्पॉन्सिवनेस (Mobile Responsiveness) */
-@media (max-width: 992px) {
-    .feature-card {
-        width: calc(50% - 30px); /* टैबलेट पर एक पंक्ति में 2 कार्ड */
-    }
-}
-
-@media (max-width: 600px) {
-    .feature-card {
-        width: 100%; /* मोबाइल पर एक पंक्ति में 1 कार्ड */
-        margin-bottom: 20px;
-    }
-}
