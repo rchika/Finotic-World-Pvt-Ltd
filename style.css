@@ -400,16 +400,17 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
     color: #777;
 }
 }
+
 /* ==========================================================
-   BANKING PARTNERS SECTION - STATIC GRID STYLE (My Mudra)
+   BANKING PARTNERS SECTION - FINAL MY MUDRA LOOK
    ========================================================== */
-.partners-section {
+#banking-partners {
     padding: 80px 0;
-    background-color: #ffffff; /* सफेद बैकग्राउंड */
+    background-color: #ffffff; 
     text-align: center;
 }
 
-.partners-section h2 {
+#banking-partners h2 {
     font-size: 2.2em;
     font-weight: 700;
     color: #002b5b;
@@ -419,9 +420,29 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
     border-bottom: 3px solid #4169e1; /* नीली अंडरलाइन */
 }
 
-/* Static Logo Card */
+/* Sub-heading को सेंटर में लाने की ज़रूरत नहीं, वह default में है */
+#banking-partners p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+
+/* Logos Grid Container */
+.partners-grid-static {
+    /* HTML में flex, justify-content: center, और margin: 0 auto; 
+       को जोड़ने से यह सेक्शन स्क्रीन के बीच में आ जाएगा। */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* यह लोगो को बीच में लाने का मुख्य कारण है */
+    gap: 20px;
+    max-width: 960px; /* एक अच्छी चौड़ाई */
+    margin: 0 auto; /* यह ग्रिड को पेज के बीच में लाता है */
+}
+
+/* Individual Partner Logo Card - My Mudra Look */
 .partner-logo-static {
-    padding: 15px 20px;
+    padding: 15px 15px;
     background-color: #ffffff;
     border-radius: 8px;
     border: 1px solid #dcdcdc; /* हल्का ग्रे बॉर्डर */
@@ -430,8 +451,8 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
     transition: all 0.3s ease; 
     
     cursor: pointer;
-    width: 160px; /* लोगो कार्ड की निश्चित चौड़ाई */
-    height: 70px; /* लोगो कार्ड की निश्चित ऊँचाई */
+    width: 150px; /* प्रत्येक कार्ड की निश्चित चौड़ाई */
+    height: 60px; /* प्रत्येक कार्ड की निश्चित ऊँचाई */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -446,9 +467,10 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
 
 .partner-logo-static img {
     max-width: 100%;
-    max-height: 40px; 
+    max-height: 40px; /* लोगो को कार्ड के अंदर सीमित करें */
     display: block; 
 }
+
 
 /* Keyframes (ज़रूरी है कि यह CSS फ़ाइल में हो, न कि HTML में) */
 @keyframes scroll-logos {
