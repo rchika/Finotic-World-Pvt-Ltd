@@ -314,4 +314,180 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
   }
 }
 
+/* ==========================================================
+   BANKING PARTNERS SECTION - MODERN STYLING
+   ========================================================== */
 
+#banking-partners {
+    padding: 80px 0; /* ज़्यादा स्पेस */
+    background-color: #f7f9fc; /* हल्का, Modern बैकग्राउंड रंग */
+    text-align: center;
+}
+
+/* Section Heading (शीर्षक) */
+#banking-partners h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #002b5b;
+    margin-bottom: 50px;
+    display: inline-block;
+    position: relative;
+}
+
+/* शीर्षक के नीचे नीली रेखा (Modern Look) */
+#banking-partners h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #4169e1; /* Primary Blue Color */
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* Partners Grid Container */
+.partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Individual Partner Logo Card */
+.partner-logo {
+    padding: 15px 25px;
+    background-color: #ffffff; /* सफेद बैकग्राउंड */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* हल्का Shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    filter: grayscale(100%); /* डिफ़ॉल्ट रूप से ग्रेस्केल */
+    cursor: pointer;
+    min-width: 120px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e0e0e0; /* हल्की बॉर्डर */
+}
+
+/* Hover प्रभाव: जब माउस लोगो पर जाए */
+.partner-logo:hover {
+    transform: translateY(-5px) scale(1.05); /* थोड़ा ऊपर उठे */
+    box-shadow: 0 8px 25px rgba(65, 105, 225, 0.25); /* नीला Shadow */
+    filter: grayscale(0%); /* रंग वापस आ जाए */
+    border-color: #4169e1; /* नीली बॉर्डर */
+}
+
+.partner-logo img {
+    max-width: 100%;
+    max-height: 50px; 
+    opacity: 0.85; 
+    transition: opacity 0.3s;
+}
+
+.partner-logo:hover img {
+    opacity: 1; /* Hover पर पूरी तरह स्पष्ट हो जाए */
+}
+/* ==========================================================
+   WHY CHOOSE US SECTION - MODERN STYLING
+   ========================================================== */
+
+#why-choose-us {
+    padding: 80px 0; /* ज़्यादा टॉप और बॉटम स्पेस */
+    background-color: #ffffff; /* सफेद बैकग्राउंड */
+}
+
+/* Section Heading */
+#why-choose-us h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #002b5b;
+    text-align: center;
+    margin-bottom: 50px;
+    display: inline-block;
+    position: relative;
+}
+
+/* Heading के नीचे नीली रेखा */
+#why-choose-us h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #4169e1; /* Primary Blue Color */
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* Features Grid Container */
+.features-grid {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; /* कार्ड्स के बीच ज़्यादा गैप */
+}
+
+/* Individual Feature Card */
+.feature-card {
+    /* कार्ड की चौड़ाई: एक पंक्ति में 3 कार्ड */
+    width: calc(33.33% - 30px); 
+    min-width: 250px; 
+    background-color: #fff; 
+    padding: 30px; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 15px; /* गोल कोने */
+    text-align: center; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* हल्का Shadow */
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+/* Hover Effect: कार्ड पर माउस जाने पर */
+.feature-card:hover {
+    transform: translateY(-5px); /* कार्ड थोड़ा ऊपर उठे */
+    box-shadow: 0 15px 35px rgba(65, 105, 225, 0.2); /* नीला Shadow */
+    border-color: #4169e1; /* नीली बॉर्डर */
+}
+
+/* Icon Styling */
+.feature-card .icon {
+    font-size: 3em; 
+    color: #4169e1; 
+    margin-bottom: 15px;
+    display: block;
+    /* Icon के चारों ओर एक हल्का गोला */
+    background-color: #e6ecff;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.2em; 
+    font-weight: 600; 
+    color: #002b5b; 
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 0.95em; 
+    color: #777;
+}
+
+/* मोबाइल रिस्पॉन्सिवनेस (Mobile Responsiveness) */
+@media (max-width: 992px) {
+    .feature-card {
+        width: calc(50% - 30px); /* टैबलेट पर एक पंक्ति में 2 कार्ड */
+    }
+}
+
+@media (max-width: 600px) {
+    .feature-card {
+        width: 100%; /* मोबाइल पर एक पंक्ति में 1 कार्ड */
+        margin-bottom: 20px;
+    }
+}
