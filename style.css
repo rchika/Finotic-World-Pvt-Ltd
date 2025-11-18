@@ -316,96 +316,55 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
 /* ==========================================================
    WHY CHOOSE US SECTION - MODERN STYLING
    ========================================================== */
-
 #why-choose-us {
-    padding: 80px 0; /* ज़्यादा टॉप और बॉटम स्पेस */
-    background-color: #ffffff; /* सफेद बैकग्राउंड */
+    padding: 80px 0; 
+    background-color: #ffffff;
+    text-align: center; /* 🔑 यह Heading को बीच में लाता है */
 }
 
-/* Section Heading */
+/* Section Heading Style */
 #why-choose-us h2 {
     font-size: 2.2em;
     font-weight: 700;
     color: #002b5b;
-    text-align: center;
+    /* नीचे की लाइन, अगर आप इस्तेमाल कर रहे हैं */
     margin-bottom: 50px;
     display: inline-block;
-    position: relative;
 }
 
-/* Heading के नीचे नीली रेखा */
-#why-choose-us h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: #4169e1; /* Primary Blue Color */
-    margin: 8px auto 0;
-    border-radius: 2px;
-}
-
-/* Features Grid Container */
+/* Features Grid Container: यह कार्ड्स के ग्रिड को बीच में लाता है */
 .features-grid {
+    /* 1. कंटेनर की चौड़ाई सीमित करें (यदि ज़रूरी हो) */
+    max-width: 1000px; 
+    
+    /* 2. कंटेनर को पेज के बीच में लाएं (सबसे ज़रूरी) */
+    margin: 0 auto; 
+    
+    /* 3. कार्ड्स को कंटेनर के अंदर बीच में लाएं */
     display: flex; 
     flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 30px; /* कार्ड्स के बीच ज़्यादा गैप */
+    justify-content: center; /* 🔑 यह कार्ड्स को पंक्ति में बीच में रखता है */
+    
+    gap: 30px; 
 }
 
-/* Individual Feature Card */
+/* Feature Card Styling (पुरानी स्टाइल बरकरार है) */
 .feature-card {
-    /* कार्ड की चौड़ाई: एक पंक्ति में 3 कार्ड */
     width: calc(33.33% - 30px); 
     min-width: 250px; 
     background-color: #fff; 
     padding: 30px; 
     border: 1px solid #e0e0e0; 
-    border-radius: 15px; /* गोल कोने */
+    border-radius: 15px; 
     text-align: center; 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* हल्का Shadow */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
-/* Hover Effect: कार्ड पर माउस जाने पर */
-.feature-card:hover {
-    transform: translateY(-5px); /* कार्ड थोड़ा ऊपर उठे */
-    box-shadow: 0 15px 35px rgba(65, 105, 225, 0.2); /* नीला Shadow */
-    border-color: #4169e1; /* नीली बॉर्डर */
-}
-
-/* Icon Styling */
-.feature-card .icon {
-    font-size: 3em; 
-    color: #4169e1; 
-    margin-bottom: 15px;
-    display: block;
-    /* Icon के चारों ओर एक हल्का गोला */
-    background-color: #e6ecff;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-}
-
-.feature-card h3 {
-    font-size: 1.2em; 
-    font-weight: 600; 
-    color: #002b5b; 
-    margin-bottom: 8px;
-}
-
-.feature-card p {
-    font-size: 0.95em; 
-    color: #777;
-}
-}
+/* ... बाकी feature-card styles (icon, h3, p) को ऐसे ही रखें ... */
 
 /* ==========================================================
-   BANKING PARTNERS SECTION - FINAL MY MUDRA LOOK
-   ========================================================== */
-/* ==========================================================
-   SUB-HEADING ALIGNMENT FIX
+   BANKING PARTNERS SECTION - 
    ========================================================== */
 
 #banking-partners p,
