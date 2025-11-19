@@ -236,37 +236,36 @@ window.addEventListener('resize', updateCarousel);
 window.addEventListener('load', updateCarousel);
 }
 }
-// main.js फ़ाइल में अपडेट करें
+// main.js फ़ाइल में, सबसे नीचे जोड़ें
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. स्लाइड डेटा (नए फ़ोल्डर पाथ: 'images/')
+    // 1. स्लाइड डेटा (IMAGES_FOLDER/file_name.extension का उपयोग)
+    const IMAGE_FOLDER = "images/"; // <--- पाथ को यहां परिभाषित किया गया है
+    
     const slides = [
         {
             title: "Instant Personal Loan",
             description: "Quick approval for your personal expenses with flexible EMIs. Empowering individuals with financial freedom.",
-            // पाथ बदला गया: images/
-            image: "images/personalLoanFinalLow (1).webp", 
+            // पाथ में IMAGE_FOLDER का उपयोग करें
+            image:images/"personalLoanFinalLow (1).webp", 
             buttonLink: "#apply-personal-loan",
         },
         {
             title: "Fuel Your Business Growth",
             description: "Get business loans with easy options and minimal documentation. Take your business to the next level.",
-            // पाथ बदला गया: images/
-            image: "images/businessLoann.png", 
+            image: images/"businessLoann.png", 
             buttonLink: "#apply-business-loan",
         },
         {
             title: "Your Dream Home Awaits",
             description: "Turn your dream home into reality with our trusted home loan financing solutions.",
-            // पाथ बदला गया: images/
-            image: "images/homeLoan (1).svg", 
+            image: images/"homeLoan (1).svg", 
             buttonLink: "#apply-home-loan",
         },
         {
             title: "Professional Loan Solutions",
             description: "Achieve your professional goals with tailored loan options for salaried and self-employed professionals.",
-            // पाथ बदला गया: images/
-            image: "images/professionalLoan2 (1).svg", 
+            image: images/"professionalLoan2 (1).svg", 
             buttonLink: "#apply-professional-loan",
         },
     ];
@@ -274,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     let slideTimer;
 
-    // 2. DOM एलिमेंट्स को पकड़ें (कोई बदलाव नहीं)
+    // 2. DOM एलिमेंट्स
     const titleEl = document.getElementById('carousel-title');
     const descriptionEl = document.getElementById('carousel-description');
     const imageEl = document.getElementById('current-slide-image');
@@ -283,37 +282,90 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('next-slide-btn');
     const dotsContainer = document.getElementById('dot-indicators');
 
-    // 3. स्लाइड अपडेट करने का फ़ंक्शन (कोई बदलाव नहीं)
+    // अगर कोई ज़रूरी एलिमेंट नहीं मिला, तो बाहर निकल जाएँ
+    if (!imageEl) return; 
+
+    // 3. स्लाइड अपडेट करने का फ़ंक्शन
     function updateSlide() {
         const slide = slides[currentSlide];
 
-        titleEl.style.opacity = 0;
-        descriptionEl.style.opacity = 0;
+        // ट्रांज़िशन शुरू करने के लिए opacity 0 करें 
         imageEl.style.opacity = 0;
-        buttonEl.style.opacity = 0;
-
+        titleEl.style.opacity = 0;
+        
         setTimeout(() => {
+            // कंटेंट अपडेट करें
             titleEl.textContent = slide.title;
             descriptionEl.textContent = slide.description;
-            // imageEl.src में नया पाथ इस्तेमाल होगा
-            imageEl.src = slide.image; 
+            imageEl.src = slide.image;
             imageEl.alt = slide.title;
             buttonEl.href = slide.buttonLink;
             
-            titleEl.style.opacity = 1;
-            descriptionEl.style.opacity = 1;
+            // कंटेंट अपडेट होने के बाद opacity 1 करें 
             imageEl.style.opacity = 1;
-            buttonEl.style.opacity = 1;
-        }, 300);
+            titleEl.style.opacity = 1;
+        }, 50); // छोटे delay के बाद अपडेट करें
 
         updateDots();
     }
+
+    // 4. ऑटोमेटिक स्लाइडिंग टाइमर
+    function startTimer() {
+        slideTimer = setInterval(nextSlide, 5000); 
+    }
+
+    function resetTimer() {
+        clearInterval(slideTimer);
+        startTimer();
+    }
     
-    // ... बाकी फ़ंक्शन्स (updateDots, nextSlide, prevSlide, goToSlide, startTimer, resetTimer) समान रहेंगे।
+    // 5. नेविगेशन
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlide();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlide();
+    }
     
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSlide();
+        resetTimer();
+    }
+
+    // 6. डॉट्स अपडेट करने का फ़ंक्शन
+    function updateDots() {
+        dotsContainer.innerHTML = ''; 
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = 'slide-dot';
+            dot.style.cssText = `
+                height: 8px; width: ${index === currentSlide ? '25px' : '8px'};
+                background-color: ${index === currentSlide ? '#4169e1' : '#ccc'};
+                border: none; border-radius: 4px; margin: 0 4px; cursor: pointer;
+                transition: all 0.3s;
+            `;
+            dot.onclick = () => goToSlide(index);
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    // 7. इवेंट लिसनर्स सेट करें
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetTimer();
+    });
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetTimer();
+    });
+
     // 8. शुरू करें
     if (slides.length > 0) {
-        updateSlide();
-        startTimer();
+        updateSlide(); 
+        startTimer();  
     }
 });
