@@ -92,6 +92,52 @@
 <input type="hidden" name="_cc" value="divyaku9525@gmail.com">  
         </div>
     </main>
+    <script>
+document.getElementById('cibilForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // फॉर्म सबमिट होने से रोकें
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const formspreeUrl = 'https://formspree.io/f/xdkjlarp';
+    const cibilApiUrl = '/check-cibil'; // यह Apache Proxy के माध्यम से Port 3000 पर जाएगा
+
+    // 1. CIBIL API को डेटा भेजें
+    fetch(cibilApiUrl, {
+        method: 'POST',
+        body: new URLSearchParams(formData) // FormData को URL-encoded format में भेजें
+    })
+    .then(response => response.json())
+    .then(data => {
+        // 2. CIBIL स्कोर दिखाएं
+        if (data.status === 'success') {
+            alert(`सफलता! आपका CIBIL स्कोर है: ${data.score}. ${data.message}`);
+            
+            // 3. स्कोर दिखाने के बाद, डेटा Formspree को भी भेजें (CC ईमेल के लिए)
+            fetch(formspreeUrl, {
+                method: 'POST',
+                body: new URLSearchParams(formData)
+            }).then(() => {
+                console.log("Formspree data sent successfully.");
+            });
+
+        } else {
+            alert('CIBIL चेक में त्रुटि हुई: ' + data.error);
+        }
+    })
+    .catch(error => {
+        alert('नेटवर्क त्रुटि हुई या सर्वर डाउन है। कृपया बाद में प्रयास करें।');
+        console.error('Error:', error);
+        
+        // यदि API फेल हो जाए, तब भी Formspree को डेटा भेजने का प्रयास करें
+        fetch(formspreeUrl, {
+            method: 'POST',
+            body: new URLSearchParams(formData)
+        }).then(() => {
+            console.log("Formspree fallback data sent.");
+        });
+    });
+});
+</script>
 
     <!-- ================= FOOTER ================= -->
     <footer>
