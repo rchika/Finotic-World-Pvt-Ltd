@@ -15,129 +15,28 @@
     </header>
 
     <!-- ================= CIBIL MAIN CONTENT ================= -->
-    <main class="cibil-main-content" style="padding: 100px 5% 50px; background-color: #fff;">
+
+
+    <main style="padding: 100px 5% 50px; text-align: center;">
 
         <div class="cibil-form-container">
 
-            <h1 class="cibil-header">Free Credit Score Check</h1>
-
-            <div class="language-selector">
-                English + Hindi
-            </div>
-
-            <!-- ========== CIBIL FORM (FULLY FIXED) ========== -->
-                <form class="cibil-form" id="cibilForm" action="https://formspree.io/f/xdkjlarp" method="POST">
-                <!-- Profession -->
-                <div class="form-group">
-                    <label for="profession">Profession / पेशा</label>
-                    <select id="profession" name="profession" required>
-                        <option value="">-- चुनें --</option>
-                        <option value="salaried">वेतनभोगी (Salaried)</option>
-                        <option value="self-employed">स्व-रोजगार (Self-Employed)</option>
-                        <option value="other">अन्य (Other)</option>
-                    </select>
-                    <small>You will need to provide your employer details on next page</small>
-                </div>
-
-                <!-- Mobile -->
-                <div class="form-group">
-                    <label for="mobile">Mobile Number / मोबाइल नंबर</label>
-                    <input type="tel" id="mobile" name="mobile" required>
-                    <small>Your OTP will be sent to this number</small>
-                </div>
-<input type="hidden" name="Application Source" value="CIBIL Check Form">
-<input type="hidden" name="_cc" value="divyaku9525@gmail.com">  
-                <!-- Pincode -->
-                <div class="form-group">
-                    <label for="pincode">Pincode / पिन कोड</label>
-                    <input type="text" id="pincode" name="pincode" required>
-                    <small>As per your current residence pincode</small>
-                </div>
-
-                <!-- Terms & Conditions -->
-                <div class="checkbox-group">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">
-                        I accept the 
-                        <a href="privacy.html">Site Terms of Use</a>,
-                        <a href="privacy.html">Privacy Policy</a>, 
-                        and Credit Report Terms of Use.
-                    </label>
-                </div>
-
-                <!-- Authorization -->
-                <div class="checkbox-group">
-                    <input type="checkbox" id="authShare" name="authShare" required>
-                    <label for="authShare">
-                        I hereby authorize Finotic World to share my personal details.
-                    </label>
-                </div>
-
-                <!-- WhatsApp Updates -->
-                <div class="checkbox-group">
-                    <input type="checkbox" id="whatsappUpdates" name="whatsappUpdates">
-                    <label for="whatsappUpdates">
-                        I wish to get updates on 
-                        <span style="color:#25D366;">WhatsApp</span>
-                    </label>
-                </div>
-
-                <p class="disclaimer">
-                    Disclaimer: Basis your declared profession type, you may be offered
-                    relevant loan options as per your eligibility.
-                </p>
-
-                <button type="submit" class="proceed-button">PROCEED</button>
-            </form>
+            <h1>Checking Your Credit Score...</h1>
+            <p>You are being redirected to our partner site for a **Free Credit Score Check**.</p>
+            <p>यदि आप स्वचालित रूप से रीडायरेक्ट नहीं होते हैं, तो कृपया नीचे दिए गए लिंक पर क्लिक करें:</p>
+            
+            <a href="https://moneyview.in/check-credit-score-free/login" style="font-size: 1.2em; color: blue; text-decoration: underline;">
+                Moneyview Free Credit Score
+            </a>
 
         </div>
     </main>
+
     <script>
-document.getElementById('cibilForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // फॉर्म सबमिट होने से रोकें
-
-    const form = e.target;
-    const formData = new FormData(form);
-    const formspreeUrl = 'https://formspree.io/f/xdkjlarp';
-    const cibilApiUrl = '/check-cibil'; // यह Apache Proxy के माध्यम से Port 3000 पर जाएगा
-
-    // 1. CIBIL API को डेटा भेजें
-    fetch(cibilApiUrl, {
-        method: 'POST',
-        body: new URLSearchParams(formData) // FormData को URL-encoded format में भेजें
-    })
-    .then(response => response.json())
-    .then(data => {
-        // 2. CIBIL स्कोर दिखाएं
-        if (data.status === 'success') {
-            alert(`सफलता! आपका CIBIL स्कोर है: ${data.score}. ${data.message}`);
-            
-            // 3. स्कोर दिखाने के बाद, डेटा Formspree को भी भेजें (CC ईमेल के लिए)
-            fetch(formspreeUrl, {
-                method: 'POST',
-                body: new URLSearchParams(formData)
-            }).then(() => {
-                console.log("Formspree data sent successfully.");
-            });
-
-        } else {
-            alert('CIBIL चेक में त्रुटि हुई: ' + data.error);
-        }
-    })
-    .catch(error => {
-        alert('नेटवर्क त्रुटि हुई या सर्वर डाउन है। कृपया बाद में प्रयास करें।');
-        console.error('Error:', error);
-        
-        // यदि API फेल हो जाए, तब भी Formspree को डेटा भेजने का प्रयास करें
-        fetch(formspreeUrl, {
-            method: 'POST',
-            body: new URLSearchParams(formData)
-        }).then(() => {
-            console.log("Formspree fallback data sent.");
-        });
-    });
-});
-</script>
+        // सीधे Moneyview लिंक पर रीडायरेक्ट करें
+        const moneyviewUrl = 'https://moneyview.in/check-credit-score-free/login';
+        window.location.replace(moneyviewUrl); // replace() का उपयोग करने से back बटन काम नहीं करेगा।
+    </script>
 
     <!-- ================= FOOTER ================= -->
     <footer>
