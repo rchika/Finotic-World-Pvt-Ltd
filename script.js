@@ -236,3 +236,32 @@ window.addEventListener('resize', updateCarousel);
 window.addEventListener('load', updateCarousel);
 }
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const sliderTrack = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentSlide = 0;
+
+    // हर 5 सेकंड में स्लाइड बदलें (5000 milliseconds)
+    const intervalTime = 5000;
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+    }
+
+    function updateSlider() {
+        // प्रत्येक स्लाइड 100vw (व्यू-पोर्ट चौड़ाई) चौड़ी होती है
+        // transform: translateX() का उपयोग करके स्लाइडर ट्रैक को खिसकाते हैं
+        const offset = -currentSlide * 100;
+        sliderTrack.style.transform = `translateX(${offset}vw)`;
+    }
+
+    // स्वचालित स्लाइडिंग शुरू करें
+    setInterval(nextSlide, intervalTime);
+
+    // पेज लोड होने पर पहली स्लाइड दिखाएँ (अगर आप तुरंत एनीमेशन चाहते हैं)
+    updateSlider();
+});
