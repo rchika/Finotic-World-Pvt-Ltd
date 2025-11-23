@@ -656,3 +656,60 @@ button:focus, a:focus, input:focus, textarea:focus { outline:none; box-shadow: 0
         transform: translateX(-50%); /* केवल एक स्लाइड की चौड़ाई */
     }
 }
+/* ==========================================================
+   TERM AND CONDITIONS  SECTION - 
+   ========================================================== */
+/* ------------------------------------------- */
+/* 📄 Terms & Conditions / Policy Page CSS */
+/* ------------------------------------------- */
+.terms-section {
+    padding: 80px 0;
+    background-color: #f7f9fc;
+    min-height: 80vh;
+}
+.terms-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.terms-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+.terms-header h1 {
+    font-size: 3rem;
+    color: #0d47a1; /* गहरा नीला, आपके Navbar से मेल खाने के लिए */
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.terms-header p {
+    color: #555;
+    font-size: 1.1rem;
+}
+.terms-content h2 {
+    font-size: 1.8rem;
+    color: #0d47a1; 
+    margin-top: 35px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+.terms-content h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.terms-content p, .terms-content ul {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 15px;
+}
+.terms-content ul {
+    list-style-type: disc;
+    margin-left: 30px;
+}
+.terms-content li {
+    margin-bottom: 8px;
+}
