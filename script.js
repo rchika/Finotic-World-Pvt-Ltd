@@ -236,32 +236,46 @@ window.addEventListener('resize', updateCarousel);
 window.addEventListener('load', updateCarousel);
 }
 }
-
-
+// ==========================================================
+// head 
+// ==========================================================
+<script>
 document.addEventListener('DOMContentLoaded', function () {
+    // 1. ज़रूरी एलिमेंट्स (elements) को पकड़ें
     const sliderTrack = document.querySelector('.slider-track');
+    // अगर .slider-track नहीं मिला, तो कोड वहीं रुक जाएगा
+    if (!sliderTrack) {
+        console.error("Slider track not found. Please check HTML class.");
+        return; 
+    }
+    
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
     let currentSlide = 0;
+    const intervalTime = 5000; // 5000 milliseconds = 5 सेकंड (स्लाइड बदलने का समय)
 
-    // हर 5 सेकंड में स्लाइड बदलें (5000 milliseconds)
-    const intervalTime = 5000;
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateSlider();
-    }
-
+    // 2. स्लाइडर को अपडेट करने का मुख्य फंक्शन
     function updateSlider() {
-        // प्रत्येक स्लाइड 100vw (व्यू-पोर्ट चौड़ाई) चौड़ी होती है
-        // transform: translateX() का उपयोग करके स्लाइडर ट्रैक को खिसकाते हैं
+        // हम हर स्लाइड के लिए -100vw, -200vw, -300vw... ट्रांसलेट करेंगे
         const offset = -currentSlide * 100;
         sliderTrack.style.transform = `translateX(${offset}vw)`;
     }
 
-    // स्वचालित स्लाइडिंग शुरू करें
+    // 3. अगली स्लाइड पर जाने का फंक्शन
+    function nextSlide() {
+        // स्लाइड इंडेक्स को बढ़ाएँ और कुल स्लाइड्स की संख्या के बाद उसे 0 पर रीसेट करें
+        currentSlide = (currentSlide + 1) % totalSlides;
+        
+        // अब स्लाइडर को खिसकाएँ
+        updateSlider();
+    }
+
+    // 4. स्वचालित (Automatic) स्लाइडिंग शुरू करें
+    // यह हर 5 सेकंड में nextSlide फंक्शन को कॉल करता रहेगा
     setInterval(nextSlide, intervalTime);
 
-    // पेज लोड होने पर पहली स्लाइड दिखाएँ (अगर आप तुरंत एनीमेशन चाहते हैं)
+    // 5. पेज लोड होने पर पहली स्लाइड दिखाएँ (ताकि ट्रांज़िशन शुरू हो सके)
     updateSlider();
 });
+</script>
+
