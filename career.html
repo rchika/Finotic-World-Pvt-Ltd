@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,13 +57,12 @@
 <body class="antialiased">
 
     <!-- Navbar -->
-      <!-- Navbar -->
-   <header class="navbar">
-    <div class="container nav-container">
-      <div class="logo">
-        <img src="images/logo.jpeg" alt="Finotic World Logo" />
-        <span>Finotic World Pvt. Ltd.</span>
-    
+    <header class="navbar sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="index.html" class="flex items-center space-x-2 text-xl font-bold text-gray-800">
+                <!-- Using a placeholder image URL for compliance, replace with actual logo -->
+                <img src="https://placehold.co/40x40/007bff/ffffff?text=FW" onerror="this.src='https://placehold.co/40x40/007bff/ffffff?text=FW'" alt="Finotic World Logo" class="rounded-full"> 
+                <span>Finotic World</span>
             </a>
             <nav class="nav-links hidden md:flex space-x-6 text-sm font-medium">
                 <a href="#services" class="text-gray-600 hover:text-blue-600 transition duration-150">Services</a>
@@ -79,6 +79,7 @@
             </button>
         </div>
     </header>
+
     <main class="careers-main py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-screen" id="careers">
         <div class="career-container mx-auto p-6 lg:p-10 bg-white rounded-xl shadow-2xl">
             
@@ -185,11 +186,11 @@
                     </div>
 
                     <!-- Hidden field for Formspree to know the job applied for -->
-              <!--      <input type="hidden" name="Position Applied" value="Sales Executive - Noida Sector 16">
+                    <input type="hidden" name="Position Applied" value="Sales Executive - Noida Sector 16">
 
                     <button type="submit" class="submit-btn w-full p-4 mt-6 bg-blue-600 text-white font-bold text-xl rounded-lg hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg" id="submit-btn">
                         <i class="fa-solid fa-paper-plane mr-2"></i> Submit Application
-                    </button> ----->
+                    </button>
                     
                     <!-- Formspree success/error messages will typically be displayed on a new page by default -->
                 </form>
@@ -285,7 +286,4 @@
         // --- The complex and incorrect fetch logic has been removed.
     </script>
 </body>
-
-</html>
-
 </html>
