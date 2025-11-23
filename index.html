@@ -106,6 +106,31 @@
         
     </div>
 </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sliderTrack = document.querySelector('.slider-track');
+        
+        if (!sliderTrack) return; // इसे रहने दें
+
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let currentSlide = 0;
+        const intervalTime = 5000;
+
+        function updateSlider() {
+            const offset = -currentSlide * 100;
+            sliderTrack.style.transform = `translateX(${offset}vw)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        setInterval(nextSlide, intervalTime);
+        updateSlider();
+    });
+    </script>
        <!-- ================= SERVICES ================= -->
     <section class="services section" id="services">
       <div class="container">
