@@ -128,7 +128,7 @@ body {
     text-align: center; /* टेक्स्ट को स्लाइड के केंद्र में लाएँ */
     
     /* टेक्स्ट को पढ़ने में आसान बनाने के लिए ओवरले */
-    background-image: linear-gradient(180deg, rgba(10,25,47,0.45), rgba(10,25,47,0.45)); /* गहरा ओवरले */
+    background-image: linear-gradient(180deg, rgba(10,25,47,0.25), rgba(10,25,47,0.25)); /* गहरा ओवरले */
     color: #fff; /* टेक्स्ट का रंग */
 }
 
