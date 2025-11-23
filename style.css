@@ -59,7 +59,7 @@ img { max-width:100%; display:block; }
 }
 
 
-/* ---------- HERO ---------- */
+/* ---------- HERO ---------- 
 .hero { min-height: 70vh; display:flex; align-items:center; background-image: linear-gradient(180deg, rgba(10,25,47,0.35), rgba(10,25,47,0.35)), url('images/tandem-x-visuals-INyY9g9xNGQ-unsplash.jpg'); background-size:cover; background-position:center; padding:60px 0; border-bottom-left-radius:30px; border-bottom-right-radius:30px; color:#fff; }
 .hero-container { display:flex; width:100%; align-items:center; justify-content:center; }
 .hero-text { text-align:center; max-width:820px; padding:30px; }
@@ -68,7 +68,68 @@ img { max-width:100%; display:block; }
 .hero-buttons { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 20px; border-radius:10px; font-weight:600; cursor:pointer; border: none; }
 .btn.primary { background: var(--gold); color: #09203b; }
-.btn.secondary { background: transparent; color: #fff; border: 1.6px solid rgba(255,255,255,0.12); } 
+.btn.secondary { background: transparent; color: #fff; border: 1.6px solid rgba(255,255,255,0.12); }  */
+/* स्लाइडर के मुख्य कंटेनर के लिए */
+.slider-container {
+    width: 100%;
+    height: 450px; /* ऊँचाई (height) अपनी आवश्यकतानुसार बदलें */
+    overflow: hidden; /* ट्रैक के बाहर की स्लाइड्स को छिपाता है */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* वह ट्रैक जो सभी स्लाइड्स को रखता है */
+.slider-track {
+    display: flex; /* स्लाइड्स को एक पंक्ति में रखता है */
+    width: 300%; /* (स्लाइड्स की संख्या * 100%) - 3 स्लाइड्स हैं, इसलिए 300% */
+    height: 100%;
+    transition: transform 0.8s ease-in-out; /* स्लाइडिंग एनीमेशन */
+}
+
+/* प्रत्येक व्यक्तिगत स्लाइड के लिए */
+.slide {
+    width: 100vw; /* प्रत्येक स्लाइड पूरे व्यू-पोर्ट की चौड़ाई लेती है */
+    flex-shrink: 0; /* इसे सिकुड़ने से रोकता है */
+    background-size: cover; /* इमेज को पूरी स्लाइड में फैलाता है */
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* सामग्री (content) को बाईं ओर संरेखित (align) करता है */
+    color: #ffffff; /* टेक्स्ट का रंग */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* टेक्स्ट पर हल्की छाया */
+    padding: 0 10%; /* अंदर की जगह */
+}
+
+.slide h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #00c7e5; /* एक आधुनिक हाइलाइट */
+    padding-bottom: 5px;
+}
+
+.slide p {
+    font-size: 1.5em;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.apply-btn {
+    padding: 12px 30px;
+    background-color: #00c7e5; /* आकर्षक प्राथमिक रंग */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.apply-btn:hover {
+    background-color: #00a0be; /* हॉवर पर रंग बदलता है */
+}
+
+
 
 /* ---------- SECTION TITLE ---------- */
 .section { padding:64px 0; }
